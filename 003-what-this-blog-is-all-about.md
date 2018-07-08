@@ -2,11 +2,11 @@
 
 ## "Backended"?
 
-> There are only two hard things in Computer Science: cache invalidation and naming things (Phil Karlton)
+> There are only two hard things in Computer Science: cache invalidation and naming things (Phil Karlton).
 
 Or, my favorite variant:
 
-> There are only two hard things in Computer Science: cache invalidation, naming things, and off by one errors (Unknown - probably some clever person on the internet)
+> There are only two hard things in Computer Science: cache invalidation, naming things, and off by one errors (Unknown).
 
 Naming is hard. Backended isn't a real word. "Back ended" and its hyphened form "back-ended" do appear to be real words, though rarely used and completely unrelated to the purpose of this blog. Like the programmer who decides to write a lengthy comment rather than coming up with a better name, I'll try to explain what I intended when I named this blog Backended.
 
@@ -26,9 +26,6 @@ Fascinating!
 
 Topics like caching, consistency, reverse proxying, API gateways, and service meshes are fair game. 
 
-### NoSQL and databases 
-
-
 ### Go
 
 Go is a phenomenal language for backend development. I started writing Go in October 2015 and haven't looked back. I'll be writing several blog posts where I solve problems using Go or otherwise talk about it. 
@@ -37,9 +34,15 @@ Go is easy to learn, proven in production, and designed for the cloud. It's depl
 
 I enjoy its strong focus on simplicity which translates to less ramp-up time for new developers. Another benefit is in maintainability of Go codebases, as it’s very readable and easy to understand existing code.
 
+### NoSQL and databases 
+
+NoSQL is a movement that started in response to a need for increased scalability in large cloud companies like Google and Amazon. In my mind, NoSQL is less of a rebuttal of relational databases (i.e. *No, SQL!*) and more of an alternative to SQL when it makes sense for the problem being solved (i.e. *Not Only SQL*). 
+
+I have worked with a large variety of NoSQL databases in my time at Qualtrics. Some have turned out extraordinarily well while others turned out quite the opposite! These experiences left me with this conclusion: **database choice is often more important than language choice**. 
+
 ### Software and non-software books
 
-Starting at graduation from college, I have become an avid reader of technical/coding books, as well as popular non-fiction books like "[Grit](https://www.amazon.com/gp/product/1501111108/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1501111108&linkCode=as2&tag=jaredririeblo-20&linkId=c173ddc20b9a9fcd700e582440ca8479)," "[Mindset](https://www.amazon.com/gp/product/0345472322/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0345472322&linkCode=as2&tag=jaredririeblo-20&linkId=28b35ebce32bc00c963a529c58070d49),” and “[Work Rules!](https://www.amazon.com/gp/product/1455554790/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1455554790&linkCode=as2&tag=jaredririeblo-20&linkId=fff6e98d9dd5016e1aa4be73e0368874)” I read five books each quarter, so 20 books/year. And by read, I mean read *or* listen to; I'm an advocate of [Audible](https://www.amazon.com/gp/product/B00NB86OYE/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00NB86OYE&linkCode=as2&tag=jaredririeblo-20&linkId=627d0e41b121bbc9b5a33b365e23a2d7) and think it's a solid investment.
+Starting at graduation from college, I have become an avid reader of technical/coding books, as well as popular non-fiction books like "[Grit](https://www.amazon.com/gp/product/1501111108/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1501111108&linkCode=as2&tag=jaredririeblo-20&linkId=c173ddc20b9a9fcd700e582440ca8479)," "[Mindset](https://www.amazon.com/gp/product/0345472322/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0345472322&linkCode=as2&tag=jaredririeblo-20&linkId=28b35ebce32bc00c963a529c58070d49),” and “[Work Rules!](https://www.amazon.com/gp/product/1455554790/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1455554790&linkCode=as2&tag=jaredririeblo-20&linkId=fff6e98d9dd5016e1aa4be73e0368874)” I read five books each quarter, so 20 books/year. And by read, I really read *or* listen to; I'm an advocate of [Audible](https://www.amazon.com/gp/product/B00NB86OYE/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00NB86OYE&linkCode=as2&tag=jaredririeblo-20&linkId=627d0e41b121bbc9b5a33b365e23a2d7) and think it's a solid investment.
 
 I’m planning on writing a post for each book I read with a summary of the content, further learning it inspired, and my overall recommendation. Here are some books on my reading list:
 
@@ -59,15 +62,13 @@ While I still believe this was the correct choice given my circumstances, I regr
 
 The backend is notably more stable than the frontend. The database terminology or [distributed consensus algorithm](http://thesecretlivesofdata.com/raft/) you learned a few years ago will still be relevant for a long time. Meanwhile, if you picked up AngularJS around the same time, you know it was soon eclipsed by Angular and then React and now maybe Vue.js. 
 
-![Google Trends](/images/service-mesh-istio-google-trends.png)
+![Google Trends for Service Mesh and Istio](/images/service-mesh-istio-google-trends.png)
 
-That said, the backend is still encapsulated in the ever-changing thing which is technology. “Service mesh” is one example of a backend idea that has only recently entered my vocabulary. It is a solution to dealing with the varied interactions between services in a network of microservices. [Istio](https://istio.io/docs/concepts/what-is-istio/overview/) is an example project I’ll cover in a later blog. I’ll regularly cover new technologies of this nature. 
-
-### Best practices 
-
-
+That said, the backend is still encapsulated in the ever-changing thing which is technology. “Service mesh” is one example of a backend idea that has only recently entered my vocabulary. It is a solution to dealing with the varied interactions between services in a network of microservices. [Istio](https://istio.io/docs/concepts/what-is-istio/overview/) is an example project I’ll cover in a later blog. I plan to regularly write about new technologies of this nature. 
 
 ### Architecture and system design 
+
+One of the benefits of working at a smaller company is the opportunity to be involved in key architectural discussions even early in your career. Such has been the case for me at Qualtrics where I have been able to influence large chunks of the backend. I know, however, that I'm still in my infancy in terms of my ability to design elegant solutions to cross-cutting problems in a system. I am confident that as I improve my system design skills, I will be able to make a bigger impact on the technical direction of my software team. 
 
 --- 
 
