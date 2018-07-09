@@ -31,11 +31,13 @@ The best markdown app for iOS was a less clear-cut decision, so I thought I woul
 
 - Big, easy-to-find blue cursor
 - Focus mode which highlights only the selected sentence
+- First-class support for syncing through Dropbox was removed
+    + You can still find files in Dropbox, but it's not as seamless as working with files stored under "iAWriter" in iCloud
 
 #### Cons
 
 - Opinionated: sometimes these opinions match up with my opinion and sometimes they don’t (your mileage may vary)
-- Little customization: one font (they advertise this as a feature)
+- Little font customization: one font and three sizes in editor mode
 
 ---
 

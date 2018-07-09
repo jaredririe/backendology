@@ -1,4 +1,4 @@
-# What this blog is all about
+# What This Blog is All About
 
 ## "Backended"?
 
@@ -34,15 +34,15 @@ Go is easy to learn, proven in production, and designed for the cloud. It's depl
 
 I enjoy its strong focus on simplicity which translates to less ramp-up time for new developers. Another benefit is in maintainability of Go codebases, as it’s very readable and easy to understand existing code.
 
-### NoSQL and databases 
+### NoSQL and general database concepts
 
 NoSQL is a movement that started in response to a need for increased scalability in large cloud companies like Google and Amazon. In my mind, NoSQL is less of a rebuttal of relational databases (i.e. *No, SQL!*) and more of an alternative to SQL when it makes sense for the problem being solved (i.e. *Not Only SQL*). 
 
-I have worked with a large variety of NoSQL databases in my time at Qualtrics. Some have turned out extraordinarily well while others turned out quite the opposite! These experiences left me with this conclusion: **database choice is often more important than language choice**. 
+I have worked with a large variety of NoSQL databases in my time at Qualtrics. Some have turned out extraordinarily well while others turned out quite the opposite! These experiences left me with this conclusion: **database choice is often more important than programming language choice**. In order to make an informed decision, you need to be well-educated in general database concepts such as consistency and data modeling. 
 
 ### Software and non-software books
 
-Starting at graduation from college, I have become an avid reader of technical/coding books, as well as popular non-fiction books like "[Grit](https://www.amazon.com/gp/product/1501111108/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1501111108&linkCode=as2&tag=jaredririeblo-20&linkId=c173ddc20b9a9fcd700e582440ca8479)," "[Mindset](https://www.amazon.com/gp/product/0345472322/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0345472322&linkCode=as2&tag=jaredririeblo-20&linkId=28b35ebce32bc00c963a529c58070d49),” and “[Work Rules!](https://www.amazon.com/gp/product/1455554790/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1455554790&linkCode=as2&tag=jaredririeblo-20&linkId=fff6e98d9dd5016e1aa4be73e0368874)” I read five books each quarter, so 20 books/year. And by read, I really read *or* listen to; I'm an advocate of [Audible](https://www.amazon.com/gp/product/B00NB86OYE/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00NB86OYE&linkCode=as2&tag=jaredririeblo-20&linkId=627d0e41b121bbc9b5a33b365e23a2d7) and think it's a solid investment.
+I have become an avid reader of technical books, as well as popular non-fiction books like "[Grit](https://www.amazon.com/gp/product/1501111108/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1501111108&linkCode=as2&tag=jaredririeblo-20&linkId=c173ddc20b9a9fcd700e582440ca8479)," "[Mindset](https://www.amazon.com/gp/product/0345472322/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0345472322&linkCode=as2&tag=jaredririeblo-20&linkId=28b35ebce32bc00c963a529c58070d49),” and “[Work Rules!](https://www.amazon.com/gp/product/1455554790/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1455554790&linkCode=as2&tag=jaredririeblo-20&linkId=fff6e98d9dd5016e1aa4be73e0368874)” ever since I graduated from college. I read five books each quarter, so 20 books/year. And by read, I really read *or* listen; I'm an advocate of [Audible](https://www.amazon.com/gp/product/B00NB86OYE/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00NB86OYE&linkCode=as2&tag=jaredririeblo-20&linkId=627d0e41b121bbc9b5a33b365e23a2d7) and think it's a solid investment.
 
 I’m planning on writing a post for each book I read with a summary of the content, further learning it inspired, and my overall recommendation. Here are some books on my reading list:
 
@@ -54,7 +54,7 @@ I’m planning on writing a post for each book I read with a summary of the cont
 
 ### Research papers
 
-I was literally one week away from attending graduate school--I accepted an offer and scholarship from the University of Wisconsin: Madison, enrolled in classes, and found an apartment. Then, in a last-minute decision, I walked away from it all a week before classes started. I'll share the full story in a later blog. 
+I was one week away from attending graduate school. I had accepted an offer and scholarship from the University of Wisconsin: Madison, enrolled in classes, and found an apartment. Then, in a last-minute decision, I walked away from it all a week before classes started. I'll share the full story in a later blog. 
 
 While I still believe this was the correct choice given my circumstances, I regret not being able to delve into Computer Science research. Reading research papers has been more of a hit and miss for me than reading books. I hope this blog can serve as the necessary motivation to read more research papers and review them as blog entries. The research papers I have read, such as [Amazon’s well-known Dynamo paper](https://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf) have been influential in improving my design skills and identifying weak areas in my understanding.  
 
