@@ -6,7 +6,7 @@
 
 Or, my favorite variant:
 
-> There are only two hard things in Computer Science: cache invalidation, naming things, and off by one errors (Unknown).
+> There are only two hard things in Computer Science: cache invalidation, naming things, and off by one errors (Unknown)
 
 Naming is hard. Backended isn't a real word. "Back ended" and its hyphened form "back-ended" do appear to be real words, though rarely used and completely unrelated to the purpose of this blog. Like the programmer who decides to write a lengthy comment rather than coming up with a better name, I'll try to explain what I intended when I named this blog Backended.
 
