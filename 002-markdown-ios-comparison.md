@@ -37,7 +37,7 @@ The best markdown app for iOS was a less clear-cut decision, so I thought I woul
 #### Cons
 
 - Opinionated: sometimes these opinions match up with my opinion and sometimes they don’t (your mileage may vary)
-- Little font customization: one font and three sizes in editor mode
+- Little font customization: one font in editor mode
 
 ---
 
