@@ -50,15 +50,15 @@ Many software engineers are understandably confused about the differences betwee
 
 #### Binary Search Tree
 
-![Binary Search Tree](./images/binary-search-tree.png)
-
 Binary search trees are binary trees that keep their keys in sorted order by enforcing the requirement that all left children of a node have values less than the node's and all right children have values greater than the node's.
+
+![Binary Search Tree](./images/binary-search-tree.png)
 
 #### B-tree
 
-![B-Tree](./images/balanced-nary-tree.png)
-
 > B-tree is a self-balancing tree data structure that keeps data sorted and allows searches, sequential access, insertions, and deletions in logarithmic time. The B-tree is a generalization of a binary search tree in that a node can have more than two children.[^2]
+
+![B-Tree](./images/balanced-nary-tree.png)
 
 B-trees have these properties:
 
@@ -83,10 +83,6 @@ Note that this B-tree has the properties outlined above:
 - Values less than 8 are in the left subtree, values between 8 and 28 and in the middle subtree, and values greater than 28 are in the right subtree
 - Wasted space is minimized and the tree is balanced
 
-Here is an example of an improper B-tree that wastes space unnecessarily
-
-![Improper B-Tree](./images/improper-b-tree.png)
-
 Let's return to the people table we started with and rerun the query now that we have an index structure in place. When evaluating the WHERE clause (`WHERE id = 9`), the query optimizer now sees there is an index on the `id` column. It follows the B-tree data structure until it finds ID 9 and follows the pointer to the associated table row.
 
 1. Is 9 equal to 8? No
@@ -99,9 +95,9 @@ The time complexity for this search drops from O(N) to O(log(N))!
 
 #### B+ tree
 
-![B+ Tree as Database Index](./images/b+-tree.png)
-
 > A B+ tree is an N-ary tree with a variable but often large number of children per node. ... A B+ tree can be viewed as a B-tree in which each node contains only keys (not key–value pairs), and to which an additional level is added at the bottom with linked leaves.[^3]
+
+![B+ Tree as Database Index](./images/b+-tree.png)
 
 B+ trees have these additional properties relative to a B-tree:
 
