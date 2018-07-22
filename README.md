@@ -1,4 +1,4 @@
-# backended-blog
+# Backended
 
 ### [Yet Another Software Blog](001-yet-another-software-blog.md)
 

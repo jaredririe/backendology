@@ -1,3 +1,10 @@
+---
+layout: post
+title:  "What This Blog is All About"
+date:   2018-7-20
+categories: 
+---
+
 # What This Blog is All About
 
 ## "Backended"?
@@ -69,29 +76,3 @@ That said, the backend is still encapsulated in the ever-changing thing which is
 ### Architecture and system design
 
 One of the benefits of working at a smaller company is the opportunity to be involved in key architectural discussions even early in your career. Such has been the case for me at Qualtrics where I have been able to influence large chunks of the backend. I know, however, that I'm still in my infancy in terms of my ability to design elegant solutions to cross-cutting problems in a system. I am confident that as I improve my system design skills, I will be able to make a bigger impact on the technical direction of my software team.
-
----
-
-# Notes (supplementary to blog post)
-
-## Go
-
-There are a growing number of Go codebases at Qualtrics. What makes Go well-suited for these use cases? What are its strengths and design principles, and what makes Go a good choice for my next project?
-
-### Why use Go?
-
-As a language, Go has a number of properties that make it attractive. At a high level, Go is battle-tested, easy to learn, and designed for cloud software.
-
-Most importantly, Go has been a safe language to adopt at Qualtrics. The language enjoys strong adoption among high-profile cloud-computing companies and open-source infrastructure tools.
-
-* Proven in production: Go is deployed in production by high-traffic companies like Google, Dropbox, the New York Times, BBC, SpaceX, and Facebook in cases where stability and high performance are critical.
-* Powers our critical tools: Many open-source cloud computing tools are written in Go, including components that Qualtrics uses as fundamental infrastructure underpinnings like Docker and Consul.
-Upward trajectory: In the last several years, Go has reliably climbed up the rankings in programming language indices like Redmonk and TIOBE.
-
-Apart from being well-suited to Qualtrics’ use cases and a relatively future-proof choice, the language also has features that encourage developer productivity:
-
-* Stable API: The developers of Go have promised to maintain compatibility with Go 1, meaning that programs written today will continue to compile and run correctly for every minor release of Go until Go 2 (for perspective, Go 1 was released in early 2012; Go 1.9 is the current version).
-* Simple by design: The language’s syntax is extremely simple, which translates to less ramp-up time for new developers. Another benefit is in maintainability of Go codebases, as it’s very readable and easy to understand existing code.
-* Well-designed standard library: The Go standard library has a surprisingly thorough collection of well-tested building blocks, reducing our dependence on third-party libraries and addressing common problems with proven implementations.
-
-Go isn’t the ideal language for every project. Some projects still might benefit from the mature language features in Java or the expressiveness of Node.js or Python. However, Go is attractive for a class of applications that we encounter a lot at Qualtrics: high-performance, maintainable servers.
