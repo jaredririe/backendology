@@ -1,6 +1,6 @@
 # Top <number> Books for New Software Engineers
 
-These are books I've read 
+These are books I've read
 
 Here are other books I'd like to read
 

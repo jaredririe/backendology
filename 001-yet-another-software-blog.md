@@ -6,13 +6,13 @@ Welcome! This is the first post of my blog. If you’re reading this, you’re e
 
 While it's true that we already have plenty of popular software blogs out there, like [Martin Fowler’s](https://martinfowler.com/) or [Coding Horror](https://blog.codinghorror.com/), I recently convinced myself that ***every* software engineer should have a blog.**
 
-Yes, we all need blogs, or at least some way to consistently distill what we’re learning down to a consumable format like a blog. Something incredible happens when we teach what we have learned to others: *it sticks* (not necessarily with the learner, but with the teacher)! The most successful software engineers are not only constantly learning, they are teaching and mentoring others. 
+Yes, we all need blogs, or at least some way to consistently distill what we’re learning down to a consumable format like a blog. Something incredible happens when we teach what we have learned to others: *it sticks* (not necessarily with the learner, but with the teacher)! The most successful software engineers are not only constantly learning, they are teaching and mentoring others.
 
-The goal I have in mind for this blog is to motivate myself to continue actively learning and compose my thoughts such that I'm able to clearly communicate new things I learn. 
+The goal I have in mind for this blog is to motivate myself to continue actively learning and compose my thoughts such that I'm able to clearly communicate new things I learn.
 
 ## A little about me
 
-![](/images/DSC_0186.jpg)
+![](./images/DSC_0186.jpg)
 
 My name is Jared Ririe. I currently work as a Software Engineer at a great company, Qualtrics. It’s an engaging place to work and I get to tackle some genuinely interesting problems. It’s also small enough that I’ve been able to make a big impact despite being early in my career. The various projects I’ve worked on have taught me a lot about backend technologies, microservices, and distributed systems. I’m fortunate to work in this area as I’m truly passionate about it.
 
