@@ -25,18 +25,19 @@ var blogPosts = []Post{
 	{
 		Filename: "001-yet-another-software-blog.md",
 		Title:    "Yet Another Software Blog",
-		Date:     date("July 18, 2018"),
+		Date:     date("July 2, 2018"),
+		// Categories: []string{"Personal"},
 	},
 	{
 		Filename: "003-what-this-blog-is-all-about.md",
 		Title:    "What This Blog is All About",
-		Date:     date("July 20, 2018"),
+		Date:     date("July 14, 2018"),
 	},
 	{
-		Filename:   "006-database-indexes.md",
-		Title:      "Breaking Down Abstractions: Database Indexes",
-		Date:       date("July 22, 2018"),
-		Categories: []string{"Breaking Abstractions"},
+		Filename: "006-database-indexes.md",
+		Title:    "Breaking Down Abstractions: Database Indexes",
+		Date:     date("July 23, 2018"),
+		// Categories: []string{"Breaking Abstractions"},
 	},
 }
 
@@ -68,8 +69,8 @@ func publishedFilename(filename string, date time.Time) string {
 	// prepend YEAR-MONTH-DAY- prefix
 	filenameParts = append([]string{
 		fmt.Sprintf("%d", date.Year()),
-		fmt.Sprintf("%d", int(date.Month())),
-		fmt.Sprintf("%d", date.Day()),
+		fmt.Sprintf("%02d", int(date.Month())),
+		fmt.Sprintf("%02d", date.Day()),
 	}, filenameParts...)
 
 	return strings.Join(filenameParts, "-")
@@ -121,7 +122,7 @@ func addHeader(contents *string, post Post) {
 	header := fmt.Sprintf(`---
 layout: post
 title:  "%s"
-date:   %d-%d-%d
+date:   %d-%02d-%02d
 categories: %s
 ---
 

@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Breaking Down Abstractions: Database Indexes"
-date:   2018-7-22
-categories: Breaking Abstractions
+date:   2018-07-23
+categories: 
 ---
 
 # Breaking Down Abstractions: Database Indexes

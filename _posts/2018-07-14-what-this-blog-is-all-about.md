@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "What This Blog is All About"
-date:   2018-7-20
+date:   2018-07-14
 categories: 
 ---
 

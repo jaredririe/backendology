@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Yet Another Software Blog"
-date:   2018-7-18
+date:   2018-07-02
 categories: 
 ---
 
