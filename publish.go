@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"path/filepath"
 	"regexp"
 	"strings"
 	"time"
@@ -63,10 +64,11 @@ func date(str string) time.Time {
 // publishedFilename transforms the filename into
 // the pulished form (YEAR-MONTH-DAY-name-of-post.md).
 func publishedFilename(filename string, date time.Time) string {
-	filenameParts := strings.Split(filename, "-")
-	filenameParts = filenameParts[1:] // remove the ###- prefix
+	// get just the file's name (without path)
+	filename = filepath.Base(filename)
 
 	// prepend YEAR-MONTH-DAY- prefix
+	filenameParts := strings.Split(filename, "-")
 	filenameParts = append([]string{
 		fmt.Sprintf("%d", date.Year()),
 		fmt.Sprintf("%02d", int(date.Month())),
