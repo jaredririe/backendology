@@ -1,3 +1,10 @@
+---
+layout: post
+title:  "Top 10 Books for New Software Engineers"
+date:   2018-07-30
+categories: 
+---
+
 # Top 10 Books for New Software Engineers
 
 I'm excited to share my top ten list of books new Software Engineers should invest in reading! These books have proved foundational in helping me transition from student to developer and deepen my skills.

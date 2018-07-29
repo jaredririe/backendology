@@ -5,3 +5,5 @@
 ### [What This Blog is All About](_posts/2018-07-14-what-this-blog-is-all-about.md)
 
 ### [Breaking Down Abstractions: Database Indexes](_posts/2018-07-23-database-indexes.md)
+
+### [Top 10 Books for New Software Engineers](_posts/2018-07-30-top-software-books.md)

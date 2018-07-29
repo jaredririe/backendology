@@ -40,6 +40,12 @@ var blogPosts = []Post{
 		Date:     date("July 23, 2018"),
 		// Categories: []string{"Breaking Abstractions"},
 	},
+	{
+		Filename: "finished/top-software-books.md",
+		Title:    "Top 10 Books for New Software Engineers",
+		Date:     date("July 30, 2018"),
+		// Categories: []string{"Technical Books},
+	},
 }
 
 func main() {
