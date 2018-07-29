@@ -23,18 +23,18 @@ var (
 
 var blogPosts = []Post{
 	{
-		Filename: "001-yet-another-software-blog.md",
+		Filename: "finished/yet-another-software-blog.md",
 		Title:    "Yet Another Software Blog",
 		Date:     date("July 2, 2018"),
 		// Categories: []string{"Personal"},
 	},
 	{
-		Filename: "003-what-this-blog-is-all-about.md",
+		Filename: "finished/what-this-blog-is-all-about.md",
 		Title:    "What This Blog is All About",
 		Date:     date("July 14, 2018"),
 	},
 	{
-		Filename: "006-database-indexes.md",
+		Filename: "finished/database-indexes.md",
 		Title:    "Breaking Down Abstractions: Database Indexes",
 		Date:     date("July 23, 2018"),
 		// Categories: []string{"Breaking Abstractions"},
@@ -90,7 +90,6 @@ func processPost(post Post) {
 	// apply several transformations to the content
 	removeNotes(&contents)
 	addHeader(&contents, post)
-	correctRelativeLinks(&contents)
 
 	// write the post under the _posts directory, as it's now
 	// ready to be published.
@@ -129,8 +128,4 @@ categories: %s
 `, post.Title, post.Date.Year(), int(post.Date.Month()), post.Date.Day(), strings.Join(post.Categories, " "))
 
 	*contents = header + *contents
-}
-
-func correctRelativeLinks(contents *string) {
-	*contents = strings.Replace(*contents, "./images/", "../images/", -1)
 }

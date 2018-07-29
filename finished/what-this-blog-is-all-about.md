@@ -62,7 +62,7 @@ While I still believe this was the correct choice given my circumstances, I regr
 
 The backend is notably more stable than the frontend. The database terminology or [distributed consensus algorithm](http://thesecretlivesofdata.com/raft/) you learned a few years ago will still be relevant for a long time. Meanwhile, if you picked up AngularJS around the same time, you know it was soon eclipsed by Angular and then React and now maybe Vue.js.
 
-![Google Trends for Service Mesh and Istio](/images/service-mesh-istio-google-trends.png)
+![Google Trends for Service Mesh and Istio](../images/service-mesh-istio-google-trends.png)
 
 That said, the backend is still encapsulated in the ever-changing thing which is technology. “Service mesh” is one example of a backend idea that has only recently entered my vocabulary. It is a solution to dealing with the varied interactions between services in a network of microservices. [Istio](https://istio.io/docs/concepts/what-is-istio/overview/) is an example project I’ll cover in a later blog. I plan to regularly write about new technologies of this nature.
 

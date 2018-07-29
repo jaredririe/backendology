@@ -8,7 +8,7 @@ First, a disclaimer: there are some great books missing from this list because I
 
 ### 10. [The Master Algorithm](https://www.amazon.com/gp/product/0465094279/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0465094279&linkCode=as2&tag=jaredririeblo-20&linkId=b298988a7eb225433e4447285d456a84)
 
-The Master Algorithm is a high-level introduction of both the history and latest advances within Machine Learning. While you may not be a data scientist or be particularly passionate about this area of Computer Science, it's becoming increasingly important to have at least a cursory understanding of Machine Learning. This book fills this need of providing exposure without dragging the reader into the deep end; that said, it's definitely a technical and challenging book.
+The Master Algorithm is a high-level introduction of both the history and latest advances within Machine Learning. While you may not be a data scientist or particularly passionate about this area of Computer Science, it's becoming increasingly important to have at least a cursory understanding of Machine Learning. This book fills this need of providing exposure without dragging the reader into the deep end; that said, it's definitely a technical and challenging book.
 
 ### 9. [The Pragmatic Programmer](https://www.amazon.com/gp/product/020161622X/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=020161622X&linkCode=as2&tag=jaredririeblo-20&linkId=8a65d8f4a0151dade8e2a2f3294909c3)
 
@@ -22,19 +22,19 @@ While The Pragmatic Programmer is a bit dated in parts, it remains a classic sof
 * Don't live with broken windows
     - Fix bad design and code as soon as you notice it
 * Use tracer bullets to find the target
-    - Get a simplistic end-to-end solution working first
+    - Get a simplistic end-to-end solution working first so you know you’re on track
 * Prototype to learn
-    - The purpose of prototyping is to learn, not to produce code
-    - Prototyping is different from tracer bullets
+    - The purpose of prototyping is to learn, not to produce code for the final product
+    - Prototyping is different from using tracer bullets
 * Use a single editor well
     - Learn keyboard shortcuts
     - Program and extend your editor to make it your own
 * "select" isn't broken
-    - The OS, compiler, or standard library is rarely the problem
+    - When debugging, remember that the OS, compiler, or standard library are rarely the problem. It’s your code that’s broken
 * Refactor early, refactor often
 * Test your software, or your users will
 * Find bugs once
-    - Once you have identified a bug, ensure through regression testing that bug will never crop up again
+    - Once you have identified a bug, ensure through regression testing that the bug will never crop up again
 * Build documentation in, don't bolt it on
     - Documentation that is part of the code is more likely to be kept up to date
 
@@ -46,7 +46,7 @@ This is one of those programming language books that teaches a lot about program
 
 One oddity to be aware of is that chapter 1 of this book gives the impression that it's beginner-focused; the author includes detailed analogies to help explain variables, for example. A few chapters later, though, you cover techniques used in functional programming. My recommendation is to skim through the early sections and then slow down as it quickly becomes a challenging read. The author applies rigor to a language that would never be described as rigorous.
 
-The third edition of this book came out recently with thorough updates; all the code has been updated to ES6, helping the content feel more like the "Modern JavaScript" programmers are likely to encounter in the wild. The runnable coding snippets in the online version were very helpful in interacting with the content.
+The third edition of this book came out recently with thorough updates; all the code has been updated to ES6, helping the content feel more like the "Modern JavaScript" programmers are likely to encounter in the wild. The runnable code snippets in the online version were very helpful in interacting with the content.
 
 ### 7. [Go In Practice](https://www.amazon.com/gp/product/1633430073/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1633430073&linkCode=as2&tag=jaredririeblo-20&linkId=52b8b21a37be43441f712179120814d0)
 
@@ -62,7 +62,7 @@ The coding interview, whether you agree with it or not, is the de facto way to i
 
 Take time to get good at coding interviews. This book is a great way to do just that. I can't say that I've read this book cover to cover like the others, but I do practice 10-20 interview questions each quarter to keep my skills sharp. This has helped me develop my algorithm and data structure skills. With a Computer Engineering degree, I never took some advanced CS classes like algorithms, so I had a lot of catching up to do in this space.
 
-An honorable mention in this space is Grokking Algorithms. It's an approachable book that explains data structures and algorithms with cartoon-like visualizations. As it's written in such a way that non-programmers could also understand, I found it to be a quick read that taught these concepts in a different way than I originally learned them (Data Structures course with a textbook).
+An honorable mention in this area of algorithms is Grokking Algorithms. It's an approachable book that explains data structures and algorithms with cartoon-like visualizations. As it's written in such a way that non-programmers could also understand, I found it to be a quick read that taught these concepts in a different way than I originally learned them (Data Structures course with a textbook).
 
 ### 5. [The Complete Software Developer's Career Guide](https://www.amazon.com/gp/product/0999081411/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0999081411&linkCode=as2&tag=jaredririeblo-20&linkId=72ce4355157a164d499ed8f8aca50486)
 
@@ -74,7 +74,7 @@ John Sonmez also wrote [Soft Skills: The Software Developer's Life Manual](https
 
 ### 4. [Clean Architecture](https://www.amazon.com/gp/product/0134494164/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0134494164&linkCode=as2&tag=jaredririeblo-20&linkId=f5aa6b16f1d067615e5f4add5291e7d9)
 
-Clean Architecture is written by the same author as Clean Code (Robert Martin). As the differing names suggest, Clean Architecture takes a broader view of software. That said, one of the key points the author makes is that the same patterns that apply to designing the components of a single system also apply to arranging the pieces which make up the architecture. That is, an idea like loose coupling is important in the structure of code and the arrangement of the architecture.
+Clean Architecture is written by the same author as Clean Code (Robert Martin). As the differing names suggest, Clean Architecture takes a broader view of software. That said, one of the key points the author makes is that the same patterns that apply to designing the components of a single system also apply to arranging the pieces which make up the architecture. That is, an idea like loose coupling is important in the structure of code *and* the arrangement of the architecture.
 
 This book changed the way I thought about the code I write and the systems I help design. It helped me to structure my code such that the business logic is in the “inner” portion of the architecture, decoupled from the “outer” portion which handles transforming data to/from external sources. A concrete example of this is that the core logic of your service should not need to change if you change the means of communicating with a service from HTTP to a command-line interface.
 
@@ -84,7 +84,7 @@ While the book can come off as opinionated, the opinions are well supported and 
 
 Building Microservices is the book that helped me make sense of the wonderful *and* horrific world of microservices. It was immediately applicable to the projects I was working on at work, so I feel like I came away with a deep understanding of its concepts. I would learn about a concept like circuit breaking one day and implement it the next, which made for an enriching learning experience.
 
-If an engineering team was considering adopting Microservices, this book would help them understand the work they were signing up for to support such a system. As it gives such a holistic view of microservices, it's also a great read for someone who works in such an architecture without understanding all the concepts and complexity (such as a new software engineer). Here are some of the topics covered:
+If an engineering team was considering adopting Microservices, this book would help them understand the work they were signing up for to support such a system. As it gives such a holistic view of microservices, it's also a great read for someone who works in such an architecture without understanding all the concepts and complexity. Here are some of the topics covered:
 
 * Service discovery and DNS
 * Monitoring
@@ -93,7 +93,7 @@ If an engineering team was considering adopting Microservices, this book would h
 * Building resilient systems with partial degradation of functionality
 * Asynchronous event-based collaboration
 
-Engineers at the company I work for (Qualtrics) can optionally read a book of the quarter. This book was selected as we're right in the middle of splitting apart the monolithic PHP system that bootstrapped our company to where it is today. I think many other companies are in a similar spot and will find value in this book.
+Engineers at the company I work for (Qualtrics) can optionally read and discuss a "book of the quarter." This book was selected one quarter as we're right in the middle of splitting apart the monolithic PHP system that bootstrapped our company to where it is today. I think many other companies are in a similar spot and will find value in this book.
 
 ### 2. [NoSQL Distilled](https://www.amazon.com/gp/product/0321826620/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0321826620&linkCode=as2&tag=jaredririeblo-20&linkId=ad0c449b8cb5df43051f62f0de3e12e4)
 
@@ -101,7 +101,7 @@ If you work with NoSQL databases or are considering doing so, I consider this bo
 
 I actually read this book twice, first just as I started my career and then again two years later once I had a better understanding of databases. To be honest, I didn't understand it very well the first time as *everything* was new. Reading technical books multiple times can be extremely useful as it often takes additional experience to grasp difficult concepts.
 
-After explaining the main types of NoSQL databases (key-value, document, column-family, and graph), NoSQL Distilled dives into sharding, replication, and consistency. These are critically-important chapters as they give you the vocabulary you need to understand databases in general. I found my understanding of research papers on the topic of databases increase dramatically after reading this book simply because I could speak a bit of their language. This book also prepares you to decide on and then defend your choice of the best database for your use case.
+After explaining the main types of NoSQL databases (key-value, document, column-family, and graph), NoSQL Distilled dives into sharding, replication, and consistency. These are critically-important chapters as they give you the vocabulary you need to understand databases in general. I noticed that my understanding of research papers on the topic of databases increased dramatically after reading this book simply because I could speak a bit of their language. This book also prepares you to decide on and then defend your choice of the best database for your use case.
 
 ### 1. [Designing Data-Intensive Applications](https://www.amazon.com/gp/product/1449373321/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1449373321&linkCode=as2&tag=jaredririeblo-20&linkId=6ae4fe247a516730f1e0677905f65987)
 
@@ -130,4 +130,6 @@ Check out some of Martin Kleppmann's blog posts for a sample of the awesome cont
 I keep an updated and prioritized list of books I would like to read. Here are some of the software-focused books on that list:
 
 * Site Reliability Engineering: How Google Runs Production Systems
+* Clean Code
+* Design patterns...
 
