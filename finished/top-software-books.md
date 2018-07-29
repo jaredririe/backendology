@@ -1,5 +1,7 @@
 # Top 10 Books for New Software Engineers
 
+![Top three software books](../images/top-software-books.jpg)
+
 I'm excited to share my top ten list of books new Software Engineers should invest in reading! These books have proved foundational in helping me transition from student to developer and deepen my skills.
 
 First, a disclaimer: there are some great books missing from this list because I haven't read them yet. I want this list to be as authentic as possible and therefore I will not recommend a book until I've read it cover to cover. If you have read an impressive book that you think deserves a spot on this list, comment and I will check it out!
@@ -135,5 +137,5 @@ I keep an updated and prioritized list of books I would like to read. Here are s
 * [*SQL Antipatterns: Avoiding the Pitfalls of Database Programming*](https://www.amazon.com/gp/product/1934356557/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1934356557&linkCode=as2&tag=jaredririeblo-20&linkId=ef99a9542973771e25a47d54cdabfdcd)
 * [*How Linux Works*](https://www.amazon.com/gp/product/1593275676/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1593275676&linkCode=as2&tag=jaredririeblo-20&linkId=991e8326ef2e46410ea1de1542ec8e5b)
 * [*Mythical Man Month*](https://www.amazon.com/gp/product/0201835959/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0201835959&linkCode=as2&tag=jaredririeblo-20&linkId=c19272cbb504e2d3f7b8e709be44c85c)
-* [Writing an Interpreter in Go](https://www.amazon.com/gp/product/300055808X/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=300055808X&linkCode=as2&tag=jaredririeblo-20&linkId=21499eb84dde797a205a9640d6a83d8f)
+* [*Writing an Interpreter in Go*](https://www.amazon.com/gp/product/300055808X/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=300055808X&linkCode=as2&tag=jaredririeblo-20&linkId=21499eb84dde797a205a9640d6a83d8f)
 
