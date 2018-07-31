@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Backendology</title>
-    <link>https://blog.jaredririe.com/tags/</link>
+    <link>https://jaredririe.github.io/backended-blog/tags/</link>
     <description>Recent content in Tags on Backendology</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 23 Jul 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://blog.jaredririe.com/tags/feed.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jaredririe.github.io/backended-blog/tags/feed.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Databases</title>
-      <link>https://blog.jaredririe.com/tags/databases/</link>
+      <link>https://jaredririe.github.io/backended-blog/tags/databases/</link>
       <pubDate>Mon, 23 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.jaredririe.com/tags/databases/</guid>
+      <guid>https://jaredririe.github.io/backended-blog/tags/databases/</guid>
       <description></description>
     </item>
     

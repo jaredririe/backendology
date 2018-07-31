@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Fixeds on Backendology</title>
-    <link>https://blog.jaredririe.com/fixed/</link>
+    <link>https://jaredririe.github.io/backended-blog/fixed/</link>
     <description>Recent content in Fixeds on Backendology</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 30 Jul 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://blog.jaredririe.com/fixed/feed.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jaredririe.github.io/backended-blog/fixed/feed.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>About</title>
-      <link>https://blog.jaredririe.com/about/</link>
+      <link>https://jaredririe.github.io/backended-blog/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.jaredririe.com/about/</guid>
+      <guid>https://jaredririe.github.io/backended-blog/about/</guid>
       <description>Thanks for visiting my site! My name is Scott Lowe, and this is my weblog about various technical subjects and the occasional personal topic.
 Personal Information I live with my wife, Crystal, and our kids in the Denver, CO area. When I&amp;rsquo;m not working or spending time with my family, I&amp;rsquo;m enjoying the outdoor life or working in our church.
 Professional Information I&amp;rsquo;ve been in the Information Technology field for more than 25 years, starting out with desktop support.</description>
@@ -24,10 +24,10 @@ Professional Information I&amp;rsquo;ve been in the Information Technology field
     
     <item>
       <title>Site Archives</title>
-      <link>https://blog.jaredririe.com/archives/</link>
+      <link>https://jaredririe.github.io/backended-blog/archives/</link>
       <pubDate>Sun, 30 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.jaredririe.com/archives/</guid>
+      <guid>https://jaredririe.github.io/backended-blog/archives/</guid>
       <description></description>
     </item>
     
