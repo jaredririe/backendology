@@ -1,7 +1,7 @@
 ---
-author: slowe
 title: "Site Archives"
-date: 2017-07-30
+author: "Jared Ririe"
+date: 2018-07-01
 url: /archives/
 type: fixed
 layout: archives
