@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Backendology </title>
+    <link>https://blog.jaredririe.com/</link>
+    <language>en-us</language>
+    <author>Jared Ririe</author>
+    <rights>(C) 2018</rights>
+    <updated>2018-07-30 00:00:00 &#43;0000 UTC</updated>
+
+    
+      
+    
+      
+        <item>
+          <title>Top 10 Books for New Software Engineers</title>
+          <link>https://blog.jaredririe.com/2018/07/30/top-software-books/</link>
+          <pubDate>Mon, 30 Jul 2018 00:00:00 UTC</pubDate>
+          <author>Jared Ririe</author>
+          <guid>https://blog.jaredririe.com/2018/07/30/top-software-books/</guid>
+          <description>
+
+&lt;p&gt;&lt;img src=&#34;https://blog.jaredririe.com/public/images/top-software-books.jpg&#34; alt=&#34;Top three software books&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m excited to share my top ten list of books new Software Engineers should invest in reading! These books have proved foundational in helping me transition from student to developer and deepen my skills.&lt;/p&gt;
+
+&lt;p&gt;First, a disclaimer: there are some great books missing from this list because I haven&amp;rsquo;t read them yet. I want this list to be as authentic as possible and therefore I will not recommend a book until I&amp;rsquo;ve read it cover to cover. If you have read an impressive book that you think deserves a spot on this list, comment and I will check it out!&lt;/p&gt;
+
+&lt;h2 id=&#34;top-ten&#34;&gt;Top Ten&lt;/h2&gt;
+
+&lt;h3 id=&#34;10-the-master-algorithm-https-www-amazon-com-gp-product-0465094279-ref-as-li-tl-ie-utf8-camp-1789-creative-9325-creativeasin-0465094279-linkcode-as2-tag-jaredririeblo-20-linkid-b298988a7eb225433e4447285d456a84&#34;&gt;10. &lt;a href=&#34;https://www.amazon.com/gp/product/0465094279/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=0465094279&amp;amp;linkCode=as2&amp;amp;tag=jaredririeblo-20&amp;amp;linkId=b298988a7eb225433e4447285d456a84&#34;&gt;&lt;em&gt;The Master Algorithm&lt;/em&gt;&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;The Master Algorithm&lt;/em&gt; is a high-level introduction of both the history and latest advances within Machine Learning. While you may not be a data scientist or particularly passionate about this area of Computer Science, it&amp;rsquo;s becoming increasingly important to have at least a cursory understanding of Machine Learning. This book fills this need of providing exposure without dragging the reader into the deep end; that said, it&amp;rsquo;s definitely a technical and challenging book.&lt;/p&gt;
+
+&lt;h3 id=&#34;9-the-pragmatic-programmer-https-www-amazon-com-gp-product-020161622x-ref-as-li-tl-ie-utf8-camp-1789-creative-9325-creativeasin-020161622x-linkcode-as2-tag-jaredririeblo-20-linkid-8a65d8f4a0151dade8e2a2f3294909c3&#34;&gt;9. &lt;a href=&#34;https://www.amazon.com/gp/product/020161622X/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=020161622X&amp;amp;linkCode=as2&amp;amp;tag=jaredririeblo-20&amp;amp;linkId=8a65d8f4a0151dade8e2a2f3294909c3&#34;&gt;&lt;em&gt;The Pragmatic Programmer&lt;/em&gt;&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;While &lt;em&gt;The Pragmatic Programmer&lt;/em&gt; is a bit dated in parts, it remains a classic software book that every developer should read. It is the original source of many best practices that have been shared by word of mouth through the years. As the book progresses, many memorable pragmatic tips are shared. These are some of my favorites:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Care about your craft
+
+&lt;ul&gt;
+&lt;li&gt;If you are serious about a software career, you should care about the quality of the work you produce&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Think about your work
+
+&lt;ul&gt;
+&lt;li&gt;Constantly critique your work&lt;/li&gt;
+&lt;li&gt;Disable auto pilot&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Don&amp;rsquo;t live with broken windows
+
+&lt;ul&gt;
+&lt;li&gt;Fix bad design and code as soon as you notice it&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Use tracer bullets to find the target
+
+&lt;ul&gt;
+&lt;li&gt;Get a simplistic end-to-end solution working first so you know you’re on track&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Prototype to learn
+
+&lt;ul&gt;
+&lt;li&gt;The purpose of prototyping is to learn, not to produce code for the final product&lt;/li&gt;
+&lt;li&gt;Prototyping is different from using tracer bullets&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Use a single editor well
+
+&lt;ul&gt;
+&lt;li&gt;Learn keyboard shortcuts&lt;/li&gt;
+&lt;li&gt;Program and extend your editor to make it your own&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;select&amp;rdquo; isn&amp;rsquo;t broken
+
+&lt;ul&gt;
+&lt;li&gt;When debugging, remember that the OS, compiler, or standard library are rarely the problem. It’s your code that’s broken&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Refactor early, refactor often&lt;/li&gt;
+&lt;li&gt;Test your software, or your users will&lt;/li&gt;
+&lt;li&gt;Find bugs once
+
+&lt;ul&gt;
+&lt;li&gt;Once you have identified a bug, ensure through regression testing that the bug will never crop up again&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Build documentation in, don&amp;rsquo;t bolt it on
+
+&lt;ul&gt;
+&lt;li&gt;Documentation that is part of the code is more likely to be kept up to date&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;One part of the book that has stayed with me is the analogy of the woodworker. For woodworkers, the primary material of their work is wood and as such, they become intimately familiar with wood and the tools used to manipulate wood. The correlating material for a developer is text. Some of our tools include editors, IDEs, and terminals. Just like the woodworker, we need to become familiar with text and the tools that manipulate it. It’s pragmatic to learn keyboard shortcuts and automations. It’s wise to know one editor and terminal extremely well. It surprises me how many programmers don’t know simple shortcuts like &lt;code&gt;alt + left/right arrow&lt;/code&gt; to move the cursor in increments of words rather than characters! Common editor features like &lt;a href=&#34;https://www.youtube.com/watch?v=czQipWJA8EU&#34;&gt;multi-cursor select&lt;/a&gt; elude many, yet I don’t know what I would do without it–I find at least one application of this feature every day. It has uses for many things outside of renaming a variable in code.&lt;/p&gt;
+
+&lt;h3 id=&#34;8-eloquent-javascript-print-https-www-amazon-com-gp-product-1593279507-ref-as-li-tl-ie-utf8-camp-1789-creative-9325-creativeasin-1593279507-linkcode-as2-tag-jaredririeblo-20-linkid-067d30460a755446e9ce867a129f1bc2-free-online-version-http-eloquentjavascript-net&#34;&gt;8. &lt;em&gt;Eloquent JavaScript&lt;/em&gt; (&lt;a href=&#34;https://www.amazon.com/gp/product/1593279507/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=1593279507&amp;amp;linkCode=as2&amp;amp;tag=jaredririeblo-20&amp;amp;linkId=067d30460a755446e9ce867a129f1bc2&#34;&gt;Print&lt;/a&gt;, &lt;a href=&#34;http://eloquentjavascript.net/&#34;&gt;Free Online Version&lt;/a&gt;)&lt;/h3&gt;
+
+&lt;p&gt;This is one of those programming language books that teaches a lot about programming in general, not just a particular language. For example, the &lt;a href=&#34;http://eloquentjavascript.net/07_robot.html&#34;&gt;Robot path-finding project chapter&lt;/a&gt; piqued my interest in depth-first and breadth-first search for the first time since college. I also appreciated the author&amp;rsquo;s focus on composable, eloquent code that pushed me to write better code.&lt;/p&gt;
+
+&lt;p&gt;One oddity to be aware of is that chapter 1 of this book gives the impression that it&amp;rsquo;s beginner-focused; the author includes detailed analogies to help explain variables, for example. A few chapters later, though, you cover techniques used in functional programming. My recommendation is to skim through the early sections and then slow down as it quickly becomes a challenging read. The author applies rigor to a language that would never be described as rigorous.&lt;/p&gt;
+
+&lt;p&gt;The third edition of this book came out recently with thorough updates; all the code has been updated to ES6, helping the content feel more like the &amp;ldquo;Modern JavaScript&amp;rdquo; programmers are likely to encounter in the wild. The runnable code snippets in the online version were very helpful in interacting with the content.&lt;/p&gt;
+
+&lt;h3 id=&#34;7-go-in-practice-https-www-amazon-com-gp-product-1633430073-ref-as-li-tl-ie-utf8-camp-1789-creative-9325-creativeasin-1633430073-linkcode-as2-tag-jaredririeblo-20-linkid-52b8b21a37be43441f712179120814d0&#34;&gt;7. &lt;a href=&#34;https://www.amazon.com/gp/product/1633430073/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=1633430073&amp;amp;linkCode=as2&amp;amp;tag=jaredririeblo-20&amp;amp;linkId=52b8b21a37be43441f712179120814d0&#34;&gt;&lt;em&gt;Go In Practice&lt;/em&gt;&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;While the space for books about the Go programming language is growing, it&amp;rsquo;s particularly thin when it comes to books geared towards intermediate to advanced developers. &lt;em&gt;Go In Practice&lt;/em&gt; is for an intermediate audience and it did a decent job of exposing me to some new techniques that I was not familiar with. The pattern of showing a problem you might run into, talking through various solutions, and ending up with a generally applicable technique is used throughout the book; I found it instructive.&lt;/p&gt;
+
+&lt;p&gt;The section on concurrency was particularly detailed compared to what I had read previously. I also learned a great deal about panics in Go and when it&amp;rsquo;s appropriate to handle them in application code, almost like a try-catch in other languages. The content about templates hasn&amp;rsquo;t proven useful for me, but that&amp;rsquo;s likely because that&amp;rsquo;s not how I&amp;rsquo;m using Go.&lt;/p&gt;
+
+&lt;p&gt;My overall recommendation is to look elsewhere for resources to learn Go, but if you are set on a book, I think this is a solid choice.&lt;/p&gt;
+
+&lt;h3 id=&#34;6-cracking-the-coding-interview-https-www-amazon-com-gp-product-0984782850-ref-as-li-tl-ie-utf8-camp-1789-creative-9325-creativeasin-0984782850-linkcode-as2-tag-jaredririeblo-20-linkid-e859b809e508c63a05119e619a7893e5&#34;&gt;6. &lt;a href=&#34;https://www.amazon.com/gp/product/0984782850/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=0984782850&amp;amp;linkCode=as2&amp;amp;tag=jaredririeblo-20&amp;amp;linkId=e859b809e508c63a05119e619a7893e5&#34;&gt;&lt;em&gt;Cracking the Coding Interview&lt;/em&gt;&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;The coding interview, whether you agree with it or not, is the de facto way to interview candidates. While not all skills that are required to be good at interviews overlap with skills necessary for the job, there’s enough overlap to keep this practice going.&lt;/p&gt;
+
+&lt;p&gt;Take time to get good at coding interviews. This book is a great way to do just that. I can&amp;rsquo;t say that I&amp;rsquo;ve read this book cover to cover like the others, but I do practice 10-20 interview questions each quarter to keep my skills sharp. This has helped me develop my algorithm and data structure skills. With a Computer Engineering degree, I never took some advanced CS classes like algorithms, so I had a lot of catching up to do in this space.&lt;/p&gt;
+
+&lt;p&gt;An honorable mention in this area of algorithms is &lt;a href=&#34;https://www.amazon.com/gp/product/1617292230/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=1617292230&amp;amp;linkCode=as2&amp;amp;tag=jaredririeblo-20&amp;amp;linkId=9102ad3f806f2e991bfb8c49d39f184f&#34;&gt;&lt;em&gt;Grokking Algorithms&lt;/em&gt;&lt;/a&gt;. It&amp;rsquo;s an approachable book that explains data structures and algorithms with cartoon-like visualizations. As it&amp;rsquo;s written in such a way that non-programmers could also understand, I found it to be a quick read that taught these concepts in a different way than I originally learned them (Data Structures course with a textbook).&lt;/p&gt;
+
+&lt;h3 id=&#34;5-the-complete-software-developer-s-career-guide-https-www-amazon-com-gp-product-0999081411-ref-as-li-tl-ie-utf8-camp-1789-creative-9325-creativeasin-0999081411-linkcode-as2-tag-jaredririeblo-20-linkid-72ce4355157a164d499ed8f8aca50486&#34;&gt;5. &lt;a href=&#34;https://www.amazon.com/gp/product/0999081411/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=0999081411&amp;amp;linkCode=as2&amp;amp;tag=jaredririeblo-20&amp;amp;linkId=72ce4355157a164d499ed8f8aca50486&#34;&gt;&lt;em&gt;The Complete Software Developer&amp;rsquo;s Career Guide&lt;/em&gt;&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;John Sonmez is an example of a software engineer turned entrepreneur who has made an impressive impact in his career and as a result done well financially. He focuses on teaching software developers how to have a successful career (landing the best-possible job, getting promoted, learning efficiently, picking a specialty, generating passive income, etc.). I found his advice very motivating and have applied several of his ideas with success.&lt;/p&gt;
+
+&lt;p&gt;The book is quite lengthy, but it&amp;rsquo;s an easy, not highly technical read filled with great content that made me genuinely excited to keep reading.&lt;/p&gt;
+
+&lt;p&gt;John Sonmez also wrote &lt;a href=&#34;https://www.amazon.com/gp/product/1617292397/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=1617292397&amp;amp;linkCode=as2&amp;amp;tag=jaredririeblo-20&amp;amp;linkId=33231bfe0f798c662cf434f1d061db3c&#34;&gt;&lt;em&gt;Soft Skills: The Software Developer&amp;rsquo;s Life Manual&lt;/em&gt;&lt;/a&gt; which is worth checking out for more of this kind of content.&lt;/p&gt;
+
+&lt;h3 id=&#34;4-clean-architecture-https-www-amazon-com-gp-product-0134494164-ref-as-li-tl-ie-utf8-camp-1789-creative-9325-creativeasin-0134494164-linkcode-as2-tag-jaredririeblo-20-linkid-f5aa6b16f1d067615e5f4add5291e7d9&#34;&gt;4. &lt;a href=&#34;https://www.amazon.com/gp/product/0134494164/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=0134494164&amp;amp;linkCode=as2&amp;amp;tag=jaredririeblo-20&amp;amp;linkId=f5aa6b16f1d067615e5f4add5291e7d9&#34;&gt;&lt;em&gt;Clean Architecture&lt;/em&gt;&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;Clean Architecture&lt;/em&gt; is written by the same author as &lt;a href=&#34;https://www.amazon.com/gp/product/0132350882/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=0132350882&amp;amp;linkCode=as2&amp;amp;tag=jaredririeblo-20&amp;amp;linkId=f0e51abe652f906c3ef0cf3b34b2470c&#34;&gt;&lt;em&gt;Clean Code&lt;/em&gt;&lt;/a&gt; (Robert Martin). As the differing names suggest, &lt;em&gt;Clean Architecture&lt;/em&gt; takes a broader view of software. That said, one of the key points the author makes is that the same patterns that apply to designing the components of a single system also apply to arranging the pieces which make up the architecture. That is, an idea like loose coupling is important in the structure of code &lt;em&gt;and&lt;/em&gt; the arrangement of the architecture.&lt;/p&gt;
+
+&lt;p&gt;This book changed the way I thought about the code I write and the systems I help design. It helped me to structure my code such that the business logic is in the “inner” portion of the architecture, decoupled from the “outer” portion which handles transforming data to/from external sources. A concrete example of this is that the core logic of your service should not need to change if you change the means of communicating with a service from HTTP to a command-line interface.&lt;/p&gt;
+
+&lt;p&gt;While the book can come off as opinionated, the opinions are well supported and thought provoking even if you disagree with them.&lt;/p&gt;
+
+&lt;h3 id=&#34;3-building-microservices-https-www-amazon-com-gp-product-1491950358-ref-as-li-tl-ie-utf8-camp-1789-creative-9325-creativeasin-1491950358-linkcode-as2-tag-jaredririeblo-20-linkid-ff6627ecc170adf678c48add7232c76a&#34;&gt;3. &lt;a href=&#34;https://www.amazon.com/gp/product/1491950358/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=1491950358&amp;amp;linkCode=as2&amp;amp;tag=jaredririeblo-20&amp;amp;linkId=ff6627ecc170adf678c48add7232c76a&#34;&gt;&lt;em&gt;Building Microservices&lt;/em&gt;&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;Building Microservices&lt;/em&gt; is the book that helped me make sense of the wonderful and horrific world of microservices. It was immediately applicable to the projects I was working on at work, so I feel like I came away with a deep understanding of its concepts. I would learn about a concept like circuit breaking one day and implement it the next, which made for an enriching learning experience.&lt;/p&gt;
+
+&lt;p&gt;If an engineering team was considering adopting microservices, this book would help them understand the work they were signing up for to support such a system. As it gives such a holistic view of microservices, it&amp;rsquo;s also a great read for someone who works in such an architecture without understanding all the concepts and complexity. Here are some of the topics covered:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Service discovery and DNS&lt;/li&gt;
+&lt;li&gt;Monitoring&lt;/li&gt;
+&lt;li&gt;Continuous integration&lt;/li&gt;
+&lt;li&gt;Splitting monolithic systems&lt;/li&gt;
+&lt;li&gt;Building resilient systems with partial degradation of functionality&lt;/li&gt;
+&lt;li&gt;Asynchronous event-based collaboration&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Engineers at the company I work for (Qualtrics) can optionally read and discuss a &amp;ldquo;book of the quarter.&amp;rdquo; This book was selected one quarter as we&amp;rsquo;re right in the middle of splitting apart the monolithic PHP system that bootstrapped our company to where it is today. I think many other companies are in a similar spot and will find value in this book.&lt;/p&gt;
+
+&lt;h3 id=&#34;2-nosql-distilled-https-www-amazon-com-gp-product-0321826620-ref-as-li-tl-ie-utf8-camp-1789-creative-9325-creativeasin-0321826620-linkcode-as2-tag-jaredririeblo-20-linkid-ad0c449b8cb5df43051f62f0de3e12e4&#34;&gt;2. &lt;a href=&#34;https://www.amazon.com/gp/product/0321826620/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=0321826620&amp;amp;linkCode=as2&amp;amp;tag=jaredririeblo-20&amp;amp;linkId=ad0c449b8cb5df43051f62f0de3e12e4&#34;&gt;&lt;em&gt;NoSQL Distilled&lt;/em&gt;&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;If you work with NoSQL databases or are considering doing so, I consider this book a must-read. It&amp;rsquo;s quite compact (just over 150 pages) yet efficiently teaches critical database concepts necessary to understand NoSQL. The material of this book helped me operate a NoSQL database called Couchbase and understand the implications of its failure scenarios.&lt;/p&gt;
+
+&lt;p&gt;I actually read this book twice, first just as I started my career and then again two years later once I had a better understanding of databases. To be honest, I didn&amp;rsquo;t understand it very well the first time as &lt;em&gt;everything&lt;/em&gt; was new. Reading technical books multiple times can be extremely useful as it often takes additional experience to grasp difficult concepts.&lt;/p&gt;
+
+&lt;p&gt;After explaining the main types of NoSQL databases (key-value, document, column-family, and graph), &lt;em&gt;NoSQL Distilled&lt;/em&gt; dives into sharding, replication, and consistency. These are critically-important chapters as they give you the vocabulary you need to understand databases in general. I noticed that my understanding of research papers on the topic of databases increased dramatically after reading this book simply because I could speak a bit of their language. This book also prepares you to decide on and then defend your choice of the best database for your use case.&lt;/p&gt;
+
+&lt;h3 id=&#34;1-designing-data-intensive-applications-https-www-amazon-com-gp-product-1449373321-ref-as-li-tl-ie-utf8-camp-1789-creative-9325-creativeasin-1449373321-linkcode-as2-tag-jaredririeblo-20-linkid-6ae4fe247a516730f1e0677905f65987&#34;&gt;1. &lt;a href=&#34;https://www.amazon.com/gp/product/1449373321/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=1449373321&amp;amp;linkCode=as2&amp;amp;tag=jaredririeblo-20&amp;amp;linkId=6ae4fe247a516730f1e0677905f65987&#34;&gt;&lt;em&gt;Designing Data-Intensive Applications&lt;/em&gt;&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;This book is &lt;em&gt;phenomenal&lt;/em&gt; and can stand confidently in the number one position in this list! I strongly believe that all software engineers should make their way through this book! It&amp;rsquo;s on the lengthier side (624 pages) with sometimes dense and advanced content, but it&amp;rsquo;s well written and incredibly relevant to the data-intensive systems being built today.&lt;/p&gt;
+
+&lt;p&gt;If you&amp;rsquo;re an experienced developer, you may think the book is too introductory from the first two chapters. Keep reading and you&amp;rsquo;ll find rigorous explanations of concepts within distributed and database systems that will give you depth in these areas. This book could be explained a combination of Building Microservices and NoSQL Distilled, supplemented with a whole lot more goodness. Glancing through the table of contents reminded me of some of the most helpful content:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Data models and query languages&lt;/li&gt;
+&lt;li&gt;Encoding (Protocol Buffers, Avro, etc.)&lt;/li&gt;
+&lt;li&gt;Dataflow through databases&lt;/li&gt;
+&lt;li&gt;Replication and all its flaws (much more detailed coverage than in NoSQL Distilled)&lt;/li&gt;
+&lt;li&gt;Levels of isolation within various databases&lt;/li&gt;
+&lt;li&gt;Partial failure in distributed systems&lt;/li&gt;
+&lt;li&gt;Unix single responsibility principle&lt;/li&gt;
+&lt;li&gt;Unreliable clocks&lt;/li&gt;
+&lt;li&gt;Consistency and consensus&lt;/li&gt;
+&lt;li&gt;Batch and stream processing&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Check out some of Martin Kleppmann&amp;rsquo;s blog posts for a sample of the awesome content contained in this book:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.confluent.io/blog/apache-kafka-samza-and-the-unix-philosophy-of-distributed-data/&#34;&gt;Apache Kafka, Samza, and the Unix Philosophy of Distributed Data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://martin.kleppmann.com/2015/01/29/stream-processing-event-sourcing-reactive-cep.html&#34;&gt;Stream processing, Event sourcing, Reactive, CEP… and making sense of it all&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;current-reading-list&#34;&gt;Current reading list&lt;/h2&gt;
+
+&lt;p&gt;I keep an updated and prioritized list of books I would like to read. Here are some of the software-focused books on that list:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Site Reliability Engineering: How Google Runs Production Systems&lt;/em&gt; (&lt;a href=&#34;https://www.amazon.com/gp/product/149192912X/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=149192912X&amp;amp;linkCode=as2&amp;amp;tag=jaredririeblo-20&amp;amp;linkId=d45d3fa7da30b4fdd9fbfe97167e36d7&#34;&gt;Print&lt;/a&gt;, &lt;a href=&#34;https://landing.google.com/sre/book.html&#34;&gt;Free Online Version&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/gp/product/0132350882/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=0132350882&amp;amp;linkCode=as2&amp;amp;tag=jaredririeblo-20&amp;amp;linkId=f0e51abe652f906c3ef0cf3b34b2470c&#34;&gt;&lt;em&gt;Clean Code&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/gp/product/0596007124/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=0596007124&amp;amp;linkCode=as2&amp;amp;tag=jaredririeblo-20&amp;amp;linkId=eeeea2f58df08367b4c118560bcef9a9&#34;&gt;&lt;em&gt;Head First Design Patterns&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/gp/product/1934356557/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=1934356557&amp;amp;linkCode=as2&amp;amp;tag=jaredririeblo-20&amp;amp;linkId=ef99a9542973771e25a47d54cdabfdcd&#34;&gt;&lt;em&gt;SQL Antipatterns: Avoiding the Pitfalls of Database Programming&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/gp/product/1593275676/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=1593275676&amp;amp;linkCode=as2&amp;amp;tag=jaredririeblo-20&amp;amp;linkId=991e8326ef2e46410ea1de1542ec8e5b&#34;&gt;&lt;em&gt;How Linux Works&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/gp/product/0201835959/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=0201835959&amp;amp;linkCode=as2&amp;amp;tag=jaredririeblo-20&amp;amp;linkId=c19272cbb504e2d3f7b8e709be44c85c&#34;&gt;&lt;em&gt;Mythical Man Month&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/gp/product/300055808X/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=300055808X&amp;amp;linkCode=as2&amp;amp;tag=jaredririeblo-20&amp;amp;linkId=21499eb84dde797a205a9640d6a83d8f&#34;&gt;&lt;em&gt;Writing an Interpreter in Go&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Breaking Down Abstractions: Database Indexes</title>
+          <link>https://blog.jaredririe.com/2018/07/23/database-indexes/</link>
+          <pubDate>Mon, 23 Jul 2018 00:00:00 UTC</pubDate>
+          <author>Jared Ririe</author>
+          <guid>https://blog.jaredririe.com/2018/07/23/database-indexes/</guid>
+          <description>
+
+&lt;p&gt;In the introduction to this blog, I mentioned that I love breaking down abstractions to understand what makes them tick. This blog post is the first of many that will break down a fascinating abstraction.&lt;/p&gt;
+
+&lt;h2 id=&#34;abstraction&#34;&gt;Abstraction&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;Database indexes provide the abstraction of performant queries with the cost of some overhead during writes and additional storage space. As most workflows are read-heavy, the overhead of indexes is almost always worthwhile.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Indexes are incredibly powerful. The difference between a query that can utilize one or more indexes and a query without indexes can be breathtaking on datasets larger than a few hundred objects. In fact, the difference can be that the query with indexes finishes in milliseconds while the index-less query causes the database to fall over!&lt;/p&gt;
+
+&lt;p&gt;I mentored an intern through a project with a database component last summer. Once the database grew to a substantial size, he remarked that his queries were taking seconds to complete, which was much longer than on his test dataset of a few items. I questioned whether indexes were in place and had him tack on &lt;code&gt;EXPLAIN&lt;/code&gt; to the start of his query (most databases, SQL or NoSQL, have some notion of &lt;code&gt;EXPLAIN&lt;/code&gt; which details the steps in executing the given query). While he did have some indexes, it was evident from the results of the &lt;code&gt;EXPLAIN&lt;/code&gt; that none of them were being used; rather the entire database was being scanned (known as a &lt;a href=&#34;https://en.wikipedia.org/wiki/Full_table_scan&#34;&gt;full table scan&lt;/a&gt;). We identified and added the missing index. The query wasn&amp;rsquo;t just twice as fast, it was two orders of magnitude faster, so about 10 milliseconds. I think his reaction may resonate with some of you: &amp;ldquo;Clearly I need to learn more about indexes.&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;Why do the right indexes lead to potentially massive performance increases? Conversely, why can the wrong index cause slow queries or even the database to fail? Why are indexes so important? Let&amp;rsquo;s break down this abstraction.&lt;/p&gt;
+
+&lt;h2 id=&#34;breaking-it-down&#34;&gt;Breaking it down&lt;/h2&gt;
+
+&lt;p&gt;To understand how database indexes work under the hood, let&amp;rsquo;s define a simple table which lists several people, their ages, and associated IDs:&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;id&lt;/th&gt;
+&lt;th&gt;name&lt;/th&gt;
+&lt;th&gt;age&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;Arvilla Hawks&lt;/td&gt;
+&lt;td&gt;24&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;Maryellen Gourd&lt;/td&gt;
+&lt;td&gt;18&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;6&lt;/td&gt;
+&lt;td&gt;Corliss Henline&lt;/td&gt;
+&lt;td&gt;38&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;td&gt;Lidia Haught&lt;/td&gt;
+&lt;td&gt;17&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;9&lt;/td&gt;
+&lt;td&gt;Leo Thurlow&lt;/td&gt;
+&lt;td&gt;84&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;14&lt;/td&gt;
+&lt;td&gt;Raymundo Vavra&lt;/td&gt;
+&lt;td&gt;23&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;26&lt;/td&gt;
+&lt;td&gt;Lyn Stucky&lt;/td&gt;
+&lt;td&gt;28&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;28&lt;/td&gt;
+&lt;td&gt;Lura Apodaca&lt;/td&gt;
+&lt;td&gt;11&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;30&lt;/td&gt;
+&lt;td&gt;Brook Milum&lt;/td&gt;
+&lt;td&gt;81&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Given an ID, we&amp;rsquo;d like to find out the name and age. Here&amp;rsquo;s a SQL query to discover that Leo Thurlow (age 84) is stored at ID 9:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;SELECT name, age FROM people WHERE id = 9
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;How does this query find the right answer? Well, without indexes, it merely scans the rows of the table until it happens upon ID 9. This ID was just a few entries from the start, so that doesn&amp;rsquo;t sound too bad. Consider, however, that this table could be thousands, millions, or billions of rows long. What if ID 9 was the &lt;em&gt;last&lt;/em&gt; row? We&amp;rsquo;d have to scan through a lot of rows! This process of scanning each row has a time complexity of O(N). Not great.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s also worth noting that if the &lt;code&gt;id&lt;/code&gt; column was not unique, it would become necessary to scan all entries to find all the ones with the given ID. When N is large, scanning N items every time we need to respond to a query is going to take a long time. It&amp;rsquo;s possible that a long-running query combined with lots of other concurrent queries could just cause a database to fail (it could run out of memory, go into swap, become unable to respond to healthchecks, and be removed from the cluster).&lt;/p&gt;
+
+&lt;p&gt;What we need is some way to store the IDs in a data structure more suited to this kind of searching. Enter: the index!&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Indexes are used to quickly locate data without having to search every row in a database table every time a database table is accessed. Indexes can be created using one or more columns of a database table, providing the basis for both rapid random lookups and efficient access of ordered records.&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;There are many &lt;a href=&#34;https://en.wikipedia.org/wiki/Comparison_of_relational_database_management_systems#Indexes&#34;&gt;different types of database indexes&lt;/a&gt;, including B-tree, R-tree, Hash, Bitmap, and Spacial. Rather than trying to cover all of these index types, let&amp;rsquo;s deep dive on the ubiquitous B-tree.&lt;/p&gt;
+
+&lt;h3 id=&#34;binary-search-tree-vs-b-tree-vs-b-tree&#34;&gt;Binary Search Tree vs. B-Tree vs. B+ Tree&lt;/h3&gt;
+
+&lt;p&gt;Many software engineers are understandably confused about the differences between these three very similar sounding data structures: binary search tree, B-tree, and B+ tree. While they are all tree data structures, they are &lt;em&gt;not&lt;/em&gt; synonymous. A B-tree is not a &amp;ldquo;binary&amp;rdquo; tree (no matter how convenient that would be)! In fact: &amp;ldquo;What, if anything, the B stands for has never been established.&amp;rdquo;&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;binary-search-tree&#34;&gt;Binary Search Tree&lt;/h4&gt;
+
+&lt;p&gt;Binary search trees are binary trees that keep their keys in sorted order by enforcing the requirement that all left children of a node have values less than the node&amp;rsquo;s and all right children have values greater than the node&amp;rsquo;s.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://blog.jaredririe.com/public/images/binary-search-tree.png&#34; alt=&#34;Binary Search Tree&#34; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;b-tree&#34;&gt;B-tree&lt;/h4&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;B-tree is a self-balancing tree data structure that keeps data sorted and allows searches, sequential access, insertions, and deletions in logarithmic time. The B-tree is a generalization of a binary search tree in that a node can have more than two children.&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://blog.jaredririe.com/public/images/balanced-nary-tree.png&#34; alt=&#34;B-Tree&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;B-trees have these properties:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Can have more than two children&lt;/li&gt;
+&lt;li&gt;Self-balancing
+
+&lt;ul&gt;
+&lt;li&gt;Internal (non-leaf) nodes may be joined or split in order to maintain balance&lt;/li&gt;
+&lt;li&gt;All leaf nodes must be at the same depth&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;The number of children for a particular node is equal to the number of keys in it plus one&lt;/li&gt;
+&lt;li&gt;The minimum and maximum number of child nodes are typically fixed (a &lt;strong&gt;2-3 B-tree&lt;/strong&gt; allows each internal node to have 2 or 3 child nodes)&lt;/li&gt;
+&lt;li&gt;Minimizes wasted storage space by ensuring the interior nodes are at least half full&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In our simple B-tree, we store only a few keys in each node and each node only has a small number of children. A practical B-tree would have far more keys and children&amp;ndash;the exact number is related to the size of a full disk block such that each read will get as much data as possible.&lt;/p&gt;
+
+&lt;p&gt;To use a B-tree as a database index, we must either store the entire table rows or hold pointers to the rows. Let&amp;rsquo;s take the pointer approach:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://blog.jaredririe.com/public/images/b-tree.png&#34; alt=&#34;B-Tree as Database Index&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Note that this B-tree has the properties outlined above:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;All leaf nodes are at the same depth&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;[8  28]&lt;/code&gt; node has two keys and therefore three children&lt;/li&gt;
+&lt;li&gt;Values less than 8 are in the left subtree, values between 8 and 28 and in the middle subtree, and values greater than 28 are in the right subtree&lt;/li&gt;
+&lt;li&gt;Wasted space is minimized and the tree is balanced&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Let&amp;rsquo;s return to the people table we started with and rerun the query now that we have an index structure in place. When evaluating the WHERE clause (&lt;code&gt;WHERE id = 9&lt;/code&gt;), the query optimizer now sees there is an index on the &lt;code&gt;id&lt;/code&gt; column. It follows the B-tree data structure until it finds ID 9 and follows the pointer to the associated table row.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Is 9 equal to 8? No&lt;/li&gt;
+&lt;li&gt;Is 9 less than or equal to 8? No&lt;/li&gt;
+&lt;li&gt;Is 9 between 8 and 28 (inclusive)? Yes!&lt;/li&gt;
+&lt;li&gt;Is 9 equal to 9? Yes!&lt;/li&gt;
+&lt;li&gt;Which table row does 9 point to? &lt;code&gt;9 | Leo Thurlow | 84&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The time complexity for this search drops from O(N) to O(log(N))!&lt;/p&gt;
+
+&lt;h4 id=&#34;b-tree-1&#34;&gt;B+ tree&lt;/h4&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;A B+ tree is an N-ary tree with a variable but often large number of children per node. &amp;hellip; A B+ tree can be viewed as a B-tree in which each node contains only keys (not key–value pairs), and to which an additional level is added at the bottom with linked leaves.&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://blog.jaredririe.com/public/images/b+-tree.png&#34; alt=&#34;B+ Tree as Database Index&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;B+ trees have these additional properties relative to a B-tree:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Leaf nodes are linked together&lt;/li&gt;
+&lt;li&gt;All keys (and pointers to table rows) are stored in the leaves&lt;/li&gt;
+&lt;li&gt;Copies of the keys are stored in the internal (non-leaf) nodes&lt;/li&gt;
+&lt;li&gt;Typically have a large number of children per node&lt;/li&gt;
+&lt;li&gt;Each node &lt;em&gt;may&lt;/em&gt; store a pointer to the next node for faster sequential access&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Comparing the example B-tree and B+ tree reveals that the same data is stored in each, but the additional properties of the B+ tree force the keys down to the leaf nodes. The linked list this forms makes range queries more efficient.&lt;/p&gt;
+
+&lt;h4 id=&#34;progression&#34;&gt;Progression&lt;/h4&gt;
+
+&lt;p&gt;Given those definitions, it becomes clear that each of these tree data structures builds on the previous one in a progression towards a structure fit for a database index. The added complexity with each step is a trade-off for improved performance in particular use cases. Some databases use a combination of B-trees and B+ trees depending on the type of index and nature of queries.&lt;/p&gt;
+
+&lt;p&gt;Here is one way of looking at the progression from binary tree to B+ tree:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Start with a simple binary tree. Add self-balancing and enforce the properties of a binary search tree. Result: &lt;strong&gt;balanced binary search tree&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Allow this balanced binary search tree to have more than two children and enforce other properties of a B-tree. Result: &lt;strong&gt;B-tree&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Add pointers from the stored keys to rows in the database table. Result: &lt;strong&gt;B-tree used as a database index&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Push all keys into the leaf nodes and link the leaves. Result: &lt;strong&gt;B+ tree used as a database index&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;further-reading&#34;&gt;Further reading&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Database_index&#34;&gt;Wikipedia: Database Index&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/B-tree&#34;&gt;Wikipedia: B-Tree&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/B%2B_tree&#34;&gt;Wikipedia: B+ Tree&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://goneill.co.nz/btree-demo.php&#34;&gt;JavaScript B-Tree Demo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.cs.usfca.edu/~galles/visualization/BPlusTree.html&#34;&gt;B+ Tree Visualization&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.conquex.com/?p=84&#34;&gt;Straightforward B+ Tree Implementation in JavaScript&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dev.mysql.com/doc/refman/5.5/en/index-btree-hash.html&#34;&gt;Comparison of B-Tree and Hash Indexes&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Database_index&#34;&gt;https://en.wikipedia.org/wiki/Database_index&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/B-tree&#34;&gt;https://en.wikipedia.org/wiki/B-tree&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:2&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34;&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/B%2B_tree&#34;&gt;https://en.wikipedia.org/wiki/B%2B_tree&lt;/a&gt;
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:3&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>What This Blog is All About</title>
+          <link>https://blog.jaredririe.com/2018/07/14/what-this-blog-is-all-about/</link>
+          <pubDate>Sat, 14 Jul 2018 00:00:00 UTC</pubDate>
+          <author>Jared Ririe</author>
+          <guid>https://blog.jaredririe.com/2018/07/14/what-this-blog-is-all-about/</guid>
+          <description>
+
+&lt;h2 id=&#34;backended&#34;&gt;&amp;ldquo;Backended&amp;rdquo;?&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;There are only two hard things in Computer Science: cache invalidation and naming things (Phil Karlton).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Or, my favorite variant:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;There are only two hard things in Computer Science: cache invalidation, naming things, and off by one errors (Unknown)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Naming is hard. Backended isn&amp;rsquo;t a real word. &amp;ldquo;Back ended&amp;rdquo; and its hyphened form &amp;ldquo;back-ended&amp;rdquo; do appear to be real words, though rarely used and completely unrelated to the purpose of this blog. Like the programmer who decides to write a lengthy comment rather than coming up with a better name, I&amp;rsquo;ll try to explain what I intended when I named this blog Backended.&lt;/p&gt;
+
+&lt;p&gt;Backended draws obvious reference to the term &amp;ldquo;backend” as in backend or server-side web development. If it was a real word, I might say, &amp;ldquo;Because of my backended nature, writing frontend code is inherently painful.&amp;rdquo; I find the problems that get solved on the backend to be incredibly interesting and therefore chose it as the underlying theme of my blog.&lt;/p&gt;
+
+&lt;h2 id=&#34;topics-i-plan-to-cover&#34;&gt;Topics I plan to cover&lt;/h2&gt;
+
+&lt;p&gt;While this list does not aim to be exhaustive, it should give a good sense for topics I will cover in this blog. I’ll also briefly elaborate on why each topic deserves attention.&lt;/p&gt;
+
+&lt;h3 id=&#34;distributed-systems&#34;&gt;Distributed systems&lt;/h3&gt;
+
+&lt;p&gt;Many backend systems are an entanglement of services which together can be considered a distributed system. Rather than being monolithic in nature, these systems benefit from things like &lt;strong&gt;independent deployability&lt;/strong&gt;, &lt;strong&gt;focused development&lt;/strong&gt;, and &lt;strong&gt;loose coupling&lt;/strong&gt; yet suffer from the complexities of &lt;strong&gt;partial failure&lt;/strong&gt;, &lt;strong&gt;lack of concurrency guarantees&lt;/strong&gt;, and &lt;strong&gt;network boundaries&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;This list of tradeoffs is clearly incomplete. Each complexity deserves its own blog post! Once network boundaries exist between components of a system, for example, problems such as discoverability must be dealt with. No longer can I make an easy function call; rather, I must build in some way for one service to find another service and then make a network call. This call could fail (should I retry?) or time out (how long should I wait?). Once I&amp;rsquo;ve figured out how to handle these failure scenarios, does &lt;em&gt;every&lt;/em&gt; service I write need to duplicate this logic or can I abstract it away through a form of middleware?&lt;/p&gt;
+
+&lt;p&gt;Fascinating!&lt;/p&gt;
+
+&lt;p&gt;Topics like caching, consistency, reverse proxying, API gateways, and service meshes are fair game.&lt;/p&gt;
+
+&lt;h3 id=&#34;go&#34;&gt;Go&lt;/h3&gt;
+
+&lt;p&gt;Go is a phenomenal language for backend development. I started writing Go in October 2015 and haven&amp;rsquo;t looked back. I&amp;rsquo;ll be writing several blog posts where I solve problems using Go or otherwise talk about it.&lt;/p&gt;
+
+&lt;p&gt;Go is easy to learn, proven in production, and designed for the cloud. It&amp;rsquo;s deployed in production by high-traffic companies like Google, Dropbox, Uber, and Facebook in cases where stability and high performance are critical. Many open-source cloud computing tools are written in Go like Docker and Consul.&lt;/p&gt;
+
+&lt;p&gt;I enjoy its strong focus on simplicity which translates to less ramp-up time for new developers. Another benefit is in maintainability of Go codebases, as it’s very readable and easy to understand existing code.&lt;/p&gt;
+
+&lt;h3 id=&#34;nosql-and-general-database-concepts&#34;&gt;NoSQL and general database concepts&lt;/h3&gt;
+
+&lt;p&gt;NoSQL is a movement that started in response to a need for increased scalability in large cloud companies like Google and Amazon. In my mind, NoSQL is less of a rebuttal of relational databases (i.e. &lt;em&gt;No, SQL!&lt;/em&gt;) and more of an alternative to SQL when it makes sense for the problem being solved (i.e. &lt;em&gt;Not Only SQL&lt;/em&gt;).&lt;/p&gt;
+
+&lt;p&gt;I have worked with a large variety of NoSQL databases in my time at Qualtrics. Some have turned out extraordinarily well while others turned out quite the opposite! These experiences left me with this conclusion: &lt;strong&gt;database choice is often more important than programming language choice&lt;/strong&gt;. In order to make an informed decision, you need to be well-educated in general database concepts such as consistency and data modeling.&lt;/p&gt;
+
+&lt;h3 id=&#34;software-and-non-software-books&#34;&gt;Software and non-software books&lt;/h3&gt;
+
+&lt;p&gt;I have become an avid reader of technical books, as well as popular non-fiction books like &amp;ldquo;&lt;a href=&#34;https://www.amazon.com/gp/product/1501111108/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=1501111108&amp;amp;linkCode=as2&amp;amp;tag=jaredririeblo-20&amp;amp;linkId=c173ddc20b9a9fcd700e582440ca8479&#34;&gt;Grit&lt;/a&gt;,&amp;rdquo; &amp;ldquo;&lt;a href=&#34;https://www.amazon.com/gp/product/0345472322/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=0345472322&amp;amp;linkCode=as2&amp;amp;tag=jaredririeblo-20&amp;amp;linkId=28b35ebce32bc00c963a529c58070d49&#34;&gt;Mindset&lt;/a&gt;,” and “&lt;a href=&#34;https://www.amazon.com/gp/product/1455554790/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=1455554790&amp;amp;linkCode=as2&amp;amp;tag=jaredririeblo-20&amp;amp;linkId=fff6e98d9dd5016e1aa4be73e0368874&#34;&gt;Work Rules!&lt;/a&gt;” ever since I graduated from college. I read five books each quarter, so 20 books/year. And by read, I really read &lt;em&gt;or&lt;/em&gt; listen; I&amp;rsquo;m an advocate of &lt;a href=&#34;https://www.amazon.com/gp/product/B00NB86OYE/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=B00NB86OYE&amp;amp;linkCode=as2&amp;amp;tag=jaredririeblo-20&amp;amp;linkId=627d0e41b121bbc9b5a33b365e23a2d7&#34;&gt;Audible&lt;/a&gt; and think it&amp;rsquo;s a solid investment.&lt;/p&gt;
+
+&lt;p&gt;I’m planning on writing a post for each book I read with a summary of the content, further learning it inspired, and my overall recommendation. Here are some books on my reading list:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/gp/product/B001GSTOAM/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=B001GSTOAM&amp;amp;linkCode=as2&amp;amp;tag=jaredririeblo-20&amp;amp;linkId=2596e9caf8f63700450812054449c5d0&#34;&gt;Clean Code&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/gp/product/1934356557/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=1934356557&amp;amp;linkCode=as2&amp;amp;tag=jaredririeblo-20&amp;amp;linkId=2bc3044e49259e2a806ec0d84738be0c&#34;&gt;SQL Antipatterns&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/gp/product/0984782850/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=0984782850&amp;amp;linkCode=as2&amp;amp;tag=jaredririeblo-20&amp;amp;linkId=06a672d4319440a648fcea507d939810&#34;&gt;Cracking the Coding Interview&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/gp/product/0062663070/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=0062663070&amp;amp;linkCode=as2&amp;amp;tag=jaredririeblo-20&amp;amp;linkId=f07f15aaa881d773ccfdbe396f4c7560&#34;&gt;Multipliers: How the Best Leaders Make Everyone Smarter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/gp/product/0060833459/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=0060833459&amp;amp;linkCode=as2&amp;amp;tag=jaredririeblo-20&amp;amp;linkId=67180a0eee99a76f7aca0cf432e84625&#34;&gt;Effective Executive&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;research-papers&#34;&gt;Research papers&lt;/h3&gt;
+
+&lt;p&gt;I was one week away from attending graduate school. I had accepted an offer and scholarship from the University of Wisconsin: Madison, enrolled in classes, and found an apartment. Then, in a last-minute decision, I walked away from it all a week before classes started. I&amp;rsquo;ll share the full story in a later blog.&lt;/p&gt;
+
+&lt;p&gt;While I still believe this was the correct choice given my circumstances, I regret not being able to delve into Computer Science research. Reading research papers has been more of a hit and miss for me than reading books. I hope this blog can serve as the necessary motivation to read more research papers and review them as blog entries. The research papers I have read, such as &lt;a href=&#34;https://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf&#34;&gt;Amazon’s well-known Dynamo paper&lt;/a&gt; have been influential in improving my design skills and identifying weak areas in my understanding.&lt;/p&gt;
+
+&lt;h3 id=&#34;up-and-coming-backend-technology&#34;&gt;Up-and-coming backend technology&lt;/h3&gt;
+
+&lt;p&gt;The backend is notably more stable than the frontend. The database terminology or &lt;a href=&#34;http://thesecretlivesofdata.com/raft/&#34;&gt;distributed consensus algorithm&lt;/a&gt; you learned a few years ago will still be relevant for a long time. Meanwhile, if you picked up AngularJS around the same time, you know it was soon eclipsed by Angular and then React and now maybe Vue.js.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://blog.jaredririe.com/public/images/service-mesh-istio-google-trends.png&#34; alt=&#34;Google Trends for Service Mesh and Istio&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;That said, the backend is still encapsulated in the ever-changing thing which is technology. “Service mesh” is one example of a backend idea that has only recently entered my vocabulary. It is a solution to dealing with the varied interactions between services in a network of microservices. &lt;a href=&#34;https://istio.io/docs/concepts/what-is-istio/overview/&#34;&gt;Istio&lt;/a&gt; is an example project I’ll cover in a later blog. I plan to regularly write about new technologies of this nature.&lt;/p&gt;
+
+&lt;h3 id=&#34;architecture-and-system-design&#34;&gt;Architecture and system design&lt;/h3&gt;
+
+&lt;p&gt;One of the benefits of working at a smaller company is the opportunity to be involved in key architectural discussions even early in your career. Such has been the case for me at Qualtrics where I have been able to influence large chunks of the backend. I know, however, that I&amp;rsquo;m still in my infancy in terms of my ability to design elegant solutions to cross-cutting problems in a system. I am confident that as I improve my system design skills, I will be able to make a bigger impact on the technical direction of my software team.&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+        <item>
+          <title>Yet Another Software Blog</title>
+          <link>https://blog.jaredririe.com/2018/07/02/yet-another-software-blog/</link>
+          <pubDate>Mon, 02 Jul 2018 00:00:00 UTC</pubDate>
+          <author>Jared Ririe</author>
+          <guid>https://blog.jaredririe.com/2018/07/02/yet-another-software-blog/</guid>
+          <description>
+
+&lt;p&gt;Welcome! This is the first post of my blog. If you’re reading this, you’re either arriving right on the ground floor or somehow I kept up with my goal to have an updated blog and you&amp;rsquo;re reading an older post. Either way, I’ll consider you a &lt;em&gt;founder&lt;/em&gt;. I hope that you can find value in the blog posts I have planned.&lt;/p&gt;
+
+&lt;h2 id=&#34;why-does-the-world-need-another-software-focused-blog&#34;&gt;Why does the world need another software-focused blog?&lt;/h2&gt;
+
+&lt;p&gt;While it&amp;rsquo;s true that we already have plenty of popular software blogs out there, like &lt;a href=&#34;https://martinfowler.com/&#34;&gt;Martin Fowler’s&lt;/a&gt; or &lt;a href=&#34;https://blog.codinghorror.com/&#34;&gt;Coding Horror&lt;/a&gt;, I recently convinced myself that *&lt;strong&gt;every* software engineer should have a blog.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Yes, we all need blogs, or at least some way to consistently distill what we’re learning down to a consumable format like a blog. Something incredible happens when we teach what we have learned to others: &lt;em&gt;it sticks&lt;/em&gt; (not necessarily with the learner, but with the teacher)! The most successful software engineers are not only constantly learning, they are teaching and mentoring others.&lt;/p&gt;
+
+&lt;p&gt;The goal I have in mind for this blog is to motivate myself to continue actively learning and compose my thoughts such that I&amp;rsquo;m able to clearly communicate new things I learn.&lt;/p&gt;
+
+&lt;h2 id=&#34;a-little-about-me&#34;&gt;A little about me&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://blog.jaredririe.com/public/images/DSC_0186.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;My name is Jared Ririe. I currently work as a Software Engineer at a great company, Qualtrics. It’s an engaging place to work and I get to tackle some genuinely interesting problems. It’s also small enough that I’ve been able to make a big impact despite being early in my career. The various projects I’ve worked on have taught me a lot about backend technologies, microservices, and distributed systems. I’m fortunate to work in this area as I’m truly passionate about it.&lt;/p&gt;
+
+&lt;p&gt;I graduated from Brigham Young University with a B.S. in Computer Engineering back in April 2016. Why CE and not CS? I wanted to understand how computers worked. I love low-level details and breaking down abstractions. I did always lean toward the software side of CE, however, and a part-time position at Qualtrics convinced me that software, not hardware, was my path forward.&lt;/p&gt;
+</description>
+        </item>
+      
+    
+      
+    
+
+  </channel>
+</rss>

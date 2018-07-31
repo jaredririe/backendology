@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Backendology</title>
+    <link>https://blog.jaredririe.com/categories/</link>
+    <description>Recent content in Categories on Backendology</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 23 Jul 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.jaredririe.com/categories/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Breaking Abstractions</title>
+      <link>https://blog.jaredririe.com/categories/breaking-abstractions/</link>
+      <pubDate>Mon, 23 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.jaredririe.com/categories/breaking-abstractions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>General</title>
+      <link>https://blog.jaredririe.com/categories/general/</link>
+      <pubDate>Sat, 14 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.jaredririe.com/categories/general/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Personal</title>
+      <link>https://blog.jaredririe.com/categories/personal/</link>
+      <pubDate>Mon, 02 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.jaredririe.com/categories/personal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Technical Books</title>
+      <link>https://blog.jaredririe.com/categories/technical-books/</link>
+      <pubDate>Mon, 30 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.jaredririe.com/categories/technical-books/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

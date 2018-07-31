@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Backendology</title>
+    <link>https://blog.jaredririe.com/post/</link>
+    <description>Recent content in Posts on Backendology</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 30 Jul 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.jaredririe.com/post/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Top 10 Books for New Software Engineers</title>
+      <link>https://blog.jaredririe.com/2018/07/30/top-software-books/</link>
+      <pubDate>Mon, 30 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.jaredririe.com/2018/07/30/top-software-books/</guid>
+      <description>I&amp;rsquo;m excited to share my top ten list of books new Software Engineers should invest in reading! These books have proved foundational in helping me transition from student to developer and deepen my skills.
+First, a disclaimer: there are some great books missing from this list because I haven&amp;rsquo;t read them yet. I want this list to be as authentic as possible and therefore I will not recommend a book until I&amp;rsquo;ve read it cover to cover.</description>
+    </item>
+    
+    <item>
+      <title>Breaking Down Abstractions: Database Indexes</title>
+      <link>https://blog.jaredririe.com/2018/07/23/database-indexes/</link>
+      <pubDate>Mon, 23 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.jaredririe.com/2018/07/23/database-indexes/</guid>
+      <description>In the introduction to this blog, I mentioned that I love breaking down abstractions to understand what makes them tick. This blog post is the first of many that will break down a fascinating abstraction.
+Abstraction Database indexes provide the abstraction of performant queries with the cost of some overhead during writes and additional storage space. As most workflows are read-heavy, the overhead of indexes is almost always worthwhile.</description>
+    </item>
+    
+    <item>
+      <title>What This Blog is All About</title>
+      <link>https://blog.jaredririe.com/2018/07/14/what-this-blog-is-all-about/</link>
+      <pubDate>Sat, 14 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.jaredririe.com/2018/07/14/what-this-blog-is-all-about/</guid>
+      <description>&amp;ldquo;Backended&amp;rdquo;?  There are only two hard things in Computer Science: cache invalidation and naming things (Phil Karlton).
+ Or, my favorite variant:
+ There are only two hard things in Computer Science: cache invalidation, naming things, and off by one errors (Unknown)
+ Naming is hard. Backended isn&amp;rsquo;t a real word. &amp;ldquo;Back ended&amp;rdquo; and its hyphened form &amp;ldquo;back-ended&amp;rdquo; do appear to be real words, though rarely used and completely unrelated to the purpose of this blog.</description>
+    </item>
+    
+    <item>
+      <title>Yet Another Software Blog</title>
+      <link>https://blog.jaredririe.com/2018/07/02/yet-another-software-blog/</link>
+      <pubDate>Mon, 02 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.jaredririe.com/2018/07/02/yet-another-software-blog/</guid>
+      <description>Welcome! This is the first post of my blog. If you’re reading this, you’re either arriving right on the ground floor or somehow I kept up with my goal to have an updated blog and you&amp;rsquo;re reading an older post. Either way, I’ll consider you a founder. I hope that you can find value in the blog posts I have planned.
+Why does the world need another software-focused blog? While it&amp;rsquo;s true that we already have plenty of popular software blogs out there, like Martin Fowler’s or Coding Horror, I recently convinced myself that *every* software engineer should have a blog.</description>
+    </item>
+    
+  </channel>
+</rss>

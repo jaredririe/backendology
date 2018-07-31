@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Breaking Abstractions on Backendology</title>
+    <link>https://blog.jaredririe.com/categories/breaking-abstractions/</link>
+    <description>Recent content in Breaking Abstractions on Backendology</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 23 Jul 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.jaredririe.com/categories/breaking-abstractions/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Breaking Down Abstractions: Database Indexes</title>
+      <link>https://blog.jaredririe.com/2018/07/23/database-indexes/</link>
+      <pubDate>Mon, 23 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.jaredririe.com/2018/07/23/database-indexes/</guid>
+      <description>In the introduction to this blog, I mentioned that I love breaking down abstractions to understand what makes them tick. This blog post is the first of many that will break down a fascinating abstraction.
+Abstraction Database indexes provide the abstraction of performant queries with the cost of some overhead during writes and additional storage space. As most workflows are read-heavy, the overhead of indexes is almost always worthwhile.</description>
+    </item>
+    
+  </channel>
+</rss>
