@@ -4,7 +4,7 @@
     "disablePathToLower": true,
     "languageCode": "en-us",
     "title": "Backendology",
-    "publishdir": "output",
+    "publishdir": "docs",
     "permalinks": {
         "post": ":year/:month/:day/:slug/",
         "fixed": ":title/"
@@ -24,8 +24,14 @@
         "fractions": false
     },
     "outputs": {
-        "home": ["HTML","RSS"],
-        "taxonomy": ["HTML","RSS"]
+        "home": [
+            "HTML",
+            "RSS"
+        ],
+        "taxonomy": [
+            "HTML",
+            "RSS"
+        ]
     },
     "outputformats": {
         "RSS": {
