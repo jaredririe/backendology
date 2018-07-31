@@ -2,48 +2,48 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Backendology</title>
-    <link>https://jaredririe.github.io/backended-blog/categories/</link>
+    <link>https://jaredririe.github.io/categories/</link>
     <description>Recent content in Categories on Backendology</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 23 Jul 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://jaredririe.github.io/backended-blog/categories/feed.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jaredririe.github.io/categories/feed.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Breaking Abstractions</title>
-      <link>https://jaredririe.github.io/backended-blog/categories/breaking-abstractions/</link>
+      <link>https://jaredririe.github.io/categories/breaking-abstractions/</link>
       <pubDate>Mon, 23 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://jaredririe.github.io/backended-blog/categories/breaking-abstractions/</guid>
+      <guid>https://jaredririe.github.io/categories/breaking-abstractions/</guid>
       <description></description>
     </item>
     
     <item>
       <title>General</title>
-      <link>https://jaredririe.github.io/backended-blog/categories/general/</link>
+      <link>https://jaredririe.github.io/categories/general/</link>
       <pubDate>Sat, 14 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://jaredririe.github.io/backended-blog/categories/general/</guid>
+      <guid>https://jaredririe.github.io/categories/general/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Personal</title>
-      <link>https://jaredririe.github.io/backended-blog/categories/personal/</link>
+      <link>https://jaredririe.github.io/categories/personal/</link>
       <pubDate>Mon, 02 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://jaredririe.github.io/backended-blog/categories/personal/</guid>
+      <guid>https://jaredririe.github.io/categories/personal/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Technical Books</title>
-      <link>https://jaredririe.github.io/backended-blog/categories/technical-books/</link>
+      <link>https://jaredririe.github.io/categories/technical-books/</link>
       <pubDate>Mon, 30 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://jaredririe.github.io/backended-blog/categories/technical-books/</guid>
+      <guid>https://jaredririe.github.io/categories/technical-books/</guid>
       <description></description>
     </item>
     

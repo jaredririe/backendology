@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Technical Books on Backendology</title>
-    <link>https://jaredririe.github.io/backended-blog/categories/technical-books/</link>
+    <link>https://jaredririe.github.io/categories/technical-books/</link>
     <description>Recent content in Technical Books on Backendology</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 30 Jul 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://jaredririe.github.io/backended-blog/categories/technical-books/feed.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jaredririe.github.io/categories/technical-books/feed.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Top 10 Books for New Software Engineers</title>
-      <link>https://jaredririe.github.io/backended-blog/2018/07/30/top-software-books/</link>
+      <link>https://jaredririe.github.io/2018/07/30/top-software-books/</link>
       <pubDate>Mon, 30 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://jaredririe.github.io/backended-blog/2018/07/30/top-software-books/</guid>
+      <guid>https://jaredririe.github.io/2018/07/30/top-software-books/</guid>
       <description>I&amp;rsquo;m excited to share my top ten list of books new Software Engineers should invest in reading! These books have proved foundational in helping me transition from student to developer and deepen my skills.
 First, a disclaimer: there are some great books missing from this list because I haven&amp;rsquo;t read them yet. I want this list to be as authentic as possible and therefore I will not recommend a book until I&amp;rsquo;ve read it cover to cover.</description>
     </item>

@@ -1,5 +1,5 @@
 {
-    "baseurl": "https://jaredririe.github.io/backended-blog/",
+    "baseurl": "https://jaredririe.github.io/",
     "rssLimit": 15,
     "disablePathToLower": true,
     "languageCode": "en-us",

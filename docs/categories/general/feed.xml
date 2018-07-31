@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>General on Backendology</title>
-    <link>https://jaredririe.github.io/backended-blog/categories/general/</link>
+    <link>https://jaredririe.github.io/categories/general/</link>
     <description>Recent content in General on Backendology</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 14 Jul 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://jaredririe.github.io/backended-blog/categories/general/feed.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jaredririe.github.io/categories/general/feed.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>What This Blog is All About</title>
-      <link>https://jaredririe.github.io/backended-blog/2018/07/14/what-this-blog-is-all-about/</link>
+      <link>https://jaredririe.github.io/2018/07/14/what-this-blog-is-all-about/</link>
       <pubDate>Sat, 14 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://jaredririe.github.io/backended-blog/2018/07/14/what-this-blog-is-all-about/</guid>
+      <guid>https://jaredririe.github.io/2018/07/14/what-this-blog-is-all-about/</guid>
       <description>&amp;ldquo;Backended&amp;rdquo;?  There are only two hard things in Computer Science: cache invalidation and naming things (Phil Karlton).
  Or, my favorite variant:
  There are only two hard things in Computer Science: cache invalidation, naming things, and off by one errors (Unknown)
