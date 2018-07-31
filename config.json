@@ -4,7 +4,6 @@
     "disablePathToLower": true,
     "languageCode": "en-us",
     "title": "Backendology",
-    "publishdir": "docs",
     "permalinks": {
         "post": ":year/:month/:day/:slug/",
         "fixed": ":title/"
