@@ -13,44 +13,50 @@ import (
 type Post struct {
 	Filename          string
 	PublishedFilename string
+	Slug              string
 	Title             string
 	Date              time.Time
 	Categories        []string
+	Tags              []string
 }
+
+const (
+	postDirectory = "content/post/"
+)
 
 var (
 	notesRegex = regexp.MustCompile(`[\n]---[\W]+# Notes`)
+	titleRegex = regexp.MustCompile(`^#[\s]+(.+)\n`)
 )
 
 var blogPosts = []Post{
 	{
-		Filename: "finished/yet-another-software-blog.md",
-		Title:    "Yet Another Software Blog",
-		Date:     date("July 2, 2018"),
-		// Categories: []string{"Personal"},
+		Filename:   "finished/yet-another-software-blog.md",
+		Date:       date("July 2, 2018"),
+		Categories: []string{"Personal"},
 	},
 	{
-		Filename: "finished/what-this-blog-is-all-about.md",
-		Title:    "What This Blog is All About",
-		Date:     date("July 14, 2018"),
+		Filename:   "finished/what-this-blog-is-all-about.md",
+		Date:       date("July 14, 2018"),
+		Categories: []string{"General"},
 	},
 	{
-		Filename: "finished/database-indexes.md",
-		Title:    "Breaking Down Abstractions: Database Indexes",
-		Date:     date("July 23, 2018"),
-		// Categories: []string{"Breaking Abstractions"},
+		Filename:   "finished/database-indexes.md",
+		Date:       date("July 23, 2018"),
+		Categories: []string{"Breaking Abstractions"},
+		Tags:       []string{"databases"},
 	},
 	{
-		Filename: "finished/top-software-books.md",
-		Title:    "Top 10 Books for New Software Engineers",
-		Date:     date("July 30, 2018"),
-		// Categories: []string{"Technical Books},
+		Filename:   "finished/top-software-books.md",
+		Date:       date("July 30, 2018"),
+		Categories: []string{"Technical Books"},
 	},
 }
 
 func main() {
 	for _, post := range blogPosts {
 		post.PublishedFilename = publishedFilename(post.Filename, post.Date)
+		post.Slug = slug(post.Filename)
 		processPost(post)
 	}
 }
@@ -84,6 +90,13 @@ func publishedFilename(filename string, date time.Time) string {
 	return strings.Join(filenameParts, "-")
 }
 
+func slug(filename string) string {
+	// get just the file's name (without path)
+	filename = filepath.Base(filename)
+
+	return strings.TrimSuffix(filename, filepath.Ext(filename))
+}
+
 func processPost(post Post) {
 	fmt.Println("Processing", post.PublishedFilename)
 
@@ -96,19 +109,38 @@ func processPost(post Post) {
 	contents := string(bytes)
 
 	// apply several transformations to the content
+	post.Title = extractTitle(&contents)
 	removeNotes(&contents)
+	correctRelativeImages(&contents)
 	addHeader(&contents, post)
 
 	// write the post under the _posts directory, as it's now
 	// ready to be published.
-	os.MkdirAll("_posts", 0755)
-	publishedFile, err := os.Create("_posts/" + post.PublishedFilename)
+	os.MkdirAll(postDirectory, 0755)
+	publishedFile, err := os.Create(postDirectory + post.PublishedFilename)
 	if err != nil {
 		panic(err)
 	}
 	defer publishedFile.Close()
 
 	publishedFile.Write([]byte(contents))
+}
+
+func extractTitle(contents *string) string {
+	var title string
+
+	matches := titleRegex.FindAllStringSubmatchIndex(*contents, -1)
+	if matches != nil && len(matches) > 0 && len(matches[0]) >= 4 {
+		// extract title
+		titleStart, titleEnd := matches[0][2], matches[0][3]
+		title = (*contents)[titleStart:titleEnd]
+
+		// remove heading (which contained the title)
+		headingStart, headingEnd := matches[0][0], matches[0][1]
+		*contents = (*contents)[0:headingStart] + (*contents)[headingEnd+1:]
+	}
+
+	return title
 }
 
 // removeNotes removes any notes at the end of the blog post.
@@ -125,15 +157,32 @@ func removeNotes(contents *string) {
 	}
 }
 
+func correctRelativeImages(contents *string) {
+	*contents = strings.Replace(*contents, "../images", "/public/images", -1)
+}
+
 func addHeader(contents *string, post Post) {
 	header := fmt.Sprintf(`---
-layout: post
-title:  "%s"
-date:   %d-%02d-%02d
-categories: %s
----
+title: "%s"
+author: "Jared Ririe"
+categories: "%s"
+date: %d-%02d-%02d
+slug: %s`,
+		post.Title,
+		strings.Join(post.Categories, " "),
+		post.Date.Year(), int(post.Date.Month()), post.Date.Day(),
+		post.Slug,
+	)
 
-`, post.Title, post.Date.Year(), int(post.Date.Month()), post.Date.Day(), strings.Join(post.Categories, " "))
+	if len(post.Tags) > 0 {
+		tags := "\ntags:"
+		for _, tag := range post.Tags {
+			tags += "\n- " + tag
+		}
+		header += tags
+	}
+
+	header += "\n---\n\n"
 
 	*contents = header + *contents
 }

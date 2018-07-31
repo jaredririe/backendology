@@ -1,11 +1,10 @@
 ---
-layout: post
-title:  "Yet Another Software Blog"
-date:   2018-07-02
-categories: 
+title: "Yet Another Software Blog"
+author: "Jared Ririe"
+categories: "Personal"
+date: 2018-07-02
+slug: yet-another-software-blog
 ---
-
-# Yet Another Software Blog
 
 Welcome! This is the first post of my blog. If you’re reading this, you’re either arriving right on the ground floor or somehow I kept up with my goal to have an updated blog and you're reading an older post. Either way, I’ll consider you a *founder*. I hope that you can find value in the blog posts I have planned.
 
@@ -19,7 +18,7 @@ The goal I have in mind for this blog is to motivate myself to continue actively
 
 ## A little about me
 
-![](../images/DSC_0186.jpg)
+![](/public/images/DSC_0186.jpg)
 
 My name is Jared Ririe. I currently work as a Software Engineer at a great company, Qualtrics. It’s an engaging place to work and I get to tackle some genuinely interesting problems. It’s also small enough that I’ve been able to make a big impact despite being early in my career. The various projects I’ve worked on have taught me a lot about backend technologies, microservices, and distributed systems. I’m fortunate to work in this area as I’m truly passionate about it.
 
