@@ -6,6 +6,8 @@
 
 ### Service mesh
 
+Should I do a blog post on service mesh and another on load-balancing/proxy layers and then do the Istio post?
+
 ## Overview: what is Istio?
 
 ### Client-side and server-side load balancing
