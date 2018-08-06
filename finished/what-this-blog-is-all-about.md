@@ -42,15 +42,15 @@ I have worked with a large variety of NoSQL databases in my time at Qualtrics. S
 
 ### Software and non-software books
 
-I have become an avid reader of technical books, as well as popular non-fiction books like "[Grit](https://www.amazon.com/gp/product/1501111108/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1501111108&linkCode=as2&tag=jaredririeblo-20&linkId=c173ddc20b9a9fcd700e582440ca8479)," "[Mindset](https://www.amazon.com/gp/product/0345472322/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0345472322&linkCode=as2&tag=jaredririeblo-20&linkId=28b35ebce32bc00c963a529c58070d49),” and “[Work Rules!](https://www.amazon.com/gp/product/1455554790/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1455554790&linkCode=as2&tag=jaredririeblo-20&linkId=fff6e98d9dd5016e1aa4be73e0368874)” ever since I graduated from college. I read five books each quarter, so 20 books/year. And by read, I really read *or* listen; I'm an advocate of [Audible](https://www.amazon.com/gp/product/B00NB86OYE/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00NB86OYE&linkCode=as2&tag=jaredririeblo-20&linkId=627d0e41b121bbc9b5a33b365e23a2d7) and think it's a solid investment.
+I have become an avid reader of technical books, as well as popular non-fiction books like [*Grit*](https://www.amazon.com/gp/product/1501111108/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1501111108&linkCode=as2&tag=jaredririeblo-20&linkId=c173ddc20b9a9fcd700e582440ca8479), [*Mindset*](https://www.amazon.com/gp/product/0345472322/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0345472322&linkCode=as2&tag=jaredririeblo-20&linkId=28b35ebce32bc00c963a529c58070d49), and [*Work Rules!*](https://www.amazon.com/gp/product/1455554790/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1455554790&linkCode=as2&tag=jaredririeblo-20&linkId=fff6e98d9dd5016e1aa4be73e0368874) ever since I graduated from college. I read five books each quarter, so 20 books/year. And by read, I really read *or* listen; I'm an advocate of [Audible](https://www.amazon.com/gp/product/B00NB86OYE/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00NB86OYE&linkCode=as2&tag=jaredririeblo-20&linkId=627d0e41b121bbc9b5a33b365e23a2d7) and think it's a solid investment.
 
 I’m planning on writing a post for each book I read with a summary of the content, further learning it inspired, and my overall recommendation. Here are some books on my reading list:
 
-* [Clean Code](https://www.amazon.com/gp/product/B001GSTOAM/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B001GSTOAM&linkCode=as2&tag=jaredririeblo-20&linkId=2596e9caf8f63700450812054449c5d0)
-* [SQL Antipatterns](https://www.amazon.com/gp/product/1934356557/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1934356557&linkCode=as2&tag=jaredririeblo-20&linkId=2bc3044e49259e2a806ec0d84738be0c)
-* [Cracking the Coding Interview](https://www.amazon.com/gp/product/0984782850/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0984782850&linkCode=as2&tag=jaredririeblo-20&linkId=06a672d4319440a648fcea507d939810)
-* [Multipliers: How the Best Leaders Make Everyone Smarter](https://www.amazon.com/gp/product/0062663070/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0062663070&linkCode=as2&tag=jaredririeblo-20&linkId=f07f15aaa881d773ccfdbe396f4c7560)
-* [Effective Executive](https://www.amazon.com/gp/product/0060833459/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0060833459&linkCode=as2&tag=jaredririeblo-20&linkId=67180a0eee99a76f7aca0cf432e84625)
+* [*Clean Code*](https://www.amazon.com/gp/product/B001GSTOAM/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B001GSTOAM&linkCode=as2&tag=jaredririeblo-20&linkId=2596e9caf8f63700450812054449c5d0)
+* [*SQL Antipatterns*](https://www.amazon.com/gp/product/1934356557/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1934356557&linkCode=as2&tag=jaredririeblo-20&linkId=2bc3044e49259e2a806ec0d84738be0c)
+* [*Cracking the Coding Interview*](https://www.amazon.com/gp/product/0984782850/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0984782850&linkCode=as2&tag=jaredririeblo-20&linkId=06a672d4319440a648fcea507d939810)
+* [*Multipliers: How the Best Leaders Make Everyone Smarter*](https://www.amazon.com/gp/product/0062663070/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0062663070&linkCode=as2&tag=jaredririeblo-20&linkId=f07f15aaa881d773ccfdbe396f4c7560)
+* [*The Effective Executive*](https://www.amazon.com/gp/product/0060833459/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0060833459&linkCode=as2&tag=jaredririeblo-20&linkId=67180a0eee99a76f7aca0cf432e84625)
 
 ### Research papers
 
@@ -62,7 +62,7 @@ While I still believe this was the correct choice given my circumstances, I regr
 
 The backend is notably more stable than the frontend. The database terminology or [distributed consensus algorithm](http://thesecretlivesofdata.com/raft/) you learned a few years ago will still be relevant for a long time. Meanwhile, if you picked up AngularJS around the same time, you know it was soon eclipsed by Angular and then React and now maybe Vue.js.
 
-![Google Trends for Service Mesh and Istio](../images/service-mesh-istio-google-trends.png)
+![Google Trends for Service Mesh and Istio](../static/public/images/service-mesh-istio-google-trends.png)
 
 That said, the backend is still encapsulated in the ever-changing thing which is technology. “Service mesh” is one example of a backend idea that has only recently entered my vocabulary. It is a solution to dealing with the varied interactions between services in a network of microservices. [Istio](https://istio.io/docs/concepts/what-is-istio/overview/) is an example project I’ll cover in a later blog. I plan to regularly write about new technologies of this nature.
 

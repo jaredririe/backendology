@@ -158,7 +158,7 @@ func removeNotes(contents *string) {
 }
 
 func correctRelativeImages(contents *string) {
-	*contents = strings.Replace(*contents, "../images", "/public/images", -1)
+	*contents = strings.Replace(*contents, "../static/public/images", "/public/images", -1)
 }
 
 func addHeader(contents *string, post Post) {
