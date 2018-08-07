@@ -15,7 +15,7 @@ date: "2018-07-14"
 slug: what-this-blog-is-all-about
 ---
 
-## "Backended"?
+## "Backendology"?
 
 > There are only two hard things in Computer Science: cache invalidation and naming things (Phil Karlton).
 
@@ -23,9 +23,7 @@ Or, my favorite variant:
 
 > There are only two hard things in Computer Science: cache invalidation, naming things, and off by one errors (Unknown)
 
-Naming is hard. Backended isn't a real word. "Back ended" and its hyphened form "back-ended" do appear to be real words, though rarely used and completely unrelated to the purpose of this blog. Like the programmer who decides to write a lengthy comment rather than coming up with a better name, I'll try to explain what I intended when I named this blog Backended.
-
-Backended draws obvious reference to the term "backend” as in backend or server-side web development. If it was a real word, I might say, "Because of my backended nature, writing frontend code is inherently painful." I find the problems that get solved on the backend to be incredibly interesting and therefore chose it as the underlying theme of my blog.
+Naming is hard. Backendology isn't a real word. Like the programmer who decides to write a lengthy comment rather than coming up with a better name, I'll try to explain what I intended when I named this blog Backendology. The name draws obvious reference to the term "backend” as in backend or server-side web development. The suffix "-logy" is a branch of learning, or study of a particular subject. Put together, this blog is a detailed study of the concepts and technologies related to backend web development.
 
 ## Topics I plan to cover
 
