@@ -4,6 +4,10 @@ author: "Jared Ririe"
 categories: "General"
 date: 2018-07-14
 slug: what-this-blog-is-all-about
+tags:
+- microservices
+- databases
+- golang
 ---
 
 ## "Backended"?

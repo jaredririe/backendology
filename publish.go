@@ -16,12 +16,22 @@ type Post struct {
 	Slug              string
 	Title             string
 	Date              time.Time
-	Categories        []string
+	Category          string
 	Tags              []string
 }
 
 const (
 	postDirectory = "content/post/"
+
+	personalCategory             = "Personal"
+	generalCategory              = "General"
+	breakingAbstractionsCategory = "Breaking Abstractions"
+	readingCategory              = "Reading"
+	golangCategory               = "Golang"
+
+	databasesTag     = "databases"
+	microservicesTag = "microservices"
+	golangTag        = "golang"
 )
 
 var (
@@ -31,25 +41,33 @@ var (
 
 var blogPosts = []Post{
 	{
-		Filename:   "finished/yet-another-software-blog.md",
-		Date:       date("July 2, 2018"),
-		Categories: []string{"Personal"},
+		Filename: "finished/yet-another-software-blog.md",
+		Date:     date("July 2, 2018"),
+		Category: personalCategory,
 	},
 	{
-		Filename:   "finished/what-this-blog-is-all-about.md",
-		Date:       date("July 14, 2018"),
-		Categories: []string{"General"},
+		Filename: "finished/what-this-blog-is-all-about.md",
+		Date:     date("July 14, 2018"),
+		Category: generalCategory,
+		Tags:     []string{microservicesTag, databasesTag, golangTag},
 	},
 	{
-		Filename:   "finished/database-indexes.md",
-		Date:       date("July 23, 2018"),
-		Categories: []string{"Breaking Abstractions"},
-		Tags:       []string{"databases"},
+		Filename: "finished/database-indexes.md",
+		Date:     date("July 23, 2018"),
+		Category: breakingAbstractionsCategory,
+		Tags:     []string{databasesTag},
 	},
 	{
-		Filename:   "finished/top-software-books.md",
-		Date:       date("July 30, 2018"),
-		Categories: []string{"Technical Books"},
+		Filename: "finished/top-software-books.md",
+		Date:     date("July 30, 2018"),
+		Category: readingCategory,
+		Tags:     []string{microservicesTag, golangTag, databasesTag},
+	},
+	{
+		Filename: "finished/lessons-from-adopting-go-qualtrics.md",
+		Date:     date("August 6, 2018"),
+		Category: golangCategory,
+		Tags:     []string{golangTag},
 	},
 }
 
@@ -162,6 +180,8 @@ func correctRelativeImages(contents *string) {
 }
 
 func addHeader(contents *string, post Post) {
+	// todo: use YAML generator
+
 	header := fmt.Sprintf(`---
 title: "%s"
 author: "Jared Ririe"
@@ -169,7 +189,7 @@ categories: "%s"
 date: %d-%02d-%02d
 slug: %s`,
 		post.Title,
-		strings.Join(post.Categories, " "),
+		post.Category,
 		post.Date.Year(), int(post.Date.Month()), post.Date.Day(),
 		post.Slug,
 	)

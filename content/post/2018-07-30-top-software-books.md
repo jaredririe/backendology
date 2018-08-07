@@ -1,9 +1,13 @@
 ---
 title: "Top 10 Books for New Software Engineers"
 author: "Jared Ririe"
-categories: "Technical Books"
+categories: "Reading"
 date: 2018-07-30
 slug: top-software-books
+tags:
+- microservices
+- golang
+- databases
 ---
 
 ![Top three software books](/public/images/top-software-books.jpg)
