@@ -8,6 +8,8 @@ import (
 	"regexp"
 	"strings"
 	"time"
+
+	"gopkg.in/yaml.v2"
 )
 
 type Post struct {
@@ -16,22 +18,76 @@ type Post struct {
 	Slug              string
 	Title             string
 	Date              time.Time
-	Category          string
-	Tags              []string
+	Category          categoryType
+	Tags              []tagType
+}
+
+type frontMatter struct {
+	Title      string       `yaml:title`
+	Author     string       `yaml:author`
+	Categories categoryType `yaml:categories`
+	Tags       []tagType    `yaml:tags,omitempty`
+	Date       string       `yaml:date`
+	Slug       string       `yaml:slug`
 }
 
 const (
 	postDirectory = "content/post/"
+)
 
-	personalCategory             = "Personal"
-	generalCategory              = "General"
-	breakingAbstractionsCategory = "Breaking Abstractions"
-	readingCategory              = "Reading"
-	golangCategory               = "Golang"
+type (
+	categoryType string
+	tagType      string
+)
 
-	databasesTag     = "databases"
-	microservicesTag = "microservices"
-	golangTag        = "golang"
+var (
+	category = struct {
+		Personal             categoryType
+		General              categoryType
+		BreakingAbstractions categoryType
+		Books                categoryType
+		Golang               categoryType
+		Research             categoryType
+	}{
+		"Personal",
+		"General",
+		"Breaking Abstractions",
+		"Books",
+		"Golang",
+		"Research",
+	}
+
+	tag = struct {
+		Databases          tagType
+		Architecture       tagType
+		Microservices      tagType
+		DistributedSystems tagType
+		CodingInterview    tagType
+		DataStructures     tagType
+		MachineLearning    tagType
+		NoSQL              tagType
+		SQL                tagType
+		Golang             tagType
+		Javascript         tagType
+		Qualtrics          tagType
+		BYU                tagType
+		Software           tagType
+	}{
+		"databases",
+		"architecture",
+		"microservices",
+		"distributed-systems",
+		"coding-interview",
+		"data-structures",
+		"machine-learning",
+		"nosql",
+		"sql",
+		"golang",
+		"javascript",
+		"qualtrics",
+		"byu",
+		"software",
+	}
 )
 
 var (
@@ -43,31 +99,32 @@ var blogPosts = []Post{
 	{
 		Filename: "finished/yet-another-software-blog.md",
 		Date:     date("July 2, 2018"),
-		Category: personalCategory,
+		Category: category.Personal,
+		Tags:     []tagType{tag.Software, tag.Qualtrics, tag.BYU},
 	},
 	{
 		Filename: "finished/what-this-blog-is-all-about.md",
 		Date:     date("July 14, 2018"),
-		Category: generalCategory,
-		Tags:     []string{microservicesTag, databasesTag, golangTag},
+		Category: category.General,
+		Tags:     []tagType{tag.Microservices, tag.Architecture, tag.DistributedSystems, tag.Databases, tag.NoSQL, tag.Golang, tag.Software},
 	},
 	{
 		Filename: "finished/database-indexes.md",
 		Date:     date("July 23, 2018"),
-		Category: breakingAbstractionsCategory,
-		Tags:     []string{databasesTag},
+		Category: category.BreakingAbstractions,
+		Tags:     []tagType{tag.Databases, tag.SQL, tag.NoSQL, tag.DataStructures},
 	},
 	{
 		Filename: "finished/top-software-books.md",
 		Date:     date("July 30, 2018"),
-		Category: readingCategory,
-		Tags:     []string{microservicesTag, golangTag, databasesTag},
+		Category: category.Books,
+		Tags:     []tagType{tag.Microservices, tag.Architecture, tag.CodingInterview, tag.Golang, tag.Javascript, tag.MachineLearning, tag.Databases, tag.NoSQL, tag.Software},
 	},
 	{
 		Filename: "finished/lessons-from-adopting-go-qualtrics.md",
 		Date:     date("August 6, 2018"),
-		Category: golangCategory,
-		Tags:     []string{golangTag},
+		Category: category.Golang,
+		Tags:     []tagType{tag.Golang, tag.Qualtrics, tag.Software},
 	},
 }
 
@@ -130,7 +187,7 @@ func processPost(post Post) {
 	post.Title = extractTitle(&contents)
 	removeNotes(&contents)
 	correctRelativeImages(&contents)
-	addHeader(&contents, post)
+	addFrontMatter(&contents, post)
 
 	// write the post under the _posts directory, as it's now
 	// ready to be published.
@@ -179,30 +236,21 @@ func correctRelativeImages(contents *string) {
 	*contents = strings.Replace(*contents, "../static/public/images", "/public/images", -1)
 }
 
-func addHeader(contents *string, post Post) {
-	// todo: use YAML generator
-
-	header := fmt.Sprintf(`---
-title: "%s"
-author: "Jared Ririe"
-categories: "%s"
-date: %d-%02d-%02d
-slug: %s`,
-		post.Title,
-		post.Category,
-		post.Date.Year(), int(post.Date.Month()), post.Date.Day(),
-		post.Slug,
-	)
-
-	if len(post.Tags) > 0 {
-		tags := "\ntags:"
-		for _, tag := range post.Tags {
-			tags += "\n- " + tag
-		}
-		header += tags
+func addFrontMatter(contents *string, post Post) {
+	fm := frontMatter{
+		Title:      post.Title,
+		Author:     "Jared Ririe",
+		Categories: post.Category,
+		Tags:       post.Tags,
+		Date:       fmt.Sprintf("%d-%02d-%02d", post.Date.Year(), int(post.Date.Month()), post.Date.Day()),
+		Slug:       post.Slug,
 	}
 
-	header += "\n---\n\n"
+	yaml, err := yaml.Marshal(&fm)
+	if err != nil {
+		panic(err)
+	}
 
-	*contents = header + *contents
+	yamlStr := fmt.Sprintf("---\n%s---\n\n", string(yaml))
+	*contents = yamlStr + *contents
 }

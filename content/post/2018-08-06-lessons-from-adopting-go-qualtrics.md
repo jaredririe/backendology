@@ -1,11 +1,13 @@
 ---
-title: "Lessons From Adopting Go at Qualtrics"
-author: "Jared Ririe"
-categories: "Golang"
-date: 2018-08-06
-slug: lessons-from-adopting-go-qualtrics
+title: Lessons From Adopting Go at Qualtrics
+author: Jared Ririe
+categories: Golang
 tags:
 - golang
+- qualtrics
+- software
+date: "2018-08-06"
+slug: lessons-from-adopting-go-qualtrics
 ---
 
 ![UTGO + Qualtrics](/public/images/utgo-qualtrics.png)

@@ -1,8 +1,12 @@
 ---
-title: "Yet Another Software Blog"
-author: "Jared Ririe"
-categories: "Personal"
-date: 2018-07-02
+title: Yet Another Software Blog
+author: Jared Ririe
+categories: Personal
+tags:
+- software
+- qualtrics
+- byu
+date: "2018-07-02"
 slug: yet-another-software-blog
 ---
 

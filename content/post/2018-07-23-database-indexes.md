@@ -1,11 +1,14 @@
 ---
-title: "Breaking Down Abstractions: Database Indexes"
-author: "Jared Ririe"
-categories: "Breaking Abstractions"
-date: 2018-07-23
-slug: database-indexes
+title: 'Breaking Down Abstractions: Database Indexes'
+author: Jared Ririe
+categories: Breaking Abstractions
 tags:
 - databases
+- sql
+- nosql
+- data-structures
+date: "2018-07-23"
+slug: database-indexes
 ---
 
 In the introduction to this blog, I mentioned that I love breaking down abstractions to understand what makes them tick. This blog post is the first of many that will break down a fascinating abstraction.

@@ -1,13 +1,17 @@
 ---
-title: "What This Blog is All About"
-author: "Jared Ririe"
-categories: "General"
-date: 2018-07-14
-slug: what-this-blog-is-all-about
+title: What This Blog is All About
+author: Jared Ririe
+categories: General
 tags:
 - microservices
+- architecture
+- distributed-systems
 - databases
+- nosql
 - golang
+- software
+date: "2018-07-14"
+slug: what-this-blog-is-all-about
 ---
 
 ## "Backended"?
