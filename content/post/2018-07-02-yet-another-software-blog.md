@@ -1,5 +1,6 @@
 ---
 title: Yet Another Software Blog
+featured_image: /public/images/DSC_0186.jpg
 author: Jared Ririe
 categories: Personal
 tags:

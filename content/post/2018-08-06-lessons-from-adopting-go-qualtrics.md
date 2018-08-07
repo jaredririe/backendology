@@ -1,5 +1,6 @@
 ---
 title: Lessons From Adopting Go at Qualtrics
+featured_image: /public/images/utgo-qualtrics.png
 author: Jared Ririe
 categories: Golang
 tags:

@@ -1,5 +1,6 @@
 ---
 title: Top 10 Books for New Software Engineers
+featured_image: /public/images/top-software-books.jpg
 author: Jared Ririe
 categories: Books
 tags:

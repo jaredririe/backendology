@@ -13,12 +13,13 @@ import (
 )
 
 type frontMatter struct {
-	Title      string       `yaml:"title"`
-	Author     string       `yaml:"author"`
-	Categories categoryType `yaml:"categories"`
-	Tags       []tagType    `yaml:"tags,omitempty"`
-	Date       string       `yaml:"date"`
-	Slug       string       `yaml:"slug"`
+	Title         string       `yaml:"title"`
+	FeaturedImage string       `yaml:"featured_image"`
+	Author        string       `yaml:"author"`
+	Categories    categoryType `yaml:"categories"`
+	Tags          []tagType    `yaml:"tags,omitempty"`
+	Date          string       `yaml:"date"`
+	Slug          string       `yaml:"slug"`
 }
 
 const (
@@ -128,12 +129,13 @@ func correctRelativeImages(contents *string) {
 
 func addFrontMatter(contents *string, post Post) {
 	fm := frontMatter{
-		Title:      post.Title,
-		Author:     "Jared Ririe",
-		Categories: post.Category,
-		Tags:       post.Tags,
-		Date:       fmt.Sprintf("%d-%02d-%02d", post.Date.Year(), int(post.Date.Month()), post.Date.Day()),
-		Slug:       post.Slug,
+		Title:         post.Title,
+		FeaturedImage: post.FeaturedImage,
+		Author:        "Jared Ririe",
+		Categories:    post.Category,
+		Tags:          post.Tags,
+		Date:          fmt.Sprintf("%d-%02d-%02d", post.Date.Year(), int(post.Date.Month()), post.Date.Day()),
+		Slug:          post.Slug,
 	}
 
 	yaml, err := yaml.Marshal(&fm)

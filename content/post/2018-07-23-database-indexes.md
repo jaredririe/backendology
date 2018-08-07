@@ -1,5 +1,6 @@
 ---
 title: 'Breaking Down Abstractions: Database Indexes'
+featured_image: /public/images/b+-tree.png
 author: Jared Ririe
 categories: Breaking Abstractions
 tags:
