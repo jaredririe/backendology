@@ -21,9 +21,17 @@ L. Peter Deutsch and others at Sun Microservices stated eight false assumptions 
 > 7. Transport cost is zero.
 > 8. The network is homogeneous.[^4]
 
+The network is reliable
+
+Latency is zero
+
+Topology doesn't change
+
 ### Change of mindset
 
-Working with distributed systems requires a change of mindset.
+Working with distributed systems requires a change of mindset. Most of us learned how to program by writing simple command-line applications. Perhaps your first program was the iconic "Hello, world" and then you progressed to code that could read in a file, make some changes and spit out another file. We develop a mental model of how our code executes with the simplified assumptions that can be made in a **single computer environment**. Once a system of computers must solve a problem *together*, the assumptions we could make before turn into misconceptions.
+
+Communicating with another computer is fundamentally different. The network which connects the computers is not reliable. Requests will take some non-zero amount of time to travel to and be processed by the other computer. Technically a function call within a computer is also a non-zero amount of time, but in the context of a networked system, we can disregard it (the optimizer may choose to in line the code in the function, literally removing it)
 
 ## Service mesh pattern
 
