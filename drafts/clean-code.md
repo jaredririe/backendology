@@ -150,3 +150,5 @@ Bad comments
 - Misleading
 - Mandated comments, like requiring one on every function and giving no new information
 - Document changes (that’s what Git is for)
+
+

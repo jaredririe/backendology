@@ -1,10 +1,10 @@
 # Microservices: Are We Making a Huge Mistake?
 
-There is a clear trend in the software industry moving away from large, monolithic systems to fine-grained services in the form of "microservices." While compelling, microservices introduce their own set of challenges and fallacies. This post considers the benefits and drawbacks of a microservices architecture (MSA).
+There is a clear trend in the software industry moving away from large, monolithic systems to fine-grained services in the form of "microservices." While compelling, microservices introduce their own set of challenges and fallacies. This post considers the benefits and drawbacks of a microservices architecture (MSA) and contemplates the question: are we making a huge mistake in adopting this kind of architecture?
 
 ## Relationship to "distributed systems"
 
-First, let's clear up some terminology that you may find confusing. A distributed system is a general term which refers to a network of independent computers that form a coherent system.  A microservices architecture, on the other hand, is a software development technique for building software systems that run on a distributed system. This kind of architecture encourages fine-grained services with lightweight, easy-to-use communication protocols like HTTP/S and RPC.
+First, let's clear up some terminology that you may find confusing. A distributed system is a general term which refers to a network of independent computers that form a coherent system. A microservices architecture, on the other hand, is a software development technique for building software systems that _run on a distributed system_. This kind of architecture encourages fine-grained services with lightweight, easy-to-use communication protocols like HTTP/S and RPC.
 
 Building a microservices architecture implies utilizing a distributed system[^3]. This is *not* an implication to be taken lightly. The foundation of a distributed system has several key fallacies that must be understood in order to build a reliable system!
 
@@ -21,15 +21,23 @@ L. Peter Deutsch and others at Sun Microservices stated eight false assumptions 
 > 7. Transport cost is zero.
 > 8. The network is homogeneous.[^4]
 
-The network is reliable
+#### Never assume the network is reliable.
 
-Latency is zero
+When writing code that calls an external service, remember to handle failure scenarios. What happens if your request never makes it to the other service? Will you retry, propagate the failure upwards, log an error, or do nothing? If you choose to retry, at what rate will you retry and for how long? What if your request is making it to the external service and being processed but the response is never making it back to you?
 
-Topology doesn't change
+When a system is a traditional monolith, the external service is just another part of the monolith so you’re just making a function call, not a network call; if you’re up, they’re up. The failure modes are limited.
+
+#### Network latency is not zero.
+
+Although it takes time to make a function call, it’s so minimal that for most purposes it can be considered zero latency. A network call on the other hand will take a nontrivial amount of time (maybe 2ms). When moving to microservices, it’s important to be mindful when crossing service boundaries. Perhaps your algorithm used to make a few thousand function calls in a monolith. For MSA, the system was split into services such that your function calls become network calls. This does not impact the Big-O runtime of the algorithm but it does change the constant! Could the result of the call be cached? Could the number of calls be reduced?
+
+
+
+Topology doesn’t change
 
 ### Change of mindset
 
-Working with distributed systems requires a change of mindset. Most of us learned how to program by writing simple command-line applications. Perhaps your first program was the iconic "Hello, world" and then you progressed to code that could read in a file, make some changes and spit out another file. We develop a mental model of how our code executes with the simplified assumptions that can be made in a **single computer environment**. Once a system of computers must solve a problem *together*, the assumptions we could make before turn into misconceptions.
+Working with distributed systems requires a change of mindset. Most of us learned how to program by writing simple command-line applications. Perhaps your first program was the iconic “Hello, world” and then you progressed to code that could read in a file, make some changes and spit out another file. We develop a mental model of how our code executes with the simplified assumptions that can be made in a **single computer environment**. Once a system of computers must solve a problem *together*, the assumptions we could make before turn into misconceptions.
 
 Communicating with another computer is fundamentally different. The network which connects the computers is not reliable. Requests will take some non-zero amount of time to travel to and be processed by the other computer. Technically a function call within a computer is also a non-zero amount of time, but in the context of a networked system, we can disregard it (the optimizer may choose to in line the code in the function, literally removing it)
 
