@@ -49,6 +49,13 @@ var blogPosts = []Post{
 		Category:      category.Golang,
 		Tags:          []tagType{tag.Golang, tag.Qualtrics, tag.Software},
 	},
+	{
+		Filename:      "../finished/experience-using-hugo.md",
+		FeaturedImage: "/public/images/hugo.png",
+		Date:          date("August 13, 2018"),
+		Category:      category.Golang,
+		Tags:          []tagType{tag.Golang, tag.Blogging, tag.Hugo},
+	},
 }
 
 type (
@@ -88,6 +95,8 @@ var (
 		Qualtrics          tagType
 		BYU                tagType
 		Software           tagType
+		Blogging           tagType
+		Hugo               tagType
 	}{
 		"databases",
 		"architecture",
@@ -103,6 +112,8 @@ var (
 		"qualtrics",
 		"byu",
 		"software",
+		"blogging",
+		"hugo",
 	}
 )
 
