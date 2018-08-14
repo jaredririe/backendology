@@ -22,7 +22,7 @@
     "blackfriday": {
         "fractions": false
     },
-    "googleAnalytics": "UA-123822452-1",
+    "googleAnalytics": "UA-123885643-1",
     "outputs": {
         "home": [
             "HTML",
