@@ -22,6 +22,9 @@
     "blackfriday": {
         "fractions": false
     },
+    "pygmentsStyle": "monokai",
+    "pygmentsCodefences": true,
+    "pygmentsCodefencesGuessSyntax": true,
     "googleAnalytics": "UA-123885643-1",
     "outputs": {
         "home": [
