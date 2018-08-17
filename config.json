@@ -1,5 +1,5 @@
 {
-    "baseurl": "https://backendology.com",
+    "baseurl": "http://backendology.com",
     "rssLimit": 15,
     "disablePathToLower": true,
     "languageCode": "en-us",
