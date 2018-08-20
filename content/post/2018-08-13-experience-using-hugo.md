@@ -2,7 +2,8 @@
 title: My Experience Using Hugo
 featured_image: /public/images/hugo.png
 author: Jared Ririe
-categories: Golang
+categories:
+- Golang
 tags:
 - golang
 - blogging

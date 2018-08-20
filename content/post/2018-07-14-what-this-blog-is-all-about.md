@@ -2,7 +2,8 @@
 title: What This Blog is All About
 featured_image: /public/images/topics-outline.png
 author: Jared Ririe
-categories: General
+categories:
+- General
 tags:
 - microservices
 - architecture
