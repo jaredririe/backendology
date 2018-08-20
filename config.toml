@@ -1,0 +1,61 @@
+baseurl = "http://backendology.com/"
+languageCode = "en-us"
+title = "Backendology"
+theme = "hugo-material-docs"
+metadataformat = "yaml"
+canonifyurls = true
+# Enable Google Analytics by entering your tracking id
+googleAnalytics = ""
+
+[params]
+    # General information
+    author = "Jared Ririe"
+    description = "Backend"
+    copyright = "Released under the MIT license"
+
+    logo = "images/logo.png"
+    favicon = ""
+
+    permalink = "#"
+
+    # Custom assets
+    custom_css = []
+    custom_js  = []
+
+    # Syntax highlighting theme
+    highlight_css  = ""
+
+    [params.palette]
+        primary = "grey"
+        accent  = "blue"
+
+    [params.font]
+        text = "Ubuntu"
+        code = "Ubuntu Mono"
+
+[social]
+    twitter = "jaredririe"
+    github  = "jaredririe"
+    email   = "hello@email.com"
+
+
+[[menu.main]]
+    name   = "Blog Posts"
+    url    = "post"
+    weight = 0
+
+[[menu.main]]
+    name   = "About"
+    url    = "fixed/about.md"
+    weight = 10
+
+[[menu.main]]
+    name   = "Fixed"
+    url    = "fixed/"
+    weight = 20
+
+[blackfriday]
+    smartypants = true
+    fractions = true
+    smartDashes = true
+    plainIDAnchors = true
