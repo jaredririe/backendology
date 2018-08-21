@@ -56,6 +56,13 @@ var blogPosts = []Post{
 		Category:      category.Golang,
 		Tags:          []tagType{tag.Golang, tag.Blogging, tag.Hugo},
 	},
+	{
+		Filename:      "../finished/microservices-huge-mistake.md",
+		FeaturedImage: "/public/images/microservices-entanglement.png",
+		Date:          date("August 21, 2018"),
+		Category:      category.Microservices,
+		Tags:          []tagType{tag.Architecture, tag.Microservices, tag.DistributedSystems},
+	},
 }
 
 type (
@@ -71,6 +78,7 @@ var (
 		Books                categoryType
 		Golang               categoryType
 		Research             categoryType
+		Microservices        categoryType
 	}{
 		"Personal",
 		"General",
@@ -78,6 +86,7 @@ var (
 		"Books",
 		"Golang",
 		"Research",
+		"Microservices",
 	}
 
 	tag = struct {
