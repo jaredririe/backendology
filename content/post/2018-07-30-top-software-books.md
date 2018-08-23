@@ -25,6 +25,17 @@ First, a disclaimer: there are some great books missing from this list because I
 
 ## Top Ten
 
+* [The Master Algorithm](#10-the-master-algorithm)
+* [The Pragmatic Programmer](#9-the-pragmatic-programmer)
+* [Eloquent JavaScript](#8-eloquent-javascript-print-free-online-version)
+* [Go In Practice](#7-go-in-practice)
+* [Cracking the Coding Interview](#6-cracking-the-coding-interview)
+* [The Complete Software Developer's Career Guide](#5-the-complete-software-developers-career-guide)
+* [Clean Architecture](#4-clean-architecture)
+* [Building Microservices](#3-building-microservices)
+* [NoSQL Distilled](#2-nosql-distilled)
+* [Designing Data-Intensive Applications](#1-designing-data-intensive-applications)
+
 ### 10. [*The Master Algorithm*](https://www.amazon.com/gp/product/0465094279/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0465094279&linkCode=as2&tag=jaredririeblo-20&linkId=b298988a7eb225433e4447285d456a84)
 
 *The Master Algorithm* is a high-level introduction of both the history and latest advances within Machine Learning. While you may not be a data scientist or particularly passionate about this area of Computer Science, it's becoming increasingly important to have at least a cursory understanding of Machine Learning. This book fills this need of providing exposure without dragging the reader into the deep end; that said, it's definitely a technical and challenging book.
