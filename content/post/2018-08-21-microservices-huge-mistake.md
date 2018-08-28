@@ -2,7 +2,7 @@
 title: 'Microservices: Are We Making a Huge Mistake?'
 featured_image: /public/images/microservices-entanglement.png
 author: Jared Ririe
-categories: Microservices
+categories: Architecture
 tags:
 - architecture
 - microservices
