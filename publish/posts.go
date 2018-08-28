@@ -60,8 +60,15 @@ var blogPosts = []Post{
 		Filename:      "../finished/microservices-huge-mistake.md",
 		FeaturedImage: "/public/images/microservices-entanglement.png",
 		Date:          date("August 21, 2018"),
-		Category:      category.Microservices,
+		Category:      category.Architecture,
 		Tags:          []tagType{tag.Architecture, tag.Microservices, tag.DistributedSystems},
+	},
+	{
+		Filename:      "../finished/multiple-layers-caching.md",
+		FeaturedImage: "/public/images/caching-worker.png",
+		Date:          date("August 27, 2018"),
+		Category:      category.Architecture,
+		Tags:          []tagType{tag.Architecture, tag.Caching, tag.Microservices, tag.DistributedSystems, tag.NoSQL},
 	},
 }
 
@@ -78,7 +85,7 @@ var (
 		Books                categoryType
 		Golang               categoryType
 		Research             categoryType
-		Microservices        categoryType
+		Architecture         categoryType
 	}{
 		"Personal",
 		"General",
@@ -86,7 +93,7 @@ var (
 		"Books",
 		"Golang",
 		"Research",
-		"Microservices",
+		"Architecture",
 	}
 
 	tag = struct {
@@ -97,6 +104,7 @@ var (
 		CodingInterview    tagType
 		DataStructures     tagType
 		MachineLearning    tagType
+		Caching            tagType
 		NoSQL              tagType
 		SQL                tagType
 		Golang             tagType
@@ -114,6 +122,7 @@ var (
 		"coding-interview",
 		"data-structures",
 		"machine-learning",
+		"caching",
 		"nosql",
 		"sql",
 		"golang",

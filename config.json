@@ -11,7 +11,7 @@
     "theme": "lanyon-hugo",
     "params": {
         "Title": "Backendology",
-        "Tagline": "A study of the backend by Jared Ririe",
+        "Tagline": "A study of backend web development by Jared Ririe",
         "Author": "Jared Ririe",
         "GitHubUser": "jaredririe",
         "TwitterUser": "jaredririe",
