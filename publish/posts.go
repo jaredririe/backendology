@@ -70,6 +70,13 @@ var blogPosts = []Post{
 		Category:      category.Architecture,
 		Tags:          []tagType{tag.Architecture, tag.Caching, tag.Microservices, tag.DistributedSystems, tag.NoSQL},
 	},
+	{
+		Filename:      "../finished/hugo-newsletter.md",
+		FeaturedImage: "/public/images/newsletter-12.png",
+		Date:          date("August 31, 2018"),
+		Category:      category.General,
+		Tags:          []tagType{tag.Blogging, tag.Hugo},
+	},
 }
 
 type (
