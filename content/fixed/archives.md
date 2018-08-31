@@ -1,8 +1,10 @@
 ---
-title: "All Posts"
-author: "Jared Ririe"
+title: All Posts
+author: Jared Ririe
 date: 2018-07-01
 url: /archives/
-type: fixed
+sidebar: true
+weight: 2
 layout: archives
+type: fixed
 ---
