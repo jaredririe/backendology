@@ -5,6 +5,7 @@
   <span class="post-date">{{ .Site.Params.DateForm | default "January 2, 2006" | .Date.Format }} &middot; Filed in <a href="/categories/{{ .Params.Categories | lower }}">{{ .Params.Categories }}</a></span>
   {{ .Content }}
 
+
   <h3>Metadata and Navigation</h3>
   <span class="post-meta">
   {{ range .Params.tags }}<i class="fa fa-tag" aria-hidden="true"></i>&#160;<a href="/tags/{{ . | lower }}">{{ . }}</a> {{ end }}
@@ -20,12 +21,15 @@
   {{- end }}
   </span>
 
-  <span class="post-sharing">
-  <p>Share this post!<br />
+  <h3>Subscribe</h3>
+  <p><a href="/subscribe">Subscribe via my newsletter or RSS feed</a></p>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}" title="Share on Facebook"><i class="fa fa-facebook-square fa-2x"></i></a>
-  <a href="https://twitter.com/intent/tweet?url={{ .Permalink }}&text={{ .Title }}" title="Share on Twitter"><i class="fa fa-twitter-square fa-2x"></i></a>
-  <a href="https://plus.google.com/share?url={{ .Permalink }}" title="Share on Google Plus"><i class="fa fa-google-plus-square fa-2x"></i></a></p>
+  <span class="post-sharing">
+    <h3>Share this post!</h3>
+
+    <a href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}" title="Share on Facebook"><i class="fa fa-facebook-square fa-2x"></i></a>
+    <a href="https://twitter.com/intent/tweet?url={{ .Permalink }}&text={{ .Title }}" title="Share on Twitter"><i class="fa fa-twitter-square fa-2x"></i></a>
+    <a href="https://plus.google.com/share?url={{ .Permalink }}" title="Share on Google Plus"><i class="fa fa-google-plus-square fa-2x"></i></a></p>
   </span>
 </div>
 

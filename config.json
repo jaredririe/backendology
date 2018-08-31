@@ -1,5 +1,5 @@
 {
-    "baseurl": "http://backendology.com",
+    "baseurl": "https://backendology.com",
     "rssLimit": 15,
     "disablePathToLower": true,
     "languageCode": "en-us",
@@ -16,6 +16,7 @@
         "GitHubUser": "jaredririe",
         "TwitterUser": "jaredririe",
         "LinkedInUser": "jaredririe",
+        "NewsletterSignup": "https://tinyletter.com/jaredririe",
         "Description": "A detailed study of the concepts and technologies related to backend web development",
         "DateForm": "January 2, 2006"
     },

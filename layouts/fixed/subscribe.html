@@ -1,0 +1,11 @@
+{{ partial "default_head.html" . }}
+
+<div class="post">
+  <h1 class="post-title">{{ .Title }}</h1>
+
+  <p>Thank you for reading my blog!</p>
+  <p>Sign up for my <a href="{{ .Site.Params.NewsletterSignup }}">email newsletter</a> or use this <a href="/feed.xml">RSS feed</a> to get notified of new blog posts.</p>
+
+</div>
+
+{{ partial "default_foot.html" . }}
