@@ -23,7 +23,7 @@ The goal I have in mind for this blog is to motivate myself to continue actively
 
 ## A little about me
 
-![](/public/images/DSC_0186.jpg)
+<img src="/public/images/DSC_0186.jpg" width="100%" alt="" />
 
 My name is Jared Ririe. I currently work as a Software Engineer at a great company, Qualtrics. It’s an engaging place to work and I get to tackle some genuinely interesting problems. It’s also small enough that I’ve been able to make a big impact despite being early in my career. The various projects I’ve worked on have taught me a lot about backend technologies, microservices, and distributed systems. I’m fortunate to work in this area as I’m truly passionate about it.
 

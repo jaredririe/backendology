@@ -15,7 +15,7 @@ As my blog is still in its infancy, I have been exploring various blogging platf
 
 ## What is Hugo?
 
-![Hugo](/public/images/hugo.png)
+<img src="/public/images/hugo.png" width="100%" alt="Hugo" />
 
 [Hugo](https://gohugo.io/) is an open-source static site generator known for its performance and flexibility. Hugo was initially released in 2013 and has quickly grown in popularity. It is written in Go which is what pushed me to give it a shot.
 

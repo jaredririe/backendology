@@ -17,7 +17,7 @@ date: "2018-07-30"
 slug: top-software-books
 ---
 
-![Top three software books](/public/images/top-software-books.jpg)
+<img src="/public/images/top-software-books.jpg" width="100%" alt="Top three software books" />
 
 I'm excited to share my top ten list of books new Software Engineers should invest in reading! These books have proved foundational in helping me transition from student to developer and deepen my skills.
 

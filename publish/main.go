@@ -29,6 +29,7 @@ const (
 var (
 	notesRegex = regexp.MustCompile(`[\n]---[\W]+# Notes`)
 	titleRegex = regexp.MustCompile(`^#[\s]+(.+)\n`)
+	imageRegex = regexp.MustCompile(`!\[([^\]]*)]\(([^\)]*)\)`)
 )
 
 func main() {
@@ -78,6 +79,7 @@ func processPost(post Post) {
 	post.Title = extractTitle(&contents)
 	removeNotes(&contents)
 	correctRelativeImages(&contents)
+	markdownToImgTag(&contents)
 	addFrontMatter(&contents, post)
 
 	// write the post under the _posts directory, as it's now
@@ -125,6 +127,39 @@ func removeNotes(contents *string) {
 
 func correctRelativeImages(contents *string) {
 	*contents = strings.Replace(*contents, "../static/public/images", "/public/images", -1)
+}
+
+func markdownToImgTag(contents *string) {
+	matches := imageRegex.FindAllStringSubmatchIndex(*contents, -1)
+	if matches == nil {
+		return
+	}
+
+	var before, after []string
+	for i := range matches {
+		if len(matches[i]) <= 5 {
+			continue
+		}
+
+		var (
+			imageStart, imageEnd = matches[i][0], matches[i][1]
+			altStart, altEnd     = matches[i][2], matches[i][3]
+			linkStart, linkEnd   = matches[i][4], matches[i][5]
+		)
+
+		// create img tag
+		alt := (*contents)[altStart:altEnd]
+		link := (*contents)[linkStart:linkEnd]
+		imgTag := fmt.Sprintf(`<img src="%s" width="100%%" alt="%s" />`, link, alt)
+
+		before = append(before, (*contents)[imageStart:imageEnd])
+		after = append(after, imgTag)
+	}
+
+	// make all batched changes
+	for i := 0; i < len(before); i++ {
+		*contents = strings.Replace((*contents), before[i], after[i], 1)
+	}
 }
 
 func addFrontMatter(contents *string, post Post) {

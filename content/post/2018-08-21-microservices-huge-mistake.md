@@ -68,11 +68,11 @@ Here are the primary challenges related to microservices which I have experience
 
 The first few microservices which are built will likely require modernizations to the infrastructure to handle problems like service discovery and independent deployability. These improvements, though difficult, push the architecture in the right direction. Often, the first services which are implemented are carefully deliberated and their need is clear. An example of this from my company was a well-placed reverse proxy cache for a monolithic service. It was a clear and impressive win for our system's scalability.
 
-![Reverse Proxy Cache](/public/images/microservices-reverse-proxy-cache.png)
+<img src="/public/images/microservices-reverse-proxy-cache.png" width="100%" alt="Reverse Proxy Cache" />
 
 As more microservices are added, however, **the entanglement begins**, raising the cognitive load required to understand the details of how the system really works. The flow of requests through the system is challenging and convoluted.
 
-![Entanglement of Microservices](/public/images/microservices-entanglement.png)
+<img src="/public/images/microservices-entanglement.png" width="100%" alt="Entanglement of Microservices" />
 
 The need for orchestration, service-to-service software load balancing, and improved fault tolerance becomes evident. The service mesh pattern is one response to the growing complexity of operating microservices at scale. This pattern places a layer of abstraction between a service and the network that presents a more idealized view. For example, instead of all applications handling their own retry logic, the service mesh layer can implement retries with exponential backoff[^5] by default.
 
@@ -94,7 +94,7 @@ Deployments sometimes must be coordinated. Imagine that service A owned by one t
 
 Each microservices requires much of the same functionality, which requires all developers to have at least some understanding of things like logging, emitting metrics, creating dashboards, and communicating with other services. While some microservices will nail these aspects, others will have problems, and still others will be missing them entirely. In a monolith, the logging infrastructure only has to be set up once and all components can take advantage of it. This also means that there is a great deal of duplication among microservices, though this can be mitigated in part through shared libraries and gateway layers which provide common functionality.
 
-![API Gateway](/public/images/microservices-gateway-pattern.png)
+<img src="/public/images/microservices-gateway-pattern.png" width="100%" alt="API Gateway" />
 
 ## Benefits of microservices
 

@@ -3,8 +3,8 @@
 <div class="post">
   <h1 class="post-title">{{ .Title }}</h1>
   <span class="post-date">{{ .Site.Params.DateForm | default "January 2, 2006" | .Date.Format }} &middot; Filed in <a href="/categories/{{ .Params.Categories | lower }}">{{ .Params.Categories }}</a></span>
-  {{ .Content }}
 
+  {{ .Content }}
 
   <h3>Metadata and Navigation</h3>
   <span class="post-meta">

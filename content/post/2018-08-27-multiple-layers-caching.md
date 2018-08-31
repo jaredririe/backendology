@@ -19,7 +19,7 @@ Caching is one of my favorite topics in technology. I've been fortunate enough t
 
 One of the systems I built at Qualtrics could be described as the "back of the backend" as it was a critical storage system that many services relied on, yet had no service dependencies itself. In this position, it was subject to any and all misuse by its consumers. It suffered from what I grew to call the **multiplier effect**, a condition where a single request (perhaps from a user clicking a button in a UI) caused a few hundred requests and for each one of those requests, issued several more requests, and so on, leading to potentially thousands of requests making it to the back of the backend. I recall determining that the cause of 17,000 requests to my service within a few minutes was caused by the click of an Export button.
 
-![Multiplier Effect](/public/images/caching-multiplier-effect.png)
+<img src="/public/images/caching-multiplier-effect.png" width="100%" alt="Multiplier Effect" />
 
 Let's talk about those 17,000 requests some more. If each request was unique and necessary for the result to be produced, then so be it. We should scale our services to handle the load. Maybe throw in some rate limiting so we can throttle the traffic at the cost of increased latency. As you can probably guess in the context of a blog post on caching, however, these 17,000 requests were for a mere handful of objects _that rarely change_!
 
@@ -39,7 +39,7 @@ Let's talk through each of these cases and see if we can come up with a way to s
 
 Example scenario: the client is pulling jobs off of a queue, doing some work, making requests to external services, and moving onto the next job. Each job starts with an allotted amount of memory and can’t reasonably cache things in that space.
 
-![Stateless Worker Cache](/public/images/caching-worker.png)
+<img src="/public/images/caching-worker.png" width="100%" alt="Stateless Worker Cache" />
 
 Potential solution: make requests through a reverse proxy cache. This is a proxy layer with a cache that represents an external API. When a request is received, it determines whether a cached response is ready; if not, it makes the request to the external API and caches it for later. Not all requests will be cacheable, so this service acts as a best-effort caching layer that reserves the right to fall back on the "origin" external service.
 
@@ -61,7 +61,7 @@ My first in-depth introduction to the concept of caching was in the context of h
 
 The memory hierarchy organizes the various forms of computer storage (CPU caches, RAM, disks) according to response time. The registers in a processor are the fastest possible, usually requiring only a single CPU cycle to retrieve their contents. Next is the processor cache which itself has multiple levels (L0, L1, and so on). Access speed for L1 data cache is around 700 GB/s. Next in the hierarchy is main memory (RAM) with speeds of 10 GB/s. Then comes disk storage at 2000 MB/s. The bottom of the hierarchy varies depending on use case, but could be a cloud-based storage system or nearline storage which allows exabytes of data at an access speed of 160 MB/s.
 
-![Memory Hierarchy](/public/images/caching-memory-hierarchy.png)
+<img src="/public/images/caching-memory-hierarchy.png" width="100%" alt="Memory Hierarchy" />
 
 Each storage system in the hierarchy can be thought of as a caching layer. Just like a computer system would be terribly slow and unusable without RAM, a distributed system without some layers of caching would likewise not perform optimally. What we're seeing here is the benefit of data locality. A RAM cache is much faster than a disk-based cache, but cache memory is much faster than a RAM cache because it's so close to the CPU! When we can get data close to the system that's processing it, our throughput increases dramatically.
 

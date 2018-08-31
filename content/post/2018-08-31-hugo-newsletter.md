@@ -18,7 +18,7 @@ I suppose this is as good a time as any to encourage you to [sign up for my news
 
 ### Step 1: Set up a TinyLetter account
 
-![Step 1](/public/images/newsletter-01.png)
+<img src="/public/images/newsletter-01.png" width="100%" alt="Step 1" />
 
 TinyLetter is a personal newsletter service created by the same people who make MailChimp.
 
@@ -30,7 +30,7 @@ Unfortunately, the company plans to merge TinyLetter into their MailChimp offeri
 
 ### Step 2: Configure your newsletter
 
-![Step 2](/public/images/newsletter-02.png)
+<img src="/public/images/newsletter-02.png" width="100%" alt="Step 2" />
 
 Configure your newsletter with a title and description. These will appear on a subscriber page your readers will use to enter their email addresses. [Here](https://tinyletter.com/jaredririe) is what mine looks like.
 
@@ -46,19 +46,19 @@ We'll configure Zapier to check your blog's RSS feed every 5 minutes. When it de
 
 ### Step 3: Set up a Zapier account
 
-![Step 3](/public/images/newsletter-03.png)
+<img src="/public/images/newsletter-03.png" width="100%" alt="Step 3" />
 
 Sign up for a free Zapier account [here](https://zapier.com/apps/integrations).
 
 ### Step 4: Create a new Zap
 
-![Step 4](/public/images/newsletter-04.png)
+<img src="/public/images/newsletter-04.png" width="100%" alt="Step 4" />
 
 ### Step 5: Configure the trigger to be an RSS feed
 
-![Step 5a](/public/images/newsletter-05.png)
+<img src="/public/images/newsletter-05.png" width="100%" alt="Step 5a" />
 
-![Step 5b](/public/images/newsletter-06.png)
+<img src="/public/images/newsletter-06.png" width="100%" alt="Step 5b" />
 
 Your blog should have a publicly exposed RSS feed for this to work. [Here's mine](https://backendology.com/feed.xml) to see what it might look like.
 
@@ -66,21 +66,21 @@ Your blog should have a publicly exposed RSS feed for this to work. [Here's mine
 
 This zap will be quite simple and have a single action, to send an outbound email; the implication of this is that I'll send a newsletter about each new blog post. You may want your zap to be a bit more complicated. For example, let's assume that you write a few posts each month, but would only like to send an email once a month with a _digest_ of your posts. To get this working, your first action would be to "Append Entry and Schedule Digest" and your second action would send the outbound email.
 
-![Step 6a](/public/images/newsletter-07.png)
+<img src="/public/images/newsletter-07.png" width="100%" alt="Step 6a" />
 
-![Step 6b](/public/images/newsletter-08.png)
+<img src="/public/images/newsletter-08.png" width="100%" alt="Step 6b" />
 
 Remember your TinyLetter email address from step 2? This is where you'll use it. Put it in the "To" field. Then, chose what will go in the subject line. I chose to have the name of my blog (Backendology) followed by the title of the post. Zapier pulls this from the RSS feed.
 
 ### Step 7: Format your email based on the contents of the RSS feed
 
-![Step 7](/public/images/newsletter-09.png)
+<img src="/public/images/newsletter-09.png" width="100%" alt="Step 7" />
 
 Format your email as you see fit. I have the title, the link, and the raw HTML content of my blog post. The HTML will render nicely in the email and give it a similar appearance to your actual blog post.
 
 ### Step 8: Enable your Zap
 
-![Step 8](/public/images/newsletter-10.png)
+<img src="/public/images/newsletter-10.png" width="100%" alt="Step 8" />
 
 Zaps are disabled by default, so make sure to enable yours. Once enabled, it will automatically check your RSS feed every five minutes.
 
@@ -88,7 +88,7 @@ Zaps are disabled by default, so make sure to enable yours. Once enabled, it wil
 
 ### Step 9: Send a test email and verify the result
 
-![Step 9](/public/images/newsletter-11.png)
+<img src="/public/images/newsletter-11.png" width="100%" alt="Step 9" />
 
 Zapier allows you to run a test of your zap. This is helpful as you can verify that it properly sends the email and then TinyLetter takes over and gets the email to all of your subscribers (likely just yourself at this point). Did the email come through as you hoped?
 
@@ -96,7 +96,7 @@ Zapier allows you to run a test of your zap. This is helpful as you can verify t
 
 ### Step 10: Link to your TinyLetter subscriber page
 
-![Step 10](/public/images/newsletter-12.png)
+<img src="/public/images/newsletter-12.png" width="100%" alt="Step 10" />
 
 Finally, link to your subscriber page on your blog in a place your readers will find it! I created a new [fixed page on my blog](https://backendology.com/subscribe/) for this purpose and a link to that page on every post:
 

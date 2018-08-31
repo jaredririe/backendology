@@ -11,7 +11,7 @@ date: "2018-08-06"
 slug: lessons-from-adopting-go-qualtrics
 ---
 
-![UTGO + Qualtrics](/public/images/utgo-qualtrics.png)
+<img src="/public/images/utgo-qualtrics.png" width="100%" alt="UTGO + Qualtrics" />
 
 Back in September 2017, I teamed up with a coworker to give a presentation for the [Utah Golang User Group](http://utahgolang.com/). We chose to share the lessons we had learned as we adopted and scaled Go as one of the core programming languages at Qualtrics. Our intended audience was companies and developers who were interested in trying out Go and increasing its use within an organization. Many companies are considering Go because its popularity has only continued to rise (for good reason), so I'm excited to repost this content via my blog.
 
