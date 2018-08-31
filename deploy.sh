@@ -2,8 +2,8 @@
 
 echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"
 
-# Stash uncomitted changes
-git stash
+# Stash uncomitted and untracked changes
+git stash --all
 
 # Remove the contents of the current /public folder
 rm -rf ./public/*
