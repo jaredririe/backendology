@@ -23,17 +23,30 @@ What follows is the initial design of my own Distributed Systems course. To crea
 * [The Paper Trail: necessary distributed systems theory and recommendations](https://www.the-paper-trail.org/post/2014-08-09-distributed-systems-theory-for-the-distributed-systems-engineer/)
 * [MIT Distributed Systems Reading Group Paper List](http://dsrg.pdos.csail.mit.edu/papers/)
 
+Distributed Systems research is known for an abundance of papers. My course will include papers as they are the primary source of information. Papers are also challenging and I want to get better at understanding them and using them as part of my learning.
+
 ## Concepts
 
 ### Basics
 
 The basics give a sense for why distributed systems present challenging problems. With the problems framed, it will make more sense why we have to think so carefully about the advanced concepts below. Understanding that the network is unreliable and packets regularly get dropped, for example, makes it clear why it's hard to get multiple nodes of a database to agree on the state of the data.
 
-* [Distributed Systems for Fun and Profit](http://book.mixu.net/distsys/single-page.html): free book that was recommended by several articles
-* [Scalable Web Architecture and Distributed Systems](http://www.aosabook.org/en/distsys.html): chapter from a free book, _The Architecture of Open Source Applications_
+* [Distributed Systems for Fun and Profit](http://book.mixu.net/distsys/single-page.html)
+    - Free book that was recommended by several articles
+* [Scalable Web Architecture and Distributed Systems](http://www.aosabook.org/en/distsys.html)
+    - Chapter from a free book, _The Architecture of Open Source Applications_
+    - Introduces the building blocks of distributed systems, including caches, indexes, load balancers, and queues
 * [Notes on Distributed Systems for Young Bloods](https://www.somethingsimilar.com/2013/01/14/notes-on-distributed-systems-for-young-bloods/)
+    - Short blog post written by an experienced distributed systems engineer with an audience of new engineers
+    - Calls out that coordination is hard, failure of individual components is common, and that metrics and percentiles enable visibility
 * [Failure Modes in Distributed Systems](http://alvaro-videla.com/2013/12/failure-modes-in-distributed-systems.html)
-* [Microservices: Are We Making a Huge Mistake?](https://backendology.com/2018/08/21/microservices-huge-mistake/): my previous blog post which covered Microservices (a software development technique for building a software system that runs on a distributed system) and some of the [Fallacies of Distributed Computing](https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing). See this more detailed [Explanation of the Fallacies](https://www.rgoarchitects.com/Files/fallacies.pdf) as well
+    - Short blog post which explains what could otherwise be confusing terminology of types of failure (performance, omission, fail-stop, crash, etc).
+* [An introduction to distributed systems](https://github.com/aphyr/distsys-class)
+    - Outline to a course taught by Kyle Kingsbury, the creator of the distributed systems tester Jepsen
+    - Kyle Kingsbury has also given several talks which are [available on the Jepsen website](http://jepsen.io/talks)
+* [Microservices: Are We Making a Huge Mistake?](https://backendology.com/2018/08/21/microservices-huge-mistake/)
+    - My previous blog post which covered Microservices (a software development technique for building a software system that runs on a distributed system) and some of the [Fallacies of Distributed Computing](https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing)
+    - See this more detailed [Explanation of the Fallacies](https://www.rgoarchitects.com/Files/fallacies.pdf) as well
 
 ### MapReduce
 
@@ -49,28 +62,31 @@ The basics give a sense for why distributed systems present challenging problems
 
 ### Distributed Consensus
 
-Two-Phase and Three-Phase Commit
-* [Two-Phase Commit](https://www.the-paper-trail.org/post/2008-11-27-consensus-protocols-two-phase-commit/)
-* [Three-Phase Commit](https://www.the-paper-trail.org/post/2008-11-29-consensus-protocols-three-phase-commit/)
-
-Paxos
-
 * [The Byzantine Generals Problem](http://www.cs.cornell.edu/courses/cs614/2004sp/papers/LSP82.pdf)
-* [Paxos Made Simple](http://www.cs.utexas.edu/users/lorenzo/corsi/cs380d/past/03F/notes/paxos-simple.pdf)
+    - One of the classic papers which presents a fictitious scenario in war to explain a problem faced by any distributed system
+* [Time, Clocks, and the Ordering of Events in a Distributed System (1978)](https://www.microsoft.com/en-us/research/publication/time-clocks-ordering-events-distributed-system/?from=http%3A%2F%2Fresearch.microsoft.com%2Fen-us%2Fum%2Fpeople%2Flamport%2Fpubs%2Ftime-clocks.pdf)
+* [Distributed Snapshots: Determining Global States of a Distributed System (1984)](http://research.cs.wisc.edu/areas/os/Qual/papers/snapshots.pdf)
+* [Impossibility of Distributed Consensus with One Faulty Process](http://groups.csail.mit.edu/tds/papers/Lynch/jacm85.pdf)
 
-Raft
+#### Raft
+
+Paxos 1989. Raft 2013 meant to be a simplified, understandable version of Paxos
 
 * [In Search of an Understandable Consensus Algorithm](https://www.usenix.org/node/184041)
 * [Consul: Raft Protocol Overview](https://www.consul.io/docs/internals/consensus.html)
 * [ETCD](https://github.com/etcd-io/etcd)
 * MIT Lab 2
 
-Other
+#### Paxos
 
-* [Time, Clocks, and the Ordering of Events in a Distributed System (1978)](https://www.microsoft.com/en-us/research/publication/time-clocks-ordering-events-distributed-system/?from=http%3A%2F%2Fresearch.microsoft.com%2Fen-us%2Fum%2Fpeople%2Flamport%2Fpubs%2Ftime-clocks.pdf)
-* [Distributed Snapshots: Determining Global States of a Distributed System (1984)](http://research.cs.wisc.edu/areas/os/Qual/papers/snapshots.pdf)
-* [Impossibility of Distributed Consensus with One Faulty
-Process](http://groups.csail.mit.edu/tds/papers/Lynch/jacm85.pdf)
+* [Paxos Made Simple](http://www.cs.utexas.edu/users/lorenzo/corsi/cs380d/past/03F/notes/paxos-simple.pdf)
+* [Paxos Made Live](https://static.googleusercontent.com/media/research.google.com/en//archive/paxos_made_live.pdf)
+    - > We describe our experience building a fault-tolerant database using the Paxos consensus algorithm. Despite the existing literature in the field, building such a database proved to be non-trivial.
+
+#### Two-Phase and Three-Phase Commit
+
+* [Two-Phase Commit](https://www.the-paper-trail.org/post/2008-11-27-consensus-protocols-two-phase-commit/)
+* [Three-Phase Commit](https://www.the-paper-trail.org/post/2008-11-29-consensus-protocols-three-phase-commit/)
 
 ### Broadcast
 
@@ -102,10 +118,16 @@ hashicorp/membership
 ### Consistency
 
 * [Highly Available Transactions: Virtues and Limitations](http://www.bailis.org/papers/hat-vldb2014.pdf)
+* [Consistency Models](http://jepsen.io/consistency):
+    - Graph showing the relationships between consistency models in databases like Strict Serializable and Linearizability
 * [Life beyond Distributed Transactions](https://www.ics.uci.edu/~cs223/papers/cidr07p15.pdf)
 * [Consistency Tradeoffs in Modern Distributed Database System Design](http://cs-www.cs.yale.edu/homes/dna/papers/abadi-pacelc.pdf)
+* [Building on Quicksand](https://arxiv.org/abs/0909.1788)
+    - > Emerging patterns of eventual consistency and probabilistic execution may soon yield a way for applications to express requirements for a "looser" form of consistency while providing availability in the face of ever larger failures.
 * [Eventually Consistent - Revisited](https://www.allthingsdistributed.com/2008/12/eventually_consistent.html)
 * [There is No Now](https://queue.acm.org/detail.cfm?id=2745385)
+
+(consistency models image)
 
 ### Big Data
 
