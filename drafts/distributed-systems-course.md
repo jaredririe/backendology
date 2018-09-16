@@ -1,29 +1,30 @@
-# Designing a Comprehensive Course in Distributed Systems
+# Designing a Comprehensive Course in Distributed Systems: Reading List
 
-In a recent conversation at work, I learned about [MIT's Distributed Systems course](https://pdos.csail.mit.edu/6.824/schedule.html). As the majority of the content is available  online through the course website, I was just about ready to dive in, follow the course, and report on what I learned. But then I had this thought: I am not formally a student anymore, so I should take more ownership of my learning. I should design my own comprehensive course in Distributed Systems!
+In a recent conversation at work, I learned about [MIT's distributed systems course](https://pdos.csail.mit.edu/6.824/index.html). As the majority of the content is available online through the course website, I was just about ready to dive in, follow the course, and report on what I learned. But then I had this thought: I am not formally a student anymore, so I should take more ownership of my learning. I should design my own comprehensive course in distributed systems!
 
-My course doesn't have to be constrained to a semester in length or only lightly cover topics that I find important and compelling. I'll be able to take a more depth-first approach to learning. For example, after implementing the Raft consensus algorithm, if I feel like there is more to learn, I can take time to build an simple system which uses my Raft code. A university course on a broad topic such as Distributed Systems has to avoid depth like this in order to cover all the required content. As someone who has been in industry for a few years, I also have a rough idea of which concepts matter in practice because I've run up against them and struggled to find time to understand them as well as I wanted.
+My course doesn't have to be constrained to a semester in length or only lightly cover topics that I find important and compelling. I'll be able to take a more depth-first approach to learning. For example, after implementing the Raft consensus algorithm, if I feel like there is more to learn, I can take time to build an simple system which uses my Raft code. A university course on a broad topic such as distributed systems has to avoid depth like this in order to cover all the required content. As someone who has been in industry for a few years, I also have a rough idea of which concepts matter in practice because I've run up against them and struggled to find time to understand them as well as I wanted.
 
-## Why study Distributed Systems?
+## Why study distributed systems?
 
 First, some motivation. Of all the things to learn about in our field, why study distributed systems? In that same conversation I mentioned above, one of my coworkers said it better than I could:
 
-> Developers _really_ need to know how to deal with concurrency, think in that space, and stop thinking about programs as serial lists of instructions. There is _no_ demand for someone who can’t natively think about concurrency all over their algorithm and their code.
+> Developers _really_ need to know how to deal with concurrency, think in that space, and stop thinking about programs as serial lists of instructions. There is _no_ demand for someone who can't natively think about concurrency all over their algorithm and their code.
 
-He went on to argue that an understanding of distributed systems is increasingly becoming a hard prerequisite of work done by software developers. While testing and software practice can safely and easily be learned on the job, the concepts related to asynchronous concurrent systems often cannot be. Misunderstandings in this regard lead to system outages and incur serious technical debt. To avoid making common mistakes and architecting poor systems, it's critical to take time to seriously learn distributed systems.
+He went on to argue that an understanding of distributed systems is becoming a hard prerequisite of work done by software developers. While testing and software practice can safely and easily be learned on the job, concepts related to asynchronous concurrent systems often cannot be. Misunderstandings in this regard lead to system outages and incur serious technical debt. To avoid making common mistakes and architecting poor systems, it's critical to take time to seriously learn distributed systems.
 
 Personally, I feel like I have a good grasp of the fundamentals, but an important next step in my career is learning advanced concepts like consensus and broadcast. _Understanding abstractions a level or two below your usage is incredibly worthwhile, not to mention satisfying._ I want to understand the content necessary to be considered a so-called "distributed systems engineer." I also think that a few years of distributed systems practice in industry have primed me to better understand these concepts. I've covered many of them at a high level, so revisiting them with a new perspective will be helpful.
 
-## Designing my course
+## Creating a reading list
 
-What follows is the initial design of my own Distributed Systems course. To create it, I scoured the internet, literally following hundreds of links. If you are also interested in this topic, I recommend you do the same: make your own course and then find some way to hold yourself accountable to it while allowing depth. These are the resources I found most useful in designing my course:
+What follows is an initial reading list to capture the breadth of the available content in distributed systems. I'll use it in my next blog post to design the schedule of my course. To create this list, I scoured the internet, literally following hundreds of links. If you are also interested in this topic, I recommend you do the same: make your own reading list that gets you excited to learn more. These are the resources I found most useful in creating my reading list:
 
 * [Awesome Distributed Systems](https://github.com/theanalyst/awesome-distributed-systems)
-* [Readings in Distributed Systems](http://christophermeiklejohn.com/distributed/systems/2013/07/12/readings-in-distributed-systems.html)
+* [Christopher Meiklejohn: Readings in Distributed Systems](http://christophermeiklejohn.com/distributed/systems/2013/07/12/readings-in-distributed-systems.html)
 * [The Paper Trail: necessary distributed systems theory and recommendations](https://www.the-paper-trail.org/post/2014-08-09-distributed-systems-theory-for-the-distributed-systems-engineer/)
+* [MIT 6.824 Distributed Systems course schedule](https://pdos.csail.mit.edu/6.824/schedule.html)
 * [MIT Distributed Systems Reading Group Paper List](http://dsrg.pdos.csail.mit.edu/papers/)
 
-Distributed Systems research is known for an abundance of papers. My course will include papers as they are the primary source of information. Papers are also challenging and I want to get better at understanding them and using them as part of my learning.
+Distributed systems research is known for an abundance of papers. My reading list includes papers as they are the primary source of information in this field of study. Papers are also challenging and I want to get better at understanding them and using them as part of my learning.
 
 ## Concepts
 
@@ -48,76 +49,89 @@ The basics give a sense for why distributed systems present challenging problems
     - My previous blog post which covered Microservices (a software development technique for building a software system that runs on a distributed system) and some of the [Fallacies of Distributed Computing](https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing)
     - See this more detailed [Explanation of the Fallacies](https://www.rgoarchitects.com/Files/fallacies.pdf) as well
 
-### MapReduce
+### Consensus
 
-* ["Lecture 1: Introduction"](https://pdos.csail.mit.edu/6.824/notes/l01.txt)
-* [MapReduce Paper](https://pdos.csail.mit.edu/6.824/papers/mapreduce.pdf)
-* [Lab 1: MapReduce](https://pdos.csail.mit.edu/6.824/labs/lab-1.html)
+The problem of achieving consensus is fundamental to distributed systems. These first several papers are true classics and known well by distributed systems engineers.
 
-### RPC and Threads
-
-* ["Lecture 2: Infrastructure: RPC and threads"](https://pdos.csail.mit.edu/6.824/notes/l-rpc.txt)
-* [Crawler](https://pdos.csail.mit.edu/6.824/notes/crawler.go), [K/V](https://pdos.csail.mit.edu/6.824/notes/kv.go)
-* [RPC Package](https://golang.org/pkg/net/rpc/)
-
-### Distributed Consensus
-
-* [The Byzantine Generals Problem](http://www.cs.cornell.edu/courses/cs614/2004sp/papers/LSP82.pdf)
+* [The Byzantine Generals Problem (Lamport 1982)](http://www.cs.cornell.edu/courses/cs614/2004sp/papers/LSP82.pdf)
     - One of the classic papers which presents a fictitious scenario in war to explain a problem faced by any distributed system
-* [Time, Clocks, and the Ordering of Events in a Distributed System (1978)](https://www.microsoft.com/en-us/research/publication/time-clocks-ordering-events-distributed-system/?from=http%3A%2F%2Fresearch.microsoft.com%2Fen-us%2Fum%2Fpeople%2Flamport%2Fpubs%2Ftime-clocks.pdf)
+* [Time, Clocks, and the Ordering of Events in a Distributed System (Lamport 1978)](https://www.microsoft.com/en-us/research/publication/time-clocks-ordering-events-distributed-system/?from=http%3A%2F%2Fresearch.microsoft.com%2Fen-us%2Fum%2Fpeople%2Flamport%2Fpubs%2Ftime-clocks.pdf)
+    - Distributed systems classic and primer by Lamport
 * [Distributed Snapshots: Determining Global States of a Distributed System (1984)](http://research.cs.wisc.edu/areas/os/Qual/papers/snapshots.pdf)
-* [Impossibility of Distributed Consensus with One Faulty Process](http://groups.csail.mit.edu/tds/papers/Lynch/jacm85.pdf)
-
-#### Raft
-
-Paxos 1989. Raft 2013 meant to be a simplified, understandable version of Paxos
-
-* [In Search of an Understandable Consensus Algorithm](https://www.usenix.org/node/184041)
-* [Consul: Raft Protocol Overview](https://www.consul.io/docs/internals/consensus.html)
-* [ETCD](https://github.com/etcd-io/etcd)
-* MIT Lab 2
+* [Impossibility of Distributed Consensus with One Faulty Process (1985)](http://groups.csail.mit.edu/tds/papers/Lynch/jacm85.pdf)
+    - > One of the most important results in distributed systems theory was published in April 1985 by Fischer, Lynch and Patterson. Their short paper 'Impossibility of Distributed Consensus with One Faulty Process', which eventually won the Dijkstra award given to the most influential papers in distributed computing, definitively placed an upper bound on what it is possible to achieve with distributed processes in an asynchronous environment.[^2]
+    - [A Brief Tour of FLP Impossibility](https://www.the-paper-trail.org/post/2008-08-13-a-brief-tour-of-flp-impossibility/)
 
 #### Paxos
 
-* [Paxos Made Simple](http://www.cs.utexas.edu/users/lorenzo/corsi/cs380d/past/03F/notes/paxos-simple.pdf)
-* [Paxos Made Live](https://static.googleusercontent.com/media/research.google.com/en//archive/paxos_made_live.pdf)
+Paxos is a solution to consensus proposed by Lamport himself, the author of several of the classic papers above. You'll hear his name a lot in distributed systems. It's known to be difficult to understand, yet was implemented in several successful distributed systems like Google's Chubby lock service.
+
+* [Paxos Made Simple (2001)](http://www.cs.utexas.edu/users/lorenzo/corsi/cs380d/past/03F/notes/paxos-simple.pdf)
+    - A shorter and easier to understand explanation of Paxos paper by Lamport
+* [Paxos Made Live (2007)](https://static.googleusercontent.com/media/research.google.com/en//archive/paxos_made_live.pdf)
     - > We describe our experience building a fault-tolerant database using the Paxos consensus algorithm. Despite the existing literature in the field, building such a database proved to be non-trivial.
+    - Google's learning while implementing systems atop of Paxos. Demonstrates various practical issues encountered while implementing a theoretical concept ...
+* [Using Paxos to Build a Scalable, Consistent, and Highly Available Datastore (2011)](https://pdos.csail.mit.edu/6.824/papers/spinnaker.pdf)
+    - Describes the experimental datastore Spinnaker which utilizes Paxos replication
 
-#### Two-Phase and Three-Phase Commit
+#### Two-phase and three-phase commit (2PC and 3PC)
 
-* [Two-Phase Commit](https://www.the-paper-trail.org/post/2008-11-27-consensus-protocols-two-phase-commit/)
-* [Three-Phase Commit](https://www.the-paper-trail.org/post/2008-11-29-consensus-protocols-three-phase-commit/)
+2PC and 3PC do not attempt to solve consensus entirely. Instead, they limited in scope to transaction commit protocols. They are often compared to Paxos. Understanding their differences is insightful.
+
+* [Two-phase commit](https://www.the-paper-trail.org/post/2008-11-27-consensus-protocols-two-phase-commit/)
+* [Three-phase commit](https://www.the-paper-trail.org/post/2008-11-29-consensus-protocols-three-phase-commit/)
+
+#### Raft
+
+Raft, which is much newer than Paxos (2013 compared to 1989) is meant to be a simplified, understandable version of Paxos. It has quickly become a core part of the backbone of distributed systems in ETCD and Consul.
+
+* [In Search of an Understandable Consensus Algorithm (Extended Version)](https://pdos.csail.mit.edu/6.824/papers/raft-extended.pdf)
+* [Visualization of Raft](http://thesecretlivesofdata.com/raft/)
+* [Consul: Raft Protocol Overview](https://www.consul.io/docs/internals/consensus.html)
+* [ETCD](https://github.com/etcd-io/etcd)
+* [MIT 6.824 Lab 2: Raft](https://pdos.csail.mit.edu/6.824/labs/lab-raft.html)
+    - > In this lab you'll implement Raft, a replicated state machine protocol. In the next lab you'll build a key/value service on top of Raft. Then you will “shard” your service over multiple replicated state machines for higher performance.
+* [MIT 6.824 Lab 3: Fault-tolerant Key/Value Service](https://pdos.csail.mit.edu/6.824/labs/lab-kvraft.html)
+    - > In this lab you will build a fault-tolerant key/value storage service using your Raft library from lab 2. You key/value service will be a replicated state machine, consisting of several key/value servers that use Raft to maintain replication. Your key/value service should continue to process client requests as long as a majority of the servers are alive and can communicate, in spite of other failures or network partitions.
 
 ### Broadcast
 
-> Atomic broadcast is exactly as hard as consensus - in a precise sense, if you solve atomic broadcast, you solve consensus, and vice versa. Chandra and Toueg prove this, but you just need to know that it’s true.
+#### Atomic or total order broadcast
 
+> Atomic broadcast is exactly as hard as consensus - in a precise sense, if you solve atomic broadcast, you solve consensus, and vice versa.[^1]
+
+* [Wikipedia: Atomic broadcast](https://en.wikipedia.org/wiki/Atomic_broadcast)
+* [ZooKeeper's atomic broadcast protocol: Theory and practice (2012)](http://www.tcs.hut.fi/Studies/T-79.5001/reports/2012-deSouzaMedeiros.pdf)
+    - ZooKeeper Atomic Broadcast (ZAB) protocol is what enables ZooKeeper's fault tolerance
+    - > At its core lies an atomic broadcast protocol, which elects a leader, synchronizes the nodes, and performs broadcasts of updates from the leader. We study the design of this protocol, highlight promised properties, and analyze its official implementation by Apache. In particular, the default leader election protocol is studied in detail.
+
+#### Gossip-based broadcast
+
+* [Wikipedia: Gossip protocol](https://en.wikipedia.org/wiki/Gossip_protocol)
 * [SWIM: Scalable Weakly-consistent Infection-style Process Group Membership Protocol](http://www.cs.cornell.edu/info/projects/spinglass/public_pdfs/swim.pdf)
-
-Serf
-
-* [Serf](https://www.serf.io/intro/vs-consul.html)
-* [Serf: Gossip Protocol](https://www.serf.io/docs/internals/gossip.html)
-* [Practical Golang: Building a simple, distributed one-value database with Hashicorp Serf](https://jacobmartins.com/2017/01/29/practical-golang-building-a-simple-distributed-one-value-database-with-hashicorp-serf/)
-
-hashicorp/membership
-
 * [hashicorp/memberlist](https://github.com/hashicorp/memberlist)
-* [Pilosa's use of hashicorp/memberlist for Gossip](https://github.com/pilosa/pilosa/blob/10eea2db4cca35dd6b173377edf36790a5f164e6/gossip/gossip.go)
+    - > The use cases for such a library are far-reaching: all distributed systems require membership, and memberlist is a re-usable solution to managing cluster membership and node failure detection.
+    - Based on the SWIM protocol with some adaptions
+    - [Pilosa's use of hashicorp/memberlist for Gossip](https://github.com/pilosa/pilosa/blob/10eea2db4cca35dd6b173377edf36790a5f164e6/gossip/gossip.go)
+* [Serf](https://www.serf.io/intro/vs-consul.html)
+    - [Serf: Gossip Protocol](https://www.serf.io/docs/internals/gossip.html)
+    - > Serf uses a gossip protocol to broadcast messages to the cluster. ... [The protocol] is based on "SWIM: Scalable Weakly-consistent Infection-style Process Group Membership Protocol", with a few minor adaptations, mostly to increase propagation speed and convergence rate.
+    - [Practical Golang: Building a simple, distributed one-value database with Hashicorp Serf](https://jacobmartins.com/2017/01/29/practical-golang-building-a-simple-distributed-one-value-database-with-hashicorp-serf/)
 
-### Distributed file systems
-
-* [The Google File System](https://pdos.csail.mit.edu/6.824/papers/gfs.pdf)
-
-### Availability
+### Availability, replication, and partitioning
 
 * [Distributed Systems: Take Responsibility for Failover](http://ilyavolodarsky.com/distributed-systems-take-responsibility-for-failover/)
-
-### Replication
-
-### Consistency
-
+    - Short blog post that argues that systems capable of automatically making failover decisions lead to improved maintainability
 * [Highly Available Transactions: Virtues and Limitations](http://www.bailis.org/papers/hat-vldb2014.pdf)
+    - > In this work, we consider the problem of providing Highly Available Transactions (HATs): transactional guarantees that do not suffer unavailability during system partitions or incur high network latency
+* [Distributed state machine replication](https://en.wikipedia.org/wiki/State_machine_replication)
+* [MIT 6.824 Lab 4: Sharded Key/Value Service](https://pdos.csail.mit.edu/6.824/labs/lab-shard.html)
+    - > In this lab you'll build a key/value storage system that "shards," or partitions, the keys over a set of replica groups. A shard is a subset of the key/value pairs; for example, all the keys starting with "a" might be one shard, all the keys starting with "b" another, etc. The reason for sharding is performance. Each replica group handles puts and gets for just a few of the shards, and the groups operate in parallel; thus total system throughput (puts and gets per unit time) increases in proportion to the number of groups.
+
+### Eventual consistency
+
+> How eventual consistency, and other techniques, seek to avoid this tension at the cost of weaker guarantees about system behavior. The Dynamo paper is a great place to start, but also Pat Helland’s classic Life Beyond Transactions is a must-read.
+
 * [Consistency Models](http://jepsen.io/consistency):
     - Graph showing the relationships between consistency models in databases like Strict Serializable and Linearizability
 * [Life beyond Distributed Transactions](https://www.ics.uci.edu/~cs223/papers/cidr07p15.pdf)
@@ -127,24 +141,37 @@ hashicorp/membership
 * [Eventually Consistent - Revisited](https://www.allthingsdistributed.com/2008/12/eventually_consistent.html)
 * [There is No Now](https://queue.acm.org/detail.cfm?id=2745385)
 
-(consistency models image)
-
-### Big Data
-
 ### Tangential concepts
 
 * [Consistent Hashing and Random Trees](https://www.akamai.com/us/en/multimedia/documents/technical-publication/consistent-hashing-and-random-trees-distributed-caching-protocols-for-relieving-hot-spots-on-the-world-wide-web-technical-publication.pdf)
 * Queues [Everything Will Flow](https://www.youtube.com/watch?v=1bNOO3xxMc0)
+* RPC
+    - [Go RPC package](https://golang.org/pkg/net/rpc/)
 
 ### Distributed systems in the wild
 
+Distributed systems theory becomes practical through its implementation in production systems. Studying successful systems of this nature like Spanner, Kafka, and Dynamo is exceptionally interesting and valuable.
+
 * [Bigtable: A Distributed Storage System for Structured Data](http://static.googleusercontent.com/media/research.google.com/en//archive/bigtable-osdi06.pdf)
-* [Chubby Lock Manager](http://static.googleusercontent.com/media/research.google.com/en//archive/chubby-osdi06.pdf)
-* [Spanner](https://static.googleusercontent.com/media/research.google.com/en//archive/spanner-osdi2012.pdf)
-* [Dynamo: Amazon’s Highly Available Key-value Store](http://www.read.seas.harvard.edu/~kohler/class/cs239-w08/decandia07dynamo.pdf)
-* Kafka
-* [ZooKeeper](https://www.usenix.org/legacy/event/usenix10/tech/full_papers/Hunt.pdf)
+* [MapReduce](https://pdos.csail.mit.edu/6.824/papers/mapreduce.pdf)
+    - [MIT 6.824 Lab 1: MapReduce](https://pdos.csail.mit.edu/6.824/labs/lab-1.html)
+    > In this lab you'll build a MapReduce library as an introduction to programming in Go and to building fault tolerant distributed systems. In the first part you will write a simple MapReduce program. In the second part you will write a Master that hands out tasks to MapReduce workers, and handles failures of workers. The interface to the library and the approach to fault tolerance is similar to the one described in the original MapReduce paper
+* [Chubby Lock Manager (2006)](http://static.googleusercontent.com/media/research.google.com/en//archive/chubby-osdi06.pdf)
+    - Google's lock service used for loosely coupled distributed systems. Sort of Paxos as a Service for building other distributed systems. Primary inspiration behind other Service Discovery & Coordination tools like Zookeeper, etcd, Consul etc. ...
+* [Spanner: Google's Globally-Distributed Database (2012)](https://static.googleusercontent.com/media/research.google.com/en//archive/spanner-osdi2012.pdf)
+* [Scaling Memcache at Facebook](https://pdos.csail.mit.edu/6.824/papers/memcache-fb.pdf)
+* [The Google File System](https://pdos.csail.mit.edu/6.824/papers/gfs.pdf)
+    - Example of a distributed file system
+* [Frangipani: A Scalable Distributed File System](https://pdos.csail.mit.edu/6.824/papers/thekkath-frangipani.pdf)
+* [Dynamo: Amazon's Highly Available Key-value Store (2007)](http://www.read.seas.harvard.edu/~kohler/class/cs239-w08/decandia07dynamo.pdf)
+    - seminal distributed systems paper that solves the problem of a highly available and fault tolerant database in an elegant way, later paving the way for systems like Cassandra, and many other AP systems using a consistent hashing ...
+* [Cassandra: A Decentralized Structured Storage System (2009)](http://www.cs.cornell.edu/projects/ladis2009/papers/lakshman-ladis2009.pdf)
+* [ZooKeeper: Wait-free coordination for Internet-scale systems (2010)](https://www.usenix.org/legacy/event/usenix10/tech/full_papers/Hunt.pdf)
+* [Kafka: a Distributed Messaging System for Log Processing (2011)](http://notes.stephenholiday.com/Kafka.pdf)
 * [The Tail at Scale](https://ai.google/research/pubs/pub40801)
+* [Managing Critical State: Distributed Consensus for Reliability](https://landing.google.com/sre/book/chapters/managing-critical-state.html)
+    - Chapter 23 of Google's phenomenal book, [_Site Reliability Engineering: How Google Runs Production Systems_](https://landing.google.com/sre/)
+    - Practical exploration of using distributed consensus for increased reliability
 
 ## Resources
 
@@ -154,20 +181,24 @@ hashicorp/membership
     - [Twitter](http://highscalability.com/blog/2013/7/8/the-architecture-twitter-uses-to-deal-with-150m-active-users.html)
     - [WhatsApp](http://highscalability.com/blog/2014/2/26/the-whatsapp-architecture-facebook-bought-for-19-billion.html)
 * [All Things Distributed](https://www.allthingsdistributed.com/)
+* [Martin Kleppmann's Blog](https://martin.kleppmann.com/)
+    - Author of _Designing Data Intensive Applications_, which has a chapter that covers distributed systems theory
 
 ### Courses
 
 * [Carnegie Mellon University: Distributed Systems](http://www.cs.cmu.edu/~dga/15-440/F12/syllabus.html)
 * [University of Washington: Distributed Systems](https://courses.cs.washington.edu/courses/csep552/16wi/)
+* [MIT 6.824: Distributed Systems Engineering](https://pdos.csail.mit.edu/6.824/index.html)
 
-I found these courses in [this curated list of awesome Computer Science courses](https://github.com/prakhar1989/awesome-courses) avaialble online. Here is a similar list, except it focuses on [courses using Go](https://github.com/golang/go/wiki/Courses), many of which cover concurrency and distributed systems.
+I found these courses in [this curated list of awesome Computer Science courses](https://github.com/prakhar1989/awesome-courses) available online. Here is a similar list, except it focuses on [courses using Go](https://github.com/golang/go/wiki/Courses), many of which cover concurrency and distributed systems.
+
+[^1]: https://www.the-paper-trail.org/post/2014-08-09-distributed-systems-theory-for-the-distributed-systems-engineer/
+[^2]: https://www.the-paper-trail.org/post/2008-08-13-a-brief-tour-of-flp-impossibility/
 
 # Notes
-
-> Developers _really_ need to know how to deal with concurrency, think in that space, and stop thinking about programs as serial lists of instructions. There is _no_ demand for someone that can’t natively think about concurrency all over their algorithm and their code.
-> It’s super easy to learn testing and software practice out in the field. In fact, if you’re not always learning that, then you’re going to fall behind. Is it essential? Sure. But you’d better learn how to learn that, because you always will be.
-On the other hand, learning about asynchronous concurrent systems in the field is….. why we have a lot of the problems that we do. You really should sit down and learn that seriously, then go to the field. Because otherwise we have all the problems that we do.
 
 > You should know about safety and liveness properties:
 > safety properties say that nothing bad will ever happen. For example, the property of never returning an inconsistent value is a safety property, as is never electing two leaders at the same time.
 >liveness properties say that something good will eventually happen. For example, saying that a system will eventually return a result to every API call is a liveness property, as is guaranteeing that a write to disk always eventually completes.
+
+> A fundamental result in distributed computing is that achieving consensus in asynchronous systems in which even one crash failure can occur is impossible in the most general case. This was shown in 1985 by Michael J. Fischer, Nancy Lynch, and Mike Paterson, and is sometimes called the FLP result.[7] Since consensus and atomic broadcast are equivalent, FLP applies also to atomic broadcast.[5] The FLP result does not prohibit the implementation of atomic broadcast in practice, but it does require making less stringent assumptions than FLP in some respect, such as about processor and communication timings. https://en.wikipedia.org/wiki/Atomic_broadcast
