@@ -30,7 +30,7 @@ Distributed systems research is known for an abundance of papers. My reading lis
 
 ### Basics
 
-The basics give a sense for why distributed systems present challenging problems. With the problems framed, it will make more sense why we have to think so carefully about the advanced concepts below. Understanding that the network is unreliable and packets regularly get dropped, for example, makes it clear why it's hard to get multiple nodes of a database to agree on the state of the data.
+The basics give a sense for why distributed systems present challenging problems. With the problems framed, it will make more sense why we have to think so carefully about the advanced concepts below. For example, understanding that the network is unreliable and packets regularly get dropped makes it clear why it's hard to get multiple nodes of a database to agree on the state of the data.
 
 * [Distributed Systems for Fun and Profit](http://book.mixu.net/distsys/single-page.html)
     - Free book that was recommended by several articles
@@ -76,19 +76,23 @@ Paxos is a solution to consensus proposed by Lamport himself, the author of seve
 
 #### Two-phase and three-phase commit (2PC and 3PC)
 
-2PC and 3PC do not attempt to solve consensus entirely. Instead, they limited in scope to transaction commit protocols. They are often compared to Paxos. Understanding their differences is insightful.
+2PC and 3PC do not attempt to solve consensus entirely. Instead, they limited in scope to transaction commit protocols. They are often compared to Paxos as understanding their differences is insightful.
 
 * [Two-phase commit](https://www.the-paper-trail.org/post/2008-11-27-consensus-protocols-two-phase-commit/)
 * [Three-phase commit](https://www.the-paper-trail.org/post/2008-11-29-consensus-protocols-three-phase-commit/)
 
 #### Raft
 
-Raft, which is much newer than Paxos (2013 compared to 1989) is meant to be a simplified, understandable version of Paxos. It has quickly become a core part of the backbone of distributed systems in ETCD and Consul.
+Raft, which is much newer than Paxos (2013 compared to 1989), is meant to be a simplified, understandable version of Paxos. It has quickly become a core part of the backbone of distributed systems as it's used in open source software like etcd and Consul.
 
 * [In Search of an Understandable Consensus Algorithm (Extended Version)](https://pdos.csail.mit.edu/6.824/papers/raft-extended.pdf)
+    - > Raft is a consensus algorithm for managing a replicated log. It produces a result equivalent to (multi-)Paxos, and it is as efficient as Paxos, but its structure is different from Paxos; this makes Raft more understandable than Paxos and also provides a better foundation for building practical systems.
 * [Visualization of Raft](http://thesecretlivesofdata.com/raft/)
+    - Interactive visualization of the consensus algorithm to explain concepts like distributed consensus, leader election, and log replication
 * [Consul: Raft Protocol Overview](https://www.consul.io/docs/internals/consensus.html)
-* [ETCD](https://github.com/etcd-io/etcd)
+    - Consul implements Raft. This page describes Raft and how it is used
+* [etcd](https://github.com/etcd-io/etcd)
+    - > etcd is written in Go and uses the Raft consensus algorithm to manage a highly-available replicated log.
 * [MIT 6.824 Lab 2: Raft](https://pdos.csail.mit.edu/6.824/labs/lab-raft.html)
     - > In this lab you'll implement Raft, a replicated state machine protocol. In the next lab you'll build a key/value service on top of Raft. Then you will “shard” your service over multiple replicated state machines for higher performance.
 * [MIT 6.824 Lab 3: Fault-tolerant Key/Value Service](https://pdos.csail.mit.edu/6.824/labs/lab-kvraft.html)
@@ -130,21 +134,31 @@ Raft, which is much newer than Paxos (2013 compared to 1989) is meant to be a si
 
 ### Eventual consistency
 
-> How eventual consistency, and other techniques, seek to avoid this tension at the cost of weaker guarantees about system behavior. The Dynamo paper is a great place to start, but also Pat Helland’s classic Life Beyond Transactions is a must-read.
+Eventual consistency is a response to challenge of creating fault-tolerant systems. It implies weaker guarantees about how the system will behave when faults occur.
 
 * [Consistency Models](http://jepsen.io/consistency):
+    - Prerequisite to the other resources; defines the terminology used when discussing consistency
     - Graph showing the relationships between consistency models in databases like Strict Serializable and Linearizability
 * [Life beyond Distributed Transactions](https://www.ics.uci.edu/~cs223/papers/cidr07p15.pdf)
+    - > This paper explores and names some of the practical approaches used in the implementations of large-scale mission-critical applications in a world which rejects distributed transactions.
 * [Consistency Tradeoffs in Modern Distributed Database System Design](http://cs-www.cs.yale.edu/homes/dna/papers/abadi-pacelc.pdf)
 * [Building on Quicksand](https://arxiv.org/abs/0909.1788)
     - > Emerging patterns of eventual consistency and probabilistic execution may soon yield a way for applications to express requirements for a "looser" form of consistency while providing availability in the face of ever larger failures.
 * [Eventually Consistent - Revisited](https://www.allthingsdistributed.com/2008/12/eventually_consistent.html)
+    - Great discussion of the tradeoffs one makes in choosing eventual consistency
 * [There is No Now](https://queue.acm.org/detail.cfm?id=2745385)
+    - Reminder of the impossibility of instantaneous communication and the implications for distributed systems
+* [A Critique of the CAP Theorem](https://arxiv.org/abs/1509.05393)
+    - > In this paper we survey some of the confusion about the meaning of CAP, including inconsistencies and ambiguities in its definitions, and we highlight some problems in its formalization. CAP is often interpreted as proof that eventually consistent databases have better availability properties than strongly consistent databases; although there is some truth in this, we show that more careful reasoning is required. These problems cast doubt on the utility of CAP as a tool for reasoning about trade-offs in practical systems
+    - Also see this auxiliary post by the author, [Please stop calling databases CP or AP](https://martin.kleppmann.com/2015/05/11/please-stop-calling-databases-cp-or-ap.html)
 
 ### Tangential concepts
 
+Concepts/technologies that often come up in a discussion of distributed systems, but did not fit well into any of the other sections.
+
 * [Consistent Hashing and Random Trees](https://www.akamai.com/us/en/multimedia/documents/technical-publication/consistent-hashing-and-random-trees-distributed-caching-protocols-for-relieving-hot-spots-on-the-world-wide-web-technical-publication.pdf)
-* Queues [Everything Will Flow](https://www.youtube.com/watch?v=1bNOO3xxMc0)
+* Queues
+    - [Everything Will Flow](https://www.youtube.com/watch?v=1bNOO3xxMc0)
 * RPC
     - [Go RPC package](https://golang.org/pkg/net/rpc/)
 
@@ -152,23 +166,29 @@ Raft, which is much newer than Paxos (2013 compared to 1989) is meant to be a si
 
 Distributed systems theory becomes practical through its implementation in production systems. Studying successful systems of this nature like Spanner, Kafka, and Dynamo is exceptionally interesting and valuable.
 
-* [Bigtable: A Distributed Storage System for Structured Data](http://static.googleusercontent.com/media/research.google.com/en//archive/bigtable-osdi06.pdf)
-* [MapReduce](https://pdos.csail.mit.edu/6.824/papers/mapreduce.pdf)
+* [The Google File System (2003)](https://pdos.csail.mit.edu/6.824/papers/gfs.pdf)
+    - Example of a distributed file system
+* [MapReduce (2004)](https://pdos.csail.mit.edu/6.824/papers/mapreduce.pdf)
     - [MIT 6.824 Lab 1: MapReduce](https://pdos.csail.mit.edu/6.824/labs/lab-1.html)
     > In this lab you'll build a MapReduce library as an introduction to programming in Go and to building fault tolerant distributed systems. In the first part you will write a simple MapReduce program. In the second part you will write a Master that hands out tasks to MapReduce workers, and handles failures of workers. The interface to the library and the approach to fault tolerance is similar to the one described in the original MapReduce paper
+* [Bigtable: A Distributed Storage System for Structured Data (2006)](http://static.googleusercontent.com/media/research.google.com/en//archive/bigtable-osdi06.pdf)
+    - > Bigtable is a distributed storage system for managing structured data that is designed to scale to a very large size: petabytes of data across thousands of commodity servers.
 * [Chubby Lock Manager (2006)](http://static.googleusercontent.com/media/research.google.com/en//archive/chubby-osdi06.pdf)
-    - Google's lock service used for loosely coupled distributed systems. Sort of Paxos as a Service for building other distributed systems. Primary inspiration behind other Service Discovery & Coordination tools like Zookeeper, etcd, Consul etc. ...
+    - Google's lock management service. Sometimes referred to as "Paxos as a Service" used by other distributed systems.
+    - Inspired other service discovery tools like Consul and etcd
 * [Spanner: Google's Globally-Distributed Database (2012)](https://static.googleusercontent.com/media/research.google.com/en//archive/spanner-osdi2012.pdf)
+    - > The lack of transactions in Bigtable led to frequent complaints from users, so Google made distributed transactions central to Spanner's design. Based on its experience with Bigtable, Google argues that it is better to have application programmers deal with performance problems due to overuse of transactions as bottlenecks arise, rather than always coding around the lack of transactions.[^3]
 * [Scaling Memcache at Facebook](https://pdos.csail.mit.edu/6.824/papers/memcache-fb.pdf)
-* [The Google File System](https://pdos.csail.mit.edu/6.824/papers/gfs.pdf)
-    - Example of a distributed file system
-* [Frangipani: A Scalable Distributed File System](https://pdos.csail.mit.edu/6.824/papers/thekkath-frangipani.pdf)
 * [Dynamo: Amazon's Highly Available Key-value Store (2007)](http://www.read.seas.harvard.edu/~kohler/class/cs239-w08/decandia07dynamo.pdf)
-    - seminal distributed systems paper that solves the problem of a highly available and fault tolerant database in an elegant way, later paving the way for systems like Cassandra, and many other AP systems using a consistent hashing ...
+    - Describes a highly available and fault tolerant database
+    - Inspired Cassandra and other similar databases
 * [Cassandra: A Decentralized Structured Storage System (2009)](http://www.cs.cornell.edu/projects/ladis2009/papers/lakshman-ladis2009.pdf)
 * [ZooKeeper: Wait-free coordination for Internet-scale systems (2010)](https://www.usenix.org/legacy/event/usenix10/tech/full_papers/Hunt.pdf)
+    - Distributed coordination service used by other distributed systems like Kafka
 * [Kafka: a Distributed Messaging System for Log Processing (2011)](http://notes.stephenholiday.com/Kafka.pdf)
-* [The Tail at Scale](https://ai.google/research/pubs/pub40801)
+    - > We introduce Kafka, a distributed messaging system that we developed for collecting and delivering high volumes of log data with low latency
+* [The Tail at Scale](http://cseweb.ucsd.edu/~gmporter/classes/fa17/cse124/post/schedule/p74-dean.pdf)
+    - Article that asserts that the challenge of keeping the tail of the latency distribution low is critical in interactive services
 * [Managing Critical State: Distributed Consensus for Reliability](https://landing.google.com/sre/book/chapters/managing-critical-state.html)
     - Chapter 23 of Google's phenomenal book, [_Site Reliability Engineering: How Google Runs Production Systems_](https://landing.google.com/sre/)
     - Practical exploration of using distributed consensus for increased reliability
@@ -178,9 +198,10 @@ Distributed systems theory becomes practical through its implementation in produ
 ### Blogs
 
 * [High Scalability](http://highscalability.com/)
-    - [Twitter](http://highscalability.com/blog/2013/7/8/the-architecture-twitter-uses-to-deal-with-150m-active-users.html)
-    - [WhatsApp](http://highscalability.com/blog/2014/2/26/the-whatsapp-architecture-facebook-bought-for-19-billion.html)
+    - "Building bigger, faster, more reliable websites."
+    - Shares some of the design decisions made in building [Twitter](http://highscalability.com/blog/2013/7/8/the-architecture-twitter-uses-to-deal-with-150m-active-users.html) and [WhatsApp](http://highscalability.com/blog/2014/2/26/the-whatsapp-architecture-facebook-bought-for-19-billion.html)
 * [All Things Distributed](https://www.allthingsdistributed.com/)
+    - "Werner Vogels' weblog on building scalable and robust distributed systems."
 * [Martin Kleppmann's Blog](https://martin.kleppmann.com/)
     - Author of _Designing Data Intensive Applications_, which has a chapter that covers distributed systems theory
 
@@ -194,6 +215,7 @@ I found these courses in [this curated list of awesome Computer Science courses]
 
 [^1]: https://www.the-paper-trail.org/post/2014-08-09-distributed-systems-theory-for-the-distributed-systems-engineer/
 [^2]: https://www.the-paper-trail.org/post/2008-08-13-a-brief-tour-of-flp-impossibility/
+[^3]: https://en.wikipedia.org/wiki/Spanner_(database)
 
 # Notes
 
