@@ -77,6 +77,13 @@ var blogPosts = []Post{
 		Category:      category.General,
 		Tags:          []tagType{tag.Blogging, tag.Hugo},
 	},
+	{
+		Filename:      "../finished/distributed-systems-course-reading-list.md",
+		FeaturedImage: "/public/images/distributed-systems-paper.png",
+		Date:          date("September 10, 2018"),
+		Category:      category.Research,
+		Tags:          []tagType{tag.Architecture, tag.Microservices, tag.DistributedSystems, tag.NoSQL},
+	},
 }
 
 type (
