@@ -12,41 +12,46 @@ Without further ado, here is my course, _Introduction to Distributed Systems_!
 
 ### Unit 1: The Problem
 
-Questions
+This unit frames the problem presented by distributed systems. It explains why they are challenging to build correctly, as well as their building blocks, failure modes, and fallacies.
 
-* _Why are distributed systems challenging to build correctly?_
-* _What are some of the building blocks of distributed systems?_
-* _What are the failure modes?_
-* _How do web architectures and microservices relate to distributed systems?_
-
-Real world example: MapReduce?
-Hands on learning: MapReduce lab? (how hard is it?)
-
-Concepts
-
-* Challenging problems which must be faced
-    - Byzantine Generals Problem
-    - Time, Clocks, and the Ordering of Events in a Distributed System
-* Fallacies of distributed systems
-* Building blocks by reviewing Scalable Web Architecture
+* Building blocks of distributed systems
+    - Read and summarize this chapter from the book _The Architecture of Open Source Applications_: [Scalable Web Architecture and Distributed Systems](http://www.aosabook.org/en/distsys.html)
+* Core problems presented by distributed systems
+    - Read this blog post and list the challenges: [Notes on Distributed Systems for Young Bloods](https://www.somethingsimilar.com/2013/01/14/notes-on-distributed-systems-for-young-bloods/)
+    - Read and summarize this paper: [Time, Clocks, and the Ordering of Events in a Distributed System (Lamport 1978)](https://www.microsoft.com/en-us/research/publication/time-clocks-ordering-events-distributed-system/?from=http%3A%2F%2Fresearch.microsoft.com%2Fen-us%2Fum%2Fpeople%2Flamport%2Fpubs%2Ftime-clocks.pdf)
+    - Read and summarize this paper: [The Byzantine Generals Problem (Lamport 1982)](http://www.cs.cornell.edu/courses/cs614/2004sp/papers/LSP82.pdf)
 * Failure modes
-* Relation to microservices
+    - Read these resources on failure modes: [Failure Modes in Distributed Systems](http://alvaro-videla.com/2013/12/failure-modes-in-distributed-systems.html), [Wikipedia: Failure Semantics](https://en.wikipedia.org/wiki/Failure_semantics)
+* Real world example: MapReduce
+    - Read and summarize this paper: [MapReduce (2004)](https://pdos.csail.mit.edu/6.824/papers/mapreduce.pdf)
+* Hands on learning: MapReduce
+    - Complete this lab: [MIT 6.824 Lab 1: MapReduce](https://pdos.csail.mit.edu/6.824/labs/lab-1.html)
+        + "In this lab you'll build a MapReduce library as an introduction to programming in Go and to building fault tolerant distributed systems. In the first part you will write a simple MapReduce program. In the second part you will write a Master that hands out tasks to MapReduce workers, and handles failures of workers. The interface to the library and the approach to fault tolerance is similar to the one described in the original MapReduce paper."
 
-### Unit 2: Gossip Protocols
+### Unit 2: Filesystems?
 
-Questions
+MapReduce, HDFS, GFS
 
-*
+### Unit 3: Gossip Protocols
 
-Real world example: hashicorp/memberlist, Pilosa's usage of it
-Hands on learning: Implement a global counter using hashicorp/memberlist or Implement a distributed in-memory cache freecache?
-
-Concepts
+Gossip protocols have many important use cases in distributed systems, such as detecting node failure, spreading configuration data, or sharing state among multiple nodes in a cluster. They can elegantly solve problems with relaxed consistency requirements where a distributed consensus algorithm (like Paxos) or a centralized database would be impractical or unwise.
 
 * Gossip protocol
+    - Read and summarize these introductory resources: [Wikipedia: Gossip protocol](https://en.wikipedia.org/wiki/Gossip_protocol), [Using Gossip Protocols For Failure Detection, Monitoring, Messaging And Other Good Things](http://highscalability.com/blog/2011/11/14/using-gossip-protocols-for-failure-detection-monitoring-mess.html)
+    - Answer this question: when is a gossip-based solution better than a centralized database or distributed consensus algorithm?
 * SWIM
+    - Read and summarize this paper: [SWIM: Scalable Weakly-consistent Infection-style Process Group Membership Protocol](http://www.cs.cornell.edu/info/projects/spinglass/public_pdfs/swim.pdf)
+* Real world example: hashicorp/memberlist
+    - Study this codebase: [hashicorp/memberlist](https://github.com/hashicorp/memberlist)
+        + "The use cases for such a library are far-reaching: all distributed systems require membership, and memberlist is a re-usable solution to managing cluster membership and node failure detection."
+        + Based on the SWIM protocol with some adaptions
+    - Study how the distributed bitmap index utilizes the memberlist library: [Usage in Pilosa's codebase](https://github.com/pilosa/pilosa/blob/10eea2db4cca35dd6b173377edf36790a5f164e6/gossip/gossip.go)
+* Hands on learning: global counter
+    - Implement a global counter which uses hashicorp/memberlist; use these resources:
+        + [github.com/nphase/go-clustering-example](https://github.com/nphase/go-clustering-example/blob/master/final/main.go)
+        + [github.com/asim/memberlist](https://github.com/asim/memberlist)
 
-### Unit 3: Solving Distributed Consensus with Raft
+### Unit 4: Solving Distributed Consensus with Raft
 
 Questions
 
@@ -66,10 +71,11 @@ Concepts
 * Managing Critical State: Distributed Consensus for Reliability
 * Paxos (high-level)
 
-### Unit 4: Consistency and Availability
+### Unit 5: Consistency and Availability
 
 Questions
 
+* _Is the CAP theorem useful in practice?_
 *
 
 Real world example: Dynamo, Spanner
@@ -80,12 +86,78 @@ Concepts
 * A Critique of the CAP Theorem
     - Please stop calling databases CP or AP
 * Highly Available Transactions
+* Distributed Transactions
 * Consistency models
 * Life beyond Distributed Transactions
 * Building on Quicksand
+* Cache coherence/consistency
+* Concurrency control (such as Optimistic Concurrency Control)
+
+[^1]: https://en.wikipedia.org/wiki/Gossip_protocol
 
 ---
 
 # Notes (supplementary to blog post)
 
+Missing from my Course -- which of these topics should be covered in more advanced courses?
 
+* Distributed state
+* Big data analytics
+* Security
+* Consistency - Classical synchronization + Go-style synchronization
+* RPC
+* Fault tolerance (kind of)
+* Logging and crash recovery
+* Consistent hashing
+* DNS and content delivery
+* Peer-to-peer
+* Virtual machines
+
+Topics covered in the [University of Washington's Course](https://courses.cs.washington.edu/courses/csep552/16wi/)
+
+* Time, Clocks, and Global States
+* Distributed State
+* Consensus
+* Scalability
+* Transactions
+* Weak consistency
+* Big Data Analytics
+* Security
+
+Topics covered in [CMU's Course](http://www.cs.cmu.edu/~dga/15-440/F12/syllabus.html)
+
+* Communication over the internet
+* Consistency - Classical synchronization + Go-style synchronization
+* Distributed Filesystems, MapReduce, HDFS
+* RPC
+* Time and Synchronization
+* Fault Tolerance, Byzantine Fault Tolerance
+* RAID
+* Concurrency Control
+* Logging and Crash Recovery
+* Consistent hashing and name-by-hash
+* Distributed Replication
+* Data-Intensive Computing and MapReduce/Hadoop
+* DNS and Content Delivery Networks
+* Peer-to-peer
+* Virtual Machines
+* Security Protocols
+
+Topics covered in [MIT's Course](https://pdos.csail.mit.edu/6.824/schedule.html)
+
+* MapReduce
+* RPC and Threads
+* Filesystems
+* Primary-Backup Replication
+* Fault Tolerance: Raft
+* Spinnaker
+* Zookeeper
+* Distributed Transactions
+* Optimistic Concurrency Control
+* Big Data: Spark, Naiad
+* Distributed Machine Learning: Parameter Server
+* Cache Consistency: Frangipani, Memcached at Facebook
+* Disconnected Operation, Eventual Consistency
+* Peer-to-peer, DHTs
+* Dynamo
+* Bitcoin
