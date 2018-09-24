@@ -20,18 +20,23 @@ This unit frames the problem presented by distributed systems. It explains why t
     - Read this blog post and list the challenges: [Notes on Distributed Systems for Young Bloods](https://www.somethingsimilar.com/2013/01/14/notes-on-distributed-systems-for-young-bloods/)
     - Read and summarize this paper: [Time, Clocks, and the Ordering of Events in a Distributed System (Lamport 1978)](https://www.microsoft.com/en-us/research/publication/time-clocks-ordering-events-distributed-system/?from=http%3A%2F%2Fresearch.microsoft.com%2Fen-us%2Fum%2Fpeople%2Flamport%2Fpubs%2Ftime-clocks.pdf)
     - Read and summarize this paper: [The Byzantine Generals Problem (Lamport 1982)](http://www.cs.cornell.edu/courses/cs614/2004sp/papers/LSP82.pdf)
-    - (Optional) Scan through this clever slide deck: [Why Are Distributed Systems So Hard?](https://drive.google.com/file/d/15nxAaVXZwNFnJNVvgtKonNbzxNgTUCxP/view)
 * Failure modes
     - Read these resources on failure modes: [Failure Modes in Distributed Systems](http://alvaro-videla.com/2013/12/failure-modes-in-distributed-systems.html), [Wikipedia: Failure Semantics](https://en.wikipedia.org/wiki/Failure_semantics)
+* Fallacies
+    - Read and summarize this article: [Fallacies of Distributed Computing Explained](https://www.rgoarchitects.com/Files/fallacies.pdf)
+    - (Optional) Scan through this clever slide deck: [Why Are Distributed Systems So Hard?](https://drive.google.com/file/d/15nxAaVXZwNFnJNVvgtKonNbzxNgTUCxP/view)
+
+### Unit 2: Distributed Filesystems and MapReduce
+
+* Filesystems
+    - Read and summarize this paper: [The Google File System (2003)](https://static.googleusercontent.com/media/research.google.com/en//archive/gfs-sosp2003.pdf)
+    - Using [this interview about the evolution of GFS](https://queue.acm.org/detail.cfm?id=1594206), answer these questions: how did GFS hold up over time? In what ways would they have changed the design with several years of use?
 * Real world example: MapReduce
     - Read and summarize this paper: [MapReduce (2004)](https://pdos.csail.mit.edu/6.824/papers/mapreduce.pdf)
+    - Use [this blog post](http://highscalability.com/blog/2010/9/11/googles-colossus-makes-search-real-time-by-dumping-mapreduce.html) to answer this question: why did Google eventually move away from GFS and MapReduce?
 * Hands on learning: MapReduce
     - Complete this lab: [MIT 6.824 Lab 1: MapReduce](https://pdos.csail.mit.edu/6.824/labs/lab-1.html)
         + "In this lab you'll build a MapReduce library as an introduction to programming in Go and to building fault tolerant distributed systems. In the first part you will write a simple MapReduce program. In the second part you will write a Master that hands out tasks to MapReduce workers, and handles failures of workers. The interface to the library and the approach to fault tolerance is similar to the one described in the original MapReduce paper."
-
-### Unit 2: Filesystems?
-
-MapReduce, HDFS, GFS, Apple Filesystem
 
 ### Unit 3: Gossip Protocols
 
@@ -98,14 +103,13 @@ Consistency and availability are in conflict. This unit discusses these two gene
 * Real world examples: Dynamo and Spanner
     - Read and summarize this paper: [Dynamo: Amazon's Highly Available Key-value Store (2007)](http://www.read.seas.harvard.edu/~kohler/class/cs239-w08/decandia07dynamo.pdf)
     - Read and summarize this paper: [Spanner: Google's Globally-Distributed Database (2012)](https://static.googleusercontent.com/media/research.google.com/en//archive/spanner-osdi2012.pdf)
-        + "The lack of transactions in Bigtable led to frequent complaints from users, so Google made distributed transactions central to Spanner's design. Based on its experience with Bigtable, Google argues that it is better to have application programmers deal with performance problems due to overuse of transactions as bottlenecks arise, rather than always coding around the lack of transactions."[^2]
+        + "The lack of transactions in Bigtable led to frequent complaints from users, so Google made distributed transactions central to Spanner's design. Based on its experience with Bigtable, Google argues that it is better to have application programmers deal with performance problems due to overuse of transactions as bottlenecks arise, rather than always coding around the lack of transactions."[^1]
         + Also factor in this Google publication that connects Spanner to the CAP theorem: [Spanner, TrueTime & The CAP Theorem](https://research.google.com/pubs/pub45855.html?hl=pl)
 * Hands on learning: Fault-tolerant Key/Value Service
     - Complete this lab: [MIT 6.824 Lab 3: Fault-tolerant Key/Value Service](https://pdos.csail.mit.edu/6.824/labs/lab-kvraft.html)
         + "In this lab you will build a fault-tolerant key/value storage service using your Raft library from lab 2. You key/value service will be a replicated state machine, consisting of several key/value servers that use Raft to maintain replication. Your key/value service should continue to process client requests as long as a majority of the servers are alive and can communicate, in spite of other failures or network partitions."
 
-[^1]: https://en.wikipedia.org/wiki/Gossip_protocol
-[^2]: https://en.wikipedia.org/wiki/Spanner_(database)
+[^1]: https://en.wikipedia.org/wiki/Spanner_(database)
 
 ---
 
