@@ -7,7 +7,6 @@ tags:
 - architecture
 - caching
 - microservices
-- distributed-systems
 - nosql
 date: "2018-08-27"
 slug: multiple-layers-caching

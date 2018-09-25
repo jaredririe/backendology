@@ -6,13 +6,12 @@ categories: Books
 tags:
 - microservices
 - architecture
-- coding-interview
 - golang
 - javascript
-- machine-learning
+- coding-interview
 - databases
 - nosql
-- software
+- machine-learning
 date: "2018-07-30"
 slug: top-software-books
 ---

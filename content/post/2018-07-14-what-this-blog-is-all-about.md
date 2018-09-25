@@ -5,12 +5,10 @@ author: Jared Ririe
 categories: General
 tags:
 - microservices
+- golang
 - architecture
-- distributed-systems
 - databases
 - nosql
-- golang
-- software
 date: "2018-07-14"
 slug: what-this-blog-is-all-about
 ---

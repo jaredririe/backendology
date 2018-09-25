@@ -6,7 +6,6 @@ categories: Architecture
 tags:
 - architecture
 - microservices
-- distributed-systems
 date: "2018-08-21"
 slug: microservices-huge-mistake
 ---

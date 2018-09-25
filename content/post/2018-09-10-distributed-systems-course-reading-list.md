@@ -2,11 +2,11 @@
 title: 'Designing a Comprehensive Course in Distributed Systems: Reading List'
 featured_image: /public/images/distributed-systems-paper.png
 author: Jared Ririe
-categories: Research
+categories: Distributed Systems
 tags:
+- research-papers
 - architecture
 - microservices
-- distributed-systems
 - nosql
 date: "2018-09-10"
 slug: distributed-systems-course-reading-list

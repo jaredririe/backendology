@@ -6,7 +6,6 @@ categories: Golang
 tags:
 - golang
 - qualtrics
-- software
 date: "2018-08-06"
 slug: lessons-from-adopting-go-qualtrics
 ---

@@ -4,8 +4,8 @@ featured_image: /public/images/newsletter-12.png
 author: Jared Ririe
 categories: General
 tags:
-- blogging
 - hugo
+- blogging
 date: "2018-08-31"
 slug: hugo-newsletter
 ---
