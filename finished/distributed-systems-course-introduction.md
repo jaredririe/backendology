@@ -1,4 +1,6 @@
-# Designing a Comprehensive Course in Distributed Systems: Introductory Course
+# Introduction to Distributed Systems Course
+
+![Distributed Systems in the Wild](../static/public/images/distributed-systems-in-the-wild.png)
 
 In my [previous blog post](https://backendology.com/2018/09/10/distributed-systems-course-reading-list/), I created a detailed reading list of the distributed systems content I deemed most important and interesting. This post is the next step towards designing a comprehensive course in distributed systems: creating an introductory course.
 
@@ -22,6 +24,9 @@ This unit frames the problem presented by distributed systems. It explains why t
     - Read and summarize this paper: [The Byzantine Generals Problem (Lamport 1982)](http://www.cs.cornell.edu/courses/cs614/2004sp/papers/LSP82.pdf)
 * **Failure modes**
     - Read these resources on failure modes: [Failure Modes in Distributed Systems](http://alvaro-videla.com/2013/12/failure-modes-in-distributed-systems.html), [Wikipedia: Failure Semantics](https://en.wikipedia.org/wiki/Failure_semantics)
+
+![Eight Fallacies of Distributed Systems](../static/public/images/distributed-systems-8-fallacies.png)[^1]
+
 * **Fallacies**
     - Read and summarize this article: [Fallacies of Distributed Computing Explained](https://www.rgoarchitects.com/Files/fallacies.pdf)
     - (Optional) Scan through this clever slide deck: [Why Are Distributed Systems So Hard?](https://drive.google.com/file/d/15nxAaVXZwNFnJNVvgtKonNbzxNgTUCxP/view)
@@ -30,9 +35,9 @@ This unit frames the problem presented by distributed systems. It explains why t
 
 Filesystems are often taught early on as they are the foundation of other distributed systems. Unlike databases which are designed for direct use by applications, filesystems are designed for system to system use.
 
-![Google's Storage Stack](../static/public/images/google-storage-stack.png)[^1]
+![Google's Storage Stack](../static/public/images/google-storage-stack.png)
 
-The above image is from the book _Site Reliability Engineering: How Google Runs Production Systems_ and shows Google's storage stack. The successor to the Google File System is known as Colossus. It provides a filesystem foundation (as well as replication and encryption) to database-like systems such as Spanner and Bigtable. Colossus is built atop D (for Disk) which is a fileserver.
+The above image is from the book _Site Reliability Engineering: How Google Runs Production Systems_[^2] and shows Google's storage stack. The successor to the Google File System is known as Colossus. It provides a filesystem foundation (as well as replication and encryption) to database-like systems such as Spanner and Bigtable. Colossus is built atop D (for Disk) which is a fileserver.
 
 * **Filesystems**
     - Read and summarize this paper: [The Google File System (2003)](https://static.googleusercontent.com/media/research.google.com/en//archive/gfs-sosp2003.pdf)
@@ -77,6 +82,9 @@ Distributed consensus is a another fundamental problem in distributed systems. P
         + "Raft is a consensus algorithm for managing a replicated log. It produces a result equivalent to (multi-)Paxos, and it is as efficient as Paxos, but its structure is different from Paxos; this makes Raft more understandable than Paxos and also provides a better foundation for building practical systems."
     - Use this visualization to create pseudocode of the algorithm: [Visualization of Raft](http://thesecretlivesofdata.com/raft/)
     - Compare and contrast Raft and Paxos, as well as Two-phase commit
+
+![Raft State Diagram](../static/public/images/distributed-systems-raft-state-diagram.png)
+
 * **Real world examples: Consul and etcd**
     - Study Consul's use of Raft: [Consul: Raft Protocol Overview](https://www.consul.io/docs/internals/consensus.html)
     - Study etcd's use of Raft: [github.com/etcd-io/etcd](https://github.com/etcd-io/etcd)
@@ -89,6 +97,8 @@ Distributed consensus is a another fundamental problem in distributed systems. P
 ### Unit 5: Consistency and Availability
 
 Consistency and availability are two system characteristics known to be in conflict. This unit discusses these two characteristics and how to make practical decisions in systems. It discusses the terminology of consistency, the CAP theorem, distributed transactions, and eventual consistency.
+
+![Consistencey Models](../static/public/images/consistency-models.png)
 
 * **Consistency terminology**
     - Extract consistency terminology from this diagram: [Consistency Models](http://jepsen.io/consistency)
@@ -110,14 +120,15 @@ Consistency and availability are two system characteristics known to be in confl
 * **Real world examples: Dynamo and Spanner**
     - Read and summarize this paper: [Dynamo: Amazon's Highly Available Key-value Store (2007)](http://www.read.seas.harvard.edu/~kohler/class/cs239-w08/decandia07dynamo.pdf)
     - Read and summarize this paper: [Spanner: Google's Globally-Distributed Database (2012)](https://static.googleusercontent.com/media/research.google.com/en//archive/spanner-osdi2012.pdf)
-        + "The lack of transactions in Bigtable led to frequent complaints from users, so Google made distributed transactions central to Spanner's design. Based on its experience with Bigtable, Google argues that it is better to have application programmers deal with performance problems due to overuse of transactions as bottlenecks arise, rather than always coding around the lack of transactions."[^2]
+        + "The lack of transactions in Bigtable led to frequent complaints from users, so Google made distributed transactions central to Spanner's design. Based on its experience with Bigtable, Google argues that it is better to have application programmers deal with performance problems due to overuse of transactions as bottlenecks arise, rather than always coding around the lack of transactions."[^3]
         + Also factor in this Google publication that connects Spanner to the CAP theorem: [Spanner, TrueTime & The CAP Theorem](https://research.google.com/pubs/pub45855.html?hl=pl)
 * **Hands on learning: Fault-tolerant Key/Value Service**
     - Complete this lab: [MIT 6.824 Lab 3: Fault-tolerant Key/Value Service](https://pdos.csail.mit.edu/6.824/labs/lab-kvraft.html)
         + "In this lab you will build a fault-tolerant key/value storage service using your Raft library from lab 2. You key/value service will be a replicated state machine, consisting of several key/value servers that use Raft to maintain replication. Your key/value service should continue to process client requests as long as a majority of the servers are alive and can communicate, in spite of other failures or network partitions."
 
-[^1]: https://landing.google.com/sre/book/chapters/production-environment.html
-[^2]: https://en.wikipedia.org/wiki/Spanner_(database)
+[^1]: https://drive.google.com/file/d/15nxAaVXZwNFnJNVvgtKonNbzxNgTUCxP/view
+[^2]: https://landing.google.com/sre/book/chapters/production-environment.html
+[^3]: https://en.wikipedia.org/wiki/Spanner_(database)
 
 ---
 

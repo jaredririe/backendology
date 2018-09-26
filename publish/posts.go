@@ -86,7 +86,7 @@ var blogPosts = []Post{
 	},
 	{
 		Filename:      "../finished/distributed-systems-course-introduction.md",
-		FeaturedImage: "/public/images/distributed-systems-paper.png",
+		FeaturedImage: "/public/images/distributed-systems-in-the-wild.png",
 		Date:          date("September 19, 2018"),
 		Category:      category.DistributedSystems,
 		Tags:          []tagType{tag.ResearchPapers, tag.Architecture, tag.Microservices, tag.NoSQL, tag.Databases},
