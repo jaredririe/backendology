@@ -152,6 +152,102 @@ Cache placement
 
 ### Proxies
 
+Proxy definition
+
+> a proxy server is an intermediate piece of hardware/software that receives requests from clients and relays them to the backend origin servers. Typically, proxies are used to filter requests, log requests, or sometimes transform requests (by adding/removing headers, encrypting/decrypting, or compression).
+
+Collapsed forwarding
+
+> One way to use a proxy to speed up data access is to collapse the same (or similar) requests together into one request, and then return the single result to the requesting clients. This is known as collapsed forwarding.
+
+Deduplicating requests for the same value is an example of collapsed forwarding:
+
+> Imagine there is a request for the same data (let's call it littleB) across several nodes, and that piece of data is not in the cache. If that request is routed thought the proxy, then all of those requests can be collapsed into one, which means we only have to read littleB off disk once
+
+Individual requests may experience more latency in order to accomplish collapsed forwarding because they are slightly delayed to be grouped with similar requests.
+
+> But it will improve performance in high load situations, particularly when that same data is requested over and over. This is similar to a cache, but instead of storing the data/document like a cache, it is optimizing the requests or calls for those documents and acting as a proxy for those clients.
+
+Proxies can also collapse requests for data that is spatially close together in the origin store. Perhaps you can read an entire block of data just as easily as a row within that block. The proxy could read the block of data and return it to several concurrent requests asking for parts of that block.
+
+Proxies can also batch several requests into one, thus limiting the number of calls made to the origin.
+
+Proxies work well with caches.
+
+> It is worth noting that you can use proxies and caches together, but generally it is best to put the cache in front of the proxy, for the same reason that it is best to let the faster runners start first in a crowded marathon race. This is because the cache is serving data from memory, it is very fast, and it doesn't mind multiple requests for the same result. But if the cache was located on the other side of the proxy server, then there would be additional latency with every request before the cache, and this could hinder performance.
+
 ### Indexes
 
+> Using an index to access your data quickly is a well-known strategy for optimizing data access performance; probably the most well known when it comes to databases. An index makes the trade-offs of increased storage overhead and slower writes (since you must both write the data and update the index) for the benefit of faster reads.
+
+> Just as to a traditional relational data store, you can also apply this concept to larger data sets. The trick with indexes is you must carefully consider how users will access your data
+
+> An index can be used like a table of contents that directs you to the location where your data lives.
+
+Multiple layers of indexes
+
+> Often there are many layers of indexes that serve as a map, moving you from one location to the next, and so forth, until you get the specific piece of data you want. (See Figure 1.17.)
+
+Views, avoiding copies of the data
+
+> Indexes can also be used to create several different views of the same data. For large data sets, this is a great way to define different filters and sorts without resorting to creating many additional copies of the data.
+
+Inverse indexes
+
+> First, inverse indexes to query for arbitrary words and word tuples need to be easily accessible; then there is the challenge of navigating to the exact page and location within that book, and retrieving the right image for the results. So in this case the inverted index would map to a location (such as book B), and then B may contain an index with all the words, locations and number of occurrences in each part.
+
+Inverted index example:
+
+> each word or tuple of words provide an index of what books contain them
+
+Importance of indexes for big data problems
+
+> Creating these intermediate indexes and representing the data in smaller sections makes big data problems tractable. Data can be spread across many servers and still accessed quickly. Indexes are a cornerstone of information retrieval, and the basis for today's modern search engines.
+
 ### Load Balancers
+
+> Load balancers are a principal part of any architecture, as their role is to distribute load across a set of nodes responsible for servicing requests. This allows multiple nodes to transparently service the same function in a system. (See Figure 1.18.) Their main purpose is to handle a lot of simultaneous connections and route those connections to one of the request nodes, allowing the system to scale to service more requests by just adding nodes.
+
+Load balancing algorithms
+
+> There are many different algorithms that can be used to service requests, including picking a random node, round robin, or even selecting the node based on certain criteria, such as memory or CPU utilization.
+
+Multiple layers of load balancing
+
+> In a distributed system, load balancers are often found at the very front of the system, such that all incoming requests are routed accordingly. In a complex distributed system, it is not uncommon for a request to be routed to multiple load balancers as shown in Figure 1.19.
+
+Reverse proxies
+
+> Like proxies, some load balancers can also route a request differently depending on the type of request it is. (Technically these are also known as reverse proxies.)
+
+Sometimes round robin DNS is sufficient
+
+> If a system only has a couple of a nodes, systems like round robin DNS may make more sense since load balancers can be expensive and add an unneeded layer of complexity.
+
+### Queues
+
+> So far we have covered a lot of ways to read data quickly, but another important part of scaling the data layer is effective management of writes.
+
+Accepting the tradeoffs of asynchronous processing allows improvements to performance and availability
+
+> In the cases where writes, or any task for that matter, may take a long time, achieving performance and availability requires building asynchrony into the system; a common way to do that is with queues.
+
+Synchronous systems behave poorly under high load. Failed requests cause cascading failures.
+
+> However, when the server receives more requests than it can handle, then each client is forced to wait for the other clients' requests to complete before a response can be generated.
+>
+> This kind of synchronous behavior can severely degrade client performance; the client is forced to wait, effectively performing zero work, until its request can be answered. Adding additional servers to address system load does not solve the problem either; even with effective load balancing in place it is extremely difficult to ensure the even and fair distribution of work required to maximize client performance. Further, if the server handling requests is unavailable, or fails, then the clients upstream will also fail.
+
+API of queues
+
+> When a client submits task requests to a queue they are no longer forced to wait for the results; instead they need only acknowledgment that the request was properly received. This acknowledgment can later serve as a reference for the results of the work when the client requires it.
+
+Queues provide a separation between the request and response, rather than tightly integrating the two
+
+> In an asynchronous system the client requests a task, the service responds with a message acknowledging the task was received, and then the client can periodically check the status of the task, only requesting the result once it has completed. While the client is waiting for an asynchronous request to be completed it is free to perform other work, even making asynchronous requests of other services.
+
+Protection from service outages and failures, providing a much improved client experience--they're not directly exposed to a struggling synchronous system.
+
+> Queues also provide some protection from service outages and failures. For instance, it is quite easy to create a highly robust queue that can retry service requests that have failed due to transient server failures. It is more preferable to use a queue to enforce quality-of-service guarantees than to expose clients directly to intermittent service outages, requiring complicated and often-inconsistent client-side error handling.
+
+
