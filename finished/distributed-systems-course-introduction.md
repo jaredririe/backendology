@@ -80,7 +80,7 @@ Distributed consensus is a another fundamental problem in distributed systems. P
 * **Raft**
     - Read and summarize this paper: [In Search of an Understandable Consensus Algorithm (Extended Version)](https://pdos.csail.mit.edu/6.824/papers/raft-extended.pdf)
         + "Raft is a consensus algorithm for managing a replicated log. It produces a result equivalent to (multi-)Paxos, and it is as efficient as Paxos, but its structure is different from Paxos; this makes Raft more understandable than Paxos and also provides a better foundation for building practical systems."
-    - Use this visualization to create pseudocode of the algorithm: [Visualization of Raft](http://thesecretlivesofdata.com/raft/)
+    - Use these visualizations to create pseudocode of the algorithm: [Visualization of Raft](http://thesecretlivesofdata.com/raft/), [Runway Raft Model](https://runway.systems/?model=github.com/ongardie/runway-model-raft)
     - Compare and contrast Raft and Paxos, as well as Two-phase commit
 
 ![Raft State Diagram](../static/public/images/distributed-systems-raft-state-diagram.png)
