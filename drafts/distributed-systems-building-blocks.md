@@ -1,24 +1,42 @@
 # Building Blocks of Web Distributed Systems
 
-[Scalable Web Architecture and Distributed Systems](http://www.aosabook.org/en/distsys.html)
+This blog post is based a chapter from [_The Architecture of Open Source Applications_](http://www.aosabook.org/en/index.html) titled "[Scalable Web Architecture and Distributed Systems](http://www.aosabook.org/en/distsys.html)."
 
-[_The Architecture of Open Source Applications_](http://www.aosabook.org/en/index.html)
+## _The Architecture of Open Source Applications_
+
+Before getting into the details of the chapter, the book itself deserves some introduction. Its opening pages make the compelling point that architects in the traditional sense are exposed to thousands of real buildings, but software architects rarely make a similar investment:
 
 > Architects look at thousands of buildings during their training, and study critiques of those buildings written by masters. In contrast, most software developers only ever get to know a handful of large programs well—usually programs they wrote themselves—and never study the great programs of history. As a result, they repeat one another's mistakes rather than building on one another's successes.[^1]
 
-## A
+Each chapter is written by experienced software developers who impart knowledge of a particular system or design. Some other chapters include [nginx](http://www.aosabook.org/en/nginx.html), [Firefox Release Engineering](http://www.aosabook.org/en/ffreleng.html), and [Git](http://www.aosabook.org/en/git.html).
+
+## Scalable web architecture and distributed systems
+
+This chapter on scalable web systems uses an image hosting application to explain the principles and building blocks of distributed systems.
+
+### Principles of web distributed systems design
+
+### Distributed systems building blocks
+
+After explaining the general principles above, the author asserts that the most challenging aspect of building web distributed systems is scaling access to the data. While application servers are inherently stateless and embody a shared-nothing architecture, "the heavy lifting is pushed down the stack to the database server and supporting services." The data access layer is "where the real scaling and performance challenges come into play."
+
+Caches, queues, indexes, and load balancers are the building blocks of a scalable data access.
+
+#### Caches
+
+#### Indexes
+
+#### Load Balancers
+
+#### Proxies
+
+#### Queues
 
 [^1]: http://www.aosabook.org/en/index.html
 
 ---
 
 # Notes (supplementary to blog post)
-
-## My High-level Summary
-
-This article asserts that the most challenging aspect of building web distributed systems is scaling access to the data. While app servers are inherently stateless and embody a shared-nothing architecture, "the heavy lifting is pushed down the stack to the database server and supporting services." The data access Layer is "where the real scaling and performance challenges come into play."
-
-Caches, queues, indexes, and load balancers are the building blocks of a scalable web system.
 
 ## 1.1. Principles of Web Distributed Systems Design
 
