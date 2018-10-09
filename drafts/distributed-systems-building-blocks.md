@@ -1,38 +1,104 @@
-# Building Blocks of Web Distributed Systems
+# Building Blocks of Distributed Systems
 
 This blog post is based a chapter from [_The Architecture of Open Source Applications_](http://www.aosabook.org/en/index.html) titled "[Scalable Web Architecture and Distributed Systems](http://www.aosabook.org/en/distsys.html)."
 
 ## _The Architecture of Open Source Applications_
 
-Before getting into the details of the chapter, the book itself deserves some introduction. Its opening pages make the compelling point that architects in the traditional sense are exposed to thousands of real buildings, but software architects rarely make a similar investment:
+[The Architecture of Open Source Applications cover][]
+
+Before getting into the details of the chapter, the book itself deserves some introduction. Its opening pages make the compelling point that architects in the traditional sense are exposed to and study thousands of real buildings, but software architects rarely make a similar investment, leading to repeated mistakes:
 
 > Architects look at thousands of buildings during their training, and study critiques of those buildings written by masters. In contrast, most software developers only ever get to know a handful of large programs well—usually programs they wrote themselves—and never study the great programs of history. As a result, they repeat one another's mistakes rather than building on one another's successes.[^1]
 
-Each chapter is written by experienced software developers who impart knowledge of a particular system or design. Some other chapters include [nginx](http://www.aosabook.org/en/nginx.html), [Firefox Release Engineering](http://www.aosabook.org/en/ffreleng.html), and [Git](http://www.aosabook.org/en/git.html).
+Each chapter is written by experienced software developers who impart knowledge of a particular system or design. Some other chapters include [nginx](http://www.aosabook.org/en/nginx.html), [Firefox Release Engineering](http://www.aosabook.org/en/ffreleng.html), and [Git](http://www.aosabook.org/en/git.html). The chapter covered in this post primarily uses an image hosting application to explain the principles and building blocks of scalable distributed systems.
 
-## Scalable web architecture and distributed systems
+## Building blocks
 
-This chapter on scalable web systems uses an image hosting application to explain the principles and building blocks of distributed systems.
+[Building blocks][]
 
-### Principles of web distributed systems design
+After explaining the general principles, the author asserts that the most challenging aspect of building web distributed systems is scaling access to the data. While application servers are inherently stateless and embody a shared-nothing architecture, "the heavy lifting is pushed down the stack to the database server and supporting services." The data access layer is "where the real scaling and performance challenges come into play."[^2]
 
-### Distributed systems building blocks
+Caches, proxies, indexes, load balancers, and queues are the building blocks of a scalable data access layer. Rather than covering the entire chapter, I will focus the remainder of this post on these building blocks.
 
-After explaining the general principles above, the author asserts that the most challenging aspect of building web distributed systems is scaling access to the data. While application servers are inherently stateless and embody a shared-nothing architecture, "the heavy lifting is pushed down the stack to the database server and supporting services." The data access layer is "where the real scaling and performance challenges come into play."
+### Caches
 
-Caches, queues, indexes, and load balancers are the building blocks of a scalable data access.
+Caches are ubiquitous in computing. Their ability to scale read access in a system is clear. They "take advantage of the locality of reference principle: recently requested data is likely to be requested again."[^2]
 
-#### Caches
+In a [previous blog post](https://backendology.com/2018/08/27/multiple-layers-caching/), I wrote at length about the importance of having multiple layers of caching, including client-side caching. The author of this chapter reached a similar conclusion:
 
-#### Indexes
+> Caches can exist at all levels in architecture, but are often found at the level nearest to the front end, where they are implemented to return data quickly without taxing downstream levels.[^2]
 
-#### Load Balancers
+When clients avoid "taxing downstream levels", they enable more growth in the system without the need to scale out. For example, assuming linear scaling and equally taxing requests, if clients implement caching that reduces their usage of the backend by 50%, then the backend can handle twice as many clients without purchasing more resources.
 
-#### Proxies
+The chapter's coverage of caching augments my previous post with a fascinating discussion of cache placement.
 
-#### Queues
+#### Cache placement
+
+[Cache placement strategies][]
+
+* _Request Node_: collocate the cache with the node that requests the data
+    - Pros
+        + Each time a request is made, the node can quickly return cached data if it exists, avoiding any network hops
+        + Often in-memory and very fast
+    - Cons
+        + When you have multiple request nodes that are load balanced, you may have to cache the same item on all the nodes
+* _Global Cache_: central cache used by all request nodes
+    - Pros
+        + A given item will only be cached only once
+        + Multiple requests for an item can be _collapsed_ into one request to the backend
+    - Cons
+        + Easy to overwhelm a single cache as the number of clients and requests increase
+    - Types
+        + Reverse proxy cache: cache is responsible for retrieval on cache miss (more common, handles its own eviction)
+        + Cache as a service: request nodes are responsible for retrieval on cache miss (typically used when the request nodes understand the eviction strategy or hot spots better than the cache)
+* _Distributed Cache_: each of the nodes that make up the cache own part of the cached data; divided using a [consistent hashing function](https://en.wikipedia.org/wiki/Consistent_hashing)
+    - Pros
+        + Cache space and load capacity can be increased by scaling out (increasing the number of nodes)
+    - Cons
+        + Node failure must be handled or intentionally ignored
+
+### Proxies
+
+> At a basic level, a proxy server is an intermediate piece of hardware/software that receives requests from clients and relays them to the backend origin servers. Typically, proxies are used to filter requests, log requests, or sometimes transform requests (by adding/removing headers, encrypting/decrypting, or compression).[^2]
+
+(Collapsed forwarding, deduplication, example code in Go?)
+
+(Batching)
+
+(Simple reverse proxy example code in Go?)
+
+Proxies and caches are often used together, such as in the **reverse proxy cache** explained above which is a proxy that performs best-effort caching of the requests it handles.
+
+(Lessons from Fieldset Cache) (Snapshots)
+
+### Indexes
+
+Database indexes: https://backendology.com/2018/07/23/database-indexes/
+
+The chapter's explanation helped broaden my understanding of indexes beyond data access.
+
+(Multiple layers of indexes)
+
+### Load Balancers
+
+(Definition)
+
+(North-south, east-west explanation)
+
+(server-side vs. client-side load balancing)
+
+(Software vs. hardware load balancing)
+
+### Queues
+
+(Asynchronous processing)
+
+(When synchronous systems perform poorly)
+
+(Lessons from FSCS, ability to smooth over backend problems and offer protection from service outages and failures -> improved availability, less stress to ensure every request succeeds)
 
 [^1]: http://www.aosabook.org/en/index.html
+[^2]: http://www.aosabook.org/en/distsys.html
 
 ---
 
@@ -180,7 +246,7 @@ Collapsed forwarding
 
 Deduplicating requests for the same value is an example of collapsed forwarding:
 
-> Imagine there is a request for the same data (let's call it littleB) across several nodes, and that piece of data is not in the cache. If that request is routed thought the proxy, then all of those requests can be collapsed into one, which means we only have to read littleB off disk once
+> Imagine there is a request for the same data (let's call it littleB) across several nodes, and that piece of data is not in the cache. If that request is routed through the proxy, then all of those requests can be collapsed into one, which means we only have to read littleB off disk once
 
 Individual requests may experience more latency in order to accomplish collapsed forwarding because they are slightly delayed to be grouped with similar requests.
 
@@ -267,5 +333,3 @@ Queues provide a separation between the request and response, rather than tightl
 Protection from service outages and failures, providing a much improved client experience--they're not directly exposed to a struggling synchronous system.
 
 > Queues also provide some protection from service outages and failures. For instance, it is quite easy to create a highly robust queue that can retry service requests that have failed due to transient server failures. It is more preferable to use a queue to enforce quality-of-service guarantees than to expose clients directly to intermittent service outages, requiring complicated and often-inconsistent client-side error handling.
-
-
