@@ -61,9 +61,233 @@ The chapter's coverage of caching augments my previous post with a fascinating d
 
 > At a basic level, a proxy server is an intermediate piece of hardware/software that receives requests from clients and relays them to the backend origin servers. Typically, proxies are used to filter requests, log requests, or sometimes transform requests (by adding/removing headers, encrypting/decrypting, or compression).[^2]
 
-(Collapsed forwarding, deduplication, example code in Go?)
+#### Collapsed forwarding
 
-(Batching)
+Collapsed forwarding is an example of a technique that proxies can employ to decrease load on a downstream server. In this technique, similar requests are _collapsed_ into a single request that is made to the downstream server; the result of this request is then written to all similar requests, thus reducing the number of requests made.
+
+A simple example of collapsed forwarding is **deduplication**. If a resource X is 100 times, the proxy can make a single request to retrieve X from the downstream server and then write the same response body to the 99 other requests for X.
+
+This is particularly helpful for the downstream server when the resource X is large in size. Let's assume a 5 MB payload that must be read into memory (rather than streamed). Without deduplication, the hundred requests would require the server to wastefully read 5 * 100 = 500 MB into memory. The deduplication step in the proxy can smooth over spikes and reduce the memory usage dramatically.
+
+Let's implement a simple proxy and server in Go with collapsed forwarding!
+
+Our implementation of collapsed forwarding will batch together requests for the same URL. Every five seconds, our `requestBatcher` will flush its batches of requests by handling one request from each batch and giving the same result to the rest of the requests in that batch.
+
+```go
+type requestBatcher struct {
+    batch   map[string][]*request
+    handler http.HandlerFunc
+
+    mu    *sync.Mutex
+    close chan struct{}
+}
+
+type request struct {
+    w    http.ResponseWriter
+    r    *http.Request
+    done chan struct{}
+}
+```
+
+`requestBatcher` will store the batches of requests as a map from string (URL) to a slice of requests. The `handler` will indicate how the requests should be handled. We'll protect our map with a mutex `mu` and have a `close` channel for a clean shutdown.
+
+A `request` is everything we need to process the request, the original request `r` and the writer `w` for writing the response. We'll also have a `done` channel that will allow the flush step to tell the goroutine handling the request that the request has been handled.
+
+```go
+func newRequestBatcher(handler http.HandlerFunc) *requestBatcher {
+    rc := &requestBatcher{
+        batch:   make(map[string][]*request),
+        handler: handler,
+        mu:      &sync.Mutex{},
+        close:   make(chan struct{}),
+    }
+
+    go func() {
+        for {
+            ticker := time.NewTicker(5 * time.Second)
+            select {
+            case <-ticker.C:
+                rc.Flush()
+            case <-rc.close:
+                return
+            }
+        }
+    }()
+
+    return rc
+}
+```
+
+The constructor for the `requestBatcher` will initialize all the variables and kick off a goroutine that calls Flush every five seconds. For a real production proxy, five seconds is likely far too long. It will give us enough time to see that our batching logic is working, however.
+
+```go
+func (rc *requestBatcher) Append(key string, request *request) {
+    rc.mu.Lock()
+    defer rc.mu.Unlock()
+
+    rc.batch[key] = append(rc.batch[key], request)
+}
+```
+
+`Append` appends the given request to the slice of requests under the given key.
+
+```go
+func (rc *requestBatcher) Flush() {
+    rc.mu.Lock()
+    defer rc.mu.Unlock()
+
+    for key, batch := range rc.batch {
+        fmt.Printf("%d batched requests under key %q\n",
+            len(batch), key)
+
+        // handle one candidate request
+        candidateRequest := batch[0]
+
+        w := httptest.NewRecorder()
+        rc.handler.ServeHTTP(w, candidateRequest.r)
+        responseBody := w.Body.Bytes()
+
+        // write the same result to all requests in this batch
+        for _, request := range batch {
+            request.r.Body.Close()
+            request.w.WriteHeader(w.Result().StatusCode)
+            request.w.Write(responseBody)
+
+            // let the goroutine for this request know that
+            // it has been handled
+            request.done <- struct{}{}
+        }
+
+        // delete the batch
+        delete(rc.batch, key)
+    }
+}
+```
+
+`Flush` handles one request from each batch of requests and writes the same result to all requests in the batch. Finally, it deletes the batch of requests so we can start fresh after each flush.
+
+```go
+func main() {
+    rc := newRequestBatcher(proxyRequest)
+    proxy := newProxy(rc)
+    server := newServer()
+
+    defer func() {
+        proxy.Close()  // stop accepting new requests at the proxy layer
+        rc.Close()     // close and flush out any pending requests
+        server.Close() // stop the server
+    }()
+
+    // run until interrupted
+    stop := make(chan os.Signal)
+    signal.Notify(stop, os.Interrupt)
+    <-stop
+}
+
+func newProxy(rc *requestBatcher) *http.Server {
+    proxy := &http.Server{
+        Addr: ":8080",
+        Handler: http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+            fmt.Println("[proxy]", r.URL.String())
+
+            ch := make(chan struct{})
+            rc.Append(r.URL.String(), &request{
+                w:    w,
+                r:    r,
+                done: ch,
+            })
+
+            <-ch
+        }),
+    }
+
+    // start the proxy
+    go func() {
+        fmt.Println("[proxy] running on port", proxy.Addr)
+        fmt.Println(proxy.ListenAndServe())
+    }()
+
+    return proxy
+}
+
+func newServer() *http.Server {
+    server := &http.Server{
+        Addr: ":8081",
+        Handler: http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+            fmt.Println("[server]", r.URL.String())
+            w.Write([]byte(r.URL.String()))
+        }),
+    }
+
+    // start the server
+    go func() {
+        fmt.Println("[server] running on port", server.Addr)
+        fmt.Println(server.ListenAndServe())
+    }()
+
+    return server
+}
+
+func proxyRequest(w http.ResponseWriter, r *http.Request) {
+    u := url.URL{
+        Scheme: "http",
+        Host:   "localhost:8081",
+        Path:   r.URL.Path,
+    }
+
+    request, err := http.NewRequest(r.Method, u.String(), r.Body)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+
+    response, err := http.DefaultClient.Do(request)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+
+    bytes, err := ioutil.ReadAll(response.Body)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    response.Body.Close()
+
+    w.WriteHeader(response.StatusCode)
+    w.Write(bytes)
+}
+```
+
+Our main function does the work of creating a new `requestBatcher`, standing up our simple proxy and server, and waiting for an interrupt.
+
+* The proxy runs on `localhost:8080` and will handle requests by Appending them to the batch of requests and waiting on the `done` channel for completion. If we didn't wait for this channel, the request's goroutine would exit and leave the response unwritten.
+* The server runs on `localhost:8081`. It's pretty straightforward: it handles requests by writing the response to be the URL of the request, like an echo server.
+* `proxyRequest` is the handler that we pass to `newRequestBatcher`. It tells the batcher what it should do with requests when flushing them. In this case, we're indicating that requests should be made to the server at `localhost:8081`.
+
+The entirety of this code is [available on GitHub](https://github.com/jaredririe/backendology/tree/master/code/collapsed-forwarding).
+
+If we make several requests to the proxy in the background, like so:
+
+```bash
+$ curl localhost:8080/test &
+$ curl localhost:8080/test &
+$ curl localhost:8080/test2 &
+$ curl localhost:8080/test &
+```
+
+The application logs each request, finds two sets of batched requests, and makes a single request to the server for each batch:
+
+```bash
+[proxy] /test
+[proxy] /test
+[proxy] /test2
+[proxy] /test
+3 batched requests under key "/test"
+[server] /test
+1 batched requests under key "/test2"
+[server] /test2
+```
 
 (Simple reverse proxy example code in Go?)
 
