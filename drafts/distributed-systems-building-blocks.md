@@ -289,9 +289,38 @@ The application logs each request, finds two sets of batched requests, and makes
 [server] /test2
 ```
 
-(Simple reverse proxy example code in Go?)
+#### Reverse proxy cache
 
-Proxies and caches are often used together, such as in the **reverse proxy cache** explained above which is a proxy that performs best-effort caching of the requests it handles.
+A reverse proxy cache is simply the combination of a proxy and cache. Requests are made to a proxy in front of an **origin server** which performs best-effort caching. It always reserves the right to fall back on the origin for a definitive response. This is a convenient property and makes failure scenarios relatively straightforward.
+
+A less straightforward problem is cache eviction. Let's consider a few options:
+
+##### Automatic expiration after a TTL
+
+This option works well with in-memory caches that are intended to protect against spikes of requests. The data isn't cached very long, so its usefulness can be limited, however.
+
+##### Intercept modifications and handle evictions
+
+If all modifications to the underlying data go through the proxy layer, the cached data can be evicted as needed.
+
+##### Only cache immutable data
+
+In cases where modifications cannot be intercepted or the cached data is a computed result, more advanced techniques must be used. One such technique is to only cache unchanging, immutable data that never becomes stale or needs eviction. While this may seem impractical, it's usually not.
+
+Let's say that you want to cache the result of running a query against some data. If you run the query today, you get five rows of data back. If you run it tomorrow, you get seven because new data arrived. The query result is therefore **mutable**. How can we make it immutable? What we'll do is store the data under a cache key computed as follows:
+
+`hash(resource identifier, hash(query string), timestamp)`
+
+* **resource identifier**: the ID that references the data, like a customerId or datasetId within a customer's account
+* **query string**: the string that identifies the query, perhaps provided as a query parameter in the request's URL or a JSON representation in the request's body
+* **timestamp**: the last updated time of the data stored under the resource identifier
+
+| ID  | LastUpdated   | Data         |
+|-----|---------------|--------------|
+| a   | 1539322037479 | [1, 2, ...]  |
+| b   | 1538431688314 | [8, 2, ...]  |
+| c   | 1537899135166 | [1, 10, ...] |
+| d   | 1538116563215 | [10, 9, ...] |
 
 (Lessons from Fieldset Cache) (Snapshots)
 
