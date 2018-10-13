@@ -61,6 +61,8 @@ The chapter's coverage of caching augments my previous post with a fascinating d
 
 > At a basic level, a proxy server is an intermediate piece of hardware/software that receives requests from clients and relays them to the backend origin servers. Typically, proxies are used to filter requests, log requests, or sometimes transform requests (by adding/removing headers, encrypting/decrypting, or compression).[^2]
 
+Proxies are a deceptively simple building block in an architecture: their very nature is to be lightweight, nearly invisible components yet they can provide incredible value to a system by reducing load on the backend servers, providing a convenient location for caching layers, and funneling traffic appropriately.
+
 #### Collapsed forwarding
 
 Collapsed forwarding is an example of a technique that proxies can employ to decrease load on a downstream server. In this technique, similar requests are _collapsed_ into a single request that is made to the downstream server; the result of this request is then written to all similar requests, thus reducing the number of requests made.
@@ -291,9 +293,9 @@ The application logs each request, finds two sets of batched requests, and makes
 
 #### Reverse proxy cache
 
-A reverse proxy cache is simply the combination of a proxy and cache. Requests are made to a proxy in front of an **origin server** which performs best-effort caching. It always reserves the right to fall back on the origin for a definitive response. This is a convenient property and makes failure scenarios relatively straightforward.
+A reverse proxy cache is as the name implies the combination of a proxy and cache. Requests are made to a proxy in front of an **origin server** which performs best-effort caching. It always reserves the right to fall back on the origin for a definitive response, which is a convenient property that makes failure scenarios relatively straightforward.
 
-A less straightforward problem is cache eviction. Let's consider a few options:
+A less straightforward problem is handling cache eviction. Let's consider a few options:
 
 ##### Automatic expiration after a TTL
 
@@ -307,32 +309,34 @@ If all modifications to the underlying data go through the proxy layer, the cach
 
 In cases where modifications cannot be intercepted or the cached data is a computed result, more advanced techniques must be used. One such technique is to only cache unchanging, immutable data that never becomes stale or needs eviction. While this may seem impractical, it's usually not.
 
-Let's say that you want to cache the result of running a query against some data. If you run the query today, you get five rows of data back. If you run it tomorrow, you get seven because new data arrived. The query result is therefore **mutable**. How can we make it immutable? What we'll do is store the data under a cache key computed as follows:
-
-`hash(resource identifier, hash(query string), timestamp)`
+Let's say that you want to cache the result of running a query against some data. If you run the query today, you get five rows of data back. If you run it tomorrow, you get seven because new data arrived. The query result is therefore **mutable**. How can we make it immutable? What we'll do is store the data under a cache key computed like so:`hash(resource identifier, hash(query string), timestamp)`
 
 * **resource identifier**: the ID that references the data, like a customerId or datasetId within a customer's account
 * **query string**: the string that identifies the query, perhaps provided as a query parameter in the request's URL or a JSON representation in the request's body
 * **timestamp**: the last updated time of the data stored under the resource identifier
 
-| ID  | LastUpdated   | Data         |
-|-----|---------------|--------------|
-| a   | 1539322037479 | [1, 2, ...]  |
-| b   | 1538431688314 | [8, 2, ...]  |
-| c   | 1537899135166 | [1, 10, ...] |
-| d   | 1538116563215 | [10, 9, ...] |
+Assuming the table like the following, if we make a query for all data stored under A, we'll cache the response (`[1, 2, 3]`) under the cache key `hash(A, hash(query string), 1539322037479)`. Then subsequent requests will only be cache hits if the data has not changed.
 
-(Lessons from Fieldset Cache) (Snapshots)
+| ID  | LastUpdated   | Data          |
+|-----|---------------|---------------|
+| A   | 1539322037479 | [1, 2, 3]     |
+| B   | 1538431688314 | [8, 2, 3, 1]  |
+| C   | 1537899135166 | [1, 10, 1]    |
+| D   | 1538116563215 | [10, 9, 8, 7] |
+
+Using this technique works best when the consumer provides a `LastUpdated` value as part of their request. Preferably they retrieved this value once and will use it across multiple queries (to populated a dashboard, for example). If `LastUpdated` is not passed in on the request, the proxy can quickly retrieve it in the consumer's behalf and use it to check the cache. Usually it's much easier to get the `LastUpdated` value than compute a (potentially complex) query, so the caching layer still provides a lot of value.
 
 ### Indexes
 
-Database indexes: https://backendology.com/2018/07/23/database-indexes/
+When most developers hear the word "indexes", they immediately follow an index jump to database indexes. At least this is the case for me. While I find databases indexes to be an interesting topic (to the point that I wrote a [blog post which describes how database indexes work at a low level](https://backendology.com/2018/07/23/database-indexes/)), this chapter's explanation helped broaden my understanding of indexes beyond databases.
 
-The chapter's explanation helped broaden my understanding of indexes beyond data access.
+> Using an index to access your data quickly is a well-known strategy for optimizing data access performance; probably the most well known when it comes to databases. An index makes the trade-offs of increased storage overhead and slower writes (since you must both write the data and update the index) for the benefit of faster reads. ... Just as to a traditional relational data store, you can also apply this concept to larger data sets.
 
 (Multiple layers of indexes)
 
-### Load Balancers
+### Load balancers
+
+Load balancers come in many different flavors, but they all serve the purpose of distributing load evenly across a set of downstream nodes.
 
 (Definition)
 
@@ -344,11 +348,13 @@ The chapter's explanation helped broaden my understanding of indexes beyond data
 
 ### Queues
 
-(Asynchronous processing)
+Unlike proxies and load balancers which augment an existing architecture and _scale reads_, queues have a more dramatic impact on the architecture and _scale writes_. Queues have this impact by forcing the introduction of **asynchronous processing**.
 
-(When synchronous systems perform poorly)
+While a synchronous system tightly couples a request to its immediate response, an asynchronous system separates the two. This is achieved by having clients provide a work request to the queue which is not immediately processed while the clients waits. "While the client is waiting for an asynchronous request to be completed it is free to perform other work, even making asynchronous requests of other services."
 
-(Lessons from FSCS, ability to smooth over backend problems and offer protection from service outages and failures -> improved availability, less stress to ensure every request succeeds)
+In a synchronous system where clients are actively waiting for responses, service outages and intermittent failures are exposed directly to clients. High availability is difficult to provide, especially when the underlying database(s) are under high load and requests time out. Due to the asynchronous nature of queues, they can provide protection from failed requests as they can easily retry requests. This takes away the stress of ensuring that every single request succeeds at the cost of great engineering effort.
+
+This added protection from a lack of availability in a downstream service makes a strong argument for the introduction of more queues into an architecture. The client of a queue can often be unaware that a downstream service was temporarily unavailable.
 
 [^1]: http://www.aosabook.org/en/index.html
 [^2]: http://www.aosabook.org/en/distsys.html
