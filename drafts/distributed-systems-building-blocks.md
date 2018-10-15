@@ -330,34 +330,49 @@ Using this technique works best when the consumer provides a `LastUpdated` value
 
 When most developers hear the word "indexes", they immediately follow an index jump to database indexes. At least this is the case for me. While I find databases indexes to be an interesting topic (to the point that I wrote a [blog post which describes how database indexes work at a low level](https://backendology.com/2018/07/23/database-indexes/)), this chapter's explanation helped broaden my understanding of indexes beyond databases.
 
-> Using an index to access your data quickly is a well-known strategy for optimizing data access performance; probably the most well known when it comes to databases. An index makes the trade-offs of increased storage overhead and slower writes (since you must both write the data and update the index) for the benefit of faster reads. ... Just as to a traditional relational data store, you can also apply this concept to larger data sets.
+> Using an index to access your data quickly is a well-known strategy for optimizing data access performance; probably the most well known when it comes to databases. An index makes the trade-offs of increased storage overhead and slower writes (since you must both write the data and update the index) for the benefit of faster reads. ... Just as to a traditional relational data store, you can also apply this concept to larger data sets.[^2]
 
 (Multiple layers of indexes)
 
 ### Load balancers
 
-Load balancers come in many different flavors, but they all serve the purpose of distributing load evenly across a set of downstream nodes.
+> Load balancers are a principal part of any architecture, as their role is to distribute load across a set of nodes responsible for servicing requests. This allows multiple nodes to transparently service the same function in a system.[^2]
 
-(Definition)
+Like caches, load balancers are placed in many strategic places throughout an architecture. They are also implemented in a variety of ways. There are several comparisons to be aware of in this space:
 
-(North-south, east-west explanation)
+#### Software and hardware
 
-(server-side vs. client-side load balancing)
+Load balancers can be implemented either in software or hardware. A common commercial hardware offering is [F5](https://www.f5.com/) while [HAProxy](http://www.haproxy.org/) is best known on the software side.
 
-(Software vs. hardware load balancing)
+#### Layer 4 and Layer 7
+
+> Load balancers are generally grouped into two categories: Layer 4 and Layer 7. Layer 4 load balancers act upon data found in network and transport layer protocols (IP, TCP, FTP, UDP). Layer 7 load balancers distribute requests based upon data found in application layer protocols such as HTTP.[^3]
+
+#### North-south and east-west
+
+**North-south traffic** is client to server traffic that originates outside of the datacenter (e.g. edge firewalls, routers). **East-west traffic** is server to server traffic originates is internal traffic within a datacenter (e.g. LAN connection between microservices in a Microservices Architecture.
+
+Many businesses stand up a hardware load balancer at the edge of their datacenters and then use software load balancing for communication within each datacenter. These additional layers of software load balancing avoid the need to return back to the edge of the network to distribute load to a downstream service.
+
+#### Client-side, server-side, and service mesh
+
+Traditional load balancing strategies encourage either the client or the server to take responsibility for load balancing. The client might ensure that it properly sends traffic to a server in a distributed manner. A server, on the other hand, could protect itself with a reverse proxy layer that offers load balancing.
+
+When both clients and servers are part of the same service mesh, clients and servers do not directly involve themselves in load balancing. Instead, calls from the client to the server are transparently load balanced at the cost of some additional latency for the service mesh to distributed the load. Service meshes like [Istio](https://istio.io/) are gaining traction as they can provide load balancing, automatic retries, and other helpful features without direct participation from the involved services.
 
 ### Queues
 
-Unlike proxies and load balancers which augment an existing architecture and _scale reads_, queues have a more dramatic impact on the architecture and _scale writes_. Queues have this impact by forcing the introduction of **asynchronous processing**.
+Unlike proxies and load balancers which augment an existing architecture and _scale reads_, queues have a more dramatic impact on the data flow of the architecture and _scale writes_. Queues have this impact by forcing the introduction of **asynchronous processing**.
 
 While a synchronous system tightly couples a request to its immediate response, an asynchronous system separates the two. This is achieved by having clients provide a work request to the queue which is not immediately processed while the clients waits. "While the client is waiting for an asynchronous request to be completed it is free to perform other work, even making asynchronous requests of other services."
 
-In a synchronous system where clients are actively waiting for responses, service outages and intermittent failures are exposed directly to clients. High availability is difficult to provide, especially when the underlying database(s) are under high load and requests time out. Due to the asynchronous nature of queues, they can provide protection from failed requests as they can easily retry requests. This takes away the stress of ensuring that every single request succeeds at the cost of great engineering effort.
+In a synchronous system where clients are actively waiting for responses, service outages and intermittent failures are exposed directly to clients. High availability is difficult to provide, especially when the underlying database(s) are under high load and requests time out. Due to the asynchronous nature of queues, they can provide protection from failed requests as they can easily retry requests. This takes away the stress of ensuring that every single request succeeds at the cost of great engineering effort. Retry logic is also much easier to implement in asynchronous processing, avoiding the need for "complicated and often inconsistent client-side error handling."
 
-This added protection from a lack of availability in a downstream service makes a strong argument for the introduction of more queues into an architecture. The client of a queue can often be unaware that a downstream service was temporarily unavailable.
+This added protection from a lack of availability in a downstream service and improved retry logic makes a strong argument for the introduction of more queues into an architecture. The client of a queue can often be unaware that a downstream service was temporarily unavailable.
 
 [^1]: http://www.aosabook.org/en/index.html
 [^2]: http://www.aosabook.org/en/distsys.html
+[^3]: https://www.f5.com/services/resources/glossary/load-balancer
 
 ---
 
@@ -592,3 +607,4 @@ Queues provide a separation between the request and response, rather than tightl
 Protection from service outages and failures, providing a much improved client experience--they're not directly exposed to a struggling synchronous system.
 
 > Queues also provide some protection from service outages and failures. For instance, it is quite easy to create a highly robust queue that can retry service requests that have failed due to transient server failures. It is more preferable to use a queue to enforce quality-of-service guarantees than to expose clients directly to intermittent service outages, requiring complicated and often-inconsistent client-side error handling.
+
