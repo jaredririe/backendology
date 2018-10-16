@@ -4,7 +4,7 @@ This blog post is based a chapter from [_The Architecture of Open Source Applica
 
 ## _The Architecture of Open Source Applications_
 
-[The Architecture of Open Source Applications cover][]
+![The Architecture of Open Source Applications cover](../static/public/images/building-blocks-architecture-open-source.png)
 
 Before getting into the details of the chapter, the book itself deserves some introduction. Its opening pages make the compelling point that architects in the traditional sense are exposed to and study thousands of real buildings, but software architects rarely make a similar investment, leading to repeated mistakes:
 
@@ -14,9 +14,7 @@ Each chapter is written by experienced software developers who impart knowledge 
 
 ## Building blocks
 
-[Building blocks][]
-
-After explaining the general principles, the author asserts that the most challenging aspect of building web distributed systems is scaling access to the data. While application servers are inherently stateless and embody a shared-nothing architecture, "the heavy lifting is pushed down the stack to the database server and supporting services." The data access layer is "where the real scaling and performance challenges come into play."[^2]
+After explaining the general principles, the author asserts that the most challenging aspect of building web distributed systems is scaling access to the data. While application servers are inherently stateless and embody a [shared-nothing architecture](https://en.wikipedia.org/wiki/Shared-nothing_architecture), "the heavy lifting is pushed down the stack to the database server and supporting services." The data access layer is "where the real scaling and performance challenges come into play."[^2]
 
 Caches, proxies, indexes, load balancers, and queues are the building blocks of a scalable data access layer. Rather than covering the entire chapter, I will focus the remainder of this post on these building blocks.
 
@@ -34,14 +32,15 @@ The chapter's coverage of caching augments my previous post with a fascinating d
 
 #### Cache placement
 
-[Cache placement strategies][]
-
 * _Request Node_: collocate the cache with the node that requests the data
     - Pros
         + Each time a request is made, the node can quickly return cached data if it exists, avoiding any network hops
         + Often in-memory and very fast
     - Cons
         + When you have multiple request nodes that are load balanced, you may have to cache the same item on all the nodes
+
+![Request Node Cache](../static/public/images/building-blocks-request-cache.png)[^3]
+
 * _Global Cache_: central cache used by all request nodes
     - Pros
         + A given item will only be cached only once
@@ -51,6 +50,9 @@ The chapter's coverage of caching augments my previous post with a fascinating d
     - Types
         + Reverse proxy cache: cache is responsible for retrieval on cache miss (more common, handles its own eviction)
         + Cache as a service: request nodes are responsible for retrieval on cache miss (typically used when the request nodes understand the eviction strategy or hot spots better than the cache)
+
+![Reverse Proxy Cache](../static/public/images/building-blocks-reverse-proxy-cache.png)[^4]
+
 * _Distributed Cache_: each of the nodes that make up the cache own part of the cached data; divided using a [consistent hashing function](https://en.wikipedia.org/wiki/Consistent_hashing)
     - Pros
         + Cache space and load capacity can be increased by scaling out (increasing the number of nodes)
@@ -120,7 +122,7 @@ func newRequestBatcher(handler http.HandlerFunc) *requestBatcher {
 }
 ```
 
-The constructor for the `requestBatcher` will initialize all the variables and kick off a goroutine that calls Flush every five seconds. For a real production proxy, five seconds is likely far too long. It will give us enough time to see that our batching logic is working, however.
+The constructor for the `requestBatcher` will initialize all the variables and kick off a goroutine that calls `Flush` every five seconds. For a real production proxy, five seconds is likely far too long. It will give us enough time to see that our batching logic is working, however.
 
 ```go
 func (rc *requestBatcher) Append(key string, request *request) {
@@ -328,11 +330,19 @@ Using this technique works best when the consumer provides a `LastUpdated` value
 
 ### Indexes
 
-When most developers hear the word "indexes", they immediately follow an index jump to database indexes. At least this is the case for me. While I find databases indexes to be an interesting topic (to the point that I wrote a [blog post which describes how database indexes work at a low level](https://backendology.com/2018/07/23/database-indexes/)), this chapter's explanation helped broaden my understanding of indexes beyond databases.
+When most developers hear the word "indexes", they immediately jump to database indexes. At least this is the case for me. While I find databases indexes to be an interesting topic (to the point that I wrote a [blog post which describes how database indexes work at a low level](https://backendology.com/2018/07/23/database-indexes/)), this chapter's explanation helped broaden my understanding of indexes beyond databases.
 
 > Using an index to access your data quickly is a well-known strategy for optimizing data access performance; probably the most well known when it comes to databases. An index makes the trade-offs of increased storage overhead and slower writes (since you must both write the data and update the index) for the benefit of faster reads. ... Just as to a traditional relational data store, you can also apply this concept to larger data sets.[^2]
 
-(Multiple layers of indexes)
+#### Multiple layers of indexes
+
+![Multiple Layers of Indexes](../static/public/images/building-blocks-multiple-layers-indexes.png)[^5]
+
+The chapter points out that often
+
+#### Views
+
+> Indexes can also be used to create several different views of the same data. For large data sets, this is a great way to define different filters and sorts without resorting to creating many additional copies of the data.
 
 ### Load balancers
 
@@ -346,11 +356,11 @@ Load balancers can be implemented either in software or hardware. A common comme
 
 #### Layer 4 and Layer 7
 
-> Load balancers are generally grouped into two categories: Layer 4 and Layer 7. Layer 4 load balancers act upon data found in network and transport layer protocols (IP, TCP, FTP, UDP). Layer 7 load balancers distribute requests based upon data found in application layer protocols such as HTTP.[^3]
+> Load balancers are generally grouped into two categories: Layer 4 and Layer 7. Layer 4 load balancers act upon data found in network and transport layer protocols (IP, TCP, FTP, UDP). Layer 7 load balancers distribute requests based upon data found in application layer protocols such as HTTP.[^6]
 
 #### North-south and east-west
 
-**North-south traffic** is client to server traffic that originates outside of the datacenter (e.g. edge firewalls, routers). **East-west traffic** is server to server traffic originates is internal traffic within a datacenter (e.g. LAN connection between microservices in a Microservices Architecture.
+**North-south traffic** is client to server traffic that originates outside of the datacenter (e.g. edge firewalls, routers). **East-west traffic** is server to server traffi that originates is internal traffic within a datacenter (e.g. LAN connection between microservices in a Microservices Architecture.
 
 Many businesses stand up a hardware load balancer at the edge of their datacenters and then use software load balancing for communication within each datacenter. These additional layers of software load balancing avoid the need to return back to the edge of the network to distribute load to a downstream service.
 
@@ -366,13 +376,16 @@ Unlike proxies and load balancers which augment an existing architecture and _sc
 
 While a synchronous system tightly couples a request to its immediate response, an asynchronous system separates the two. This is achieved by having clients provide a work request to the queue which is not immediately processed while the clients waits. "While the client is waiting for an asynchronous request to be completed it is free to perform other work, even making asynchronous requests of other services."
 
-In a synchronous system where clients are actively waiting for responses, service outages and intermittent failures are exposed directly to clients. High availability is difficult to provide, especially when the underlying database(s) are under high load and requests time out. Due to the asynchronous nature of queues, they can provide protection from failed requests as they can easily retry requests. This takes away the stress of ensuring that every single request succeeds at the cost of great engineering effort. Retry logic is also much easier to implement in asynchronous processing, avoiding the need for "complicated and often inconsistent client-side error handling."
+In a synchronous system where clients are actively waiting for responses, service outages and intermittent failures are exposed directly to clients. High availability is difficult to provide, especially when the underlying database(s) are under high load and requests time out. Due to the asynchronous nature of queues, they can provide protection from failed requests. This takes away the stress of ensuring that every single request succeeds at the cost of great engineering effort. Retry logic is also much easier to implement in asynchronous processing, avoiding the need for "complicated and often inconsistent client-side error handling."
 
 This added protection from a lack of availability in a downstream service and improved retry logic makes a strong argument for the introduction of more queues into an architecture. The client of a queue can often be unaware that a downstream service was temporarily unavailable.
 
 [^1]: http://www.aosabook.org/en/index.html
 [^2]: http://www.aosabook.org/en/distsys.html
-[^3]: https://www.f5.com/services/resources/glossary/load-balancer
+[^3]: http://www.aosabook.org/en/distsys.html#fig.distsys.9
+[^4]: http://www.aosabook.org/en/distsys.html#fig.distsys.10
+[^5]: http://www.aosabook.org/en/distsys.html#fig.distsys.17
+[^6]: https://www.f5.com/services/resources/glossary/load-balancer
 
 ---
 
@@ -607,4 +620,5 @@ Queues provide a separation between the request and response, rather than tightl
 Protection from service outages and failures, providing a much improved client experience--they're not directly exposed to a struggling synchronous system.
 
 > Queues also provide some protection from service outages and failures. For instance, it is quite easy to create a highly robust queue that can retry service requests that have failed due to transient server failures. It is more preferable to use a queue to enforce quality-of-service guarantees than to expose clients directly to intermittent service outages, requiring complicated and often-inconsistent client-side error handling.
+
 

@@ -91,6 +91,13 @@ var blogPosts = []Post{
 		Category:      category.DistributedSystems,
 		Tags:          []tagType{tag.ResearchPapers, tag.Architecture, tag.Microservices, tag.NoSQL, tag.Databases},
 	},
+	{
+		Filename:      "../finished/distributed-systems-building-blocks.md",
+		FeaturedImage: "/public/images/building-blocks-architecture-open-source.png",
+		Date:          date("October 8, 2018"),
+		Category:      category.Architecture,
+		Tags:          []tagType{tag.Architecture, tag.Caching, tag.Microservices, tag.Golang},
+	},
 }
 
 type (
