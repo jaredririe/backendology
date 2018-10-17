@@ -18,6 +18,14 @@ After explaining the general principles, the author asserts that the most challe
 
 Caches, proxies, indexes, load balancers, and queues are the building blocks of a scalable data access layer. Rather than covering the entire chapter, I will focus the remainder of this post on these building blocks.
 
+* [Caches](#caches)
+* [Proxies](#proxies)
+* [Indexes](#indexes)
+* [Load Balancers](#load-balancers)
+* [Queues](#queues)
+
+---
+
 ### Caches
 
 Caches are ubiquitous in computing. Their ability to scale read access in a system is clear. They "take advantage of the locality of reference principle: recently requested data is likely to be requested again."[^2]
@@ -59,6 +67,8 @@ The chapter's coverage of caching augments my previous post with a fascinating d
     - Cons
         + Node failure must be handled or intentionally ignored
 
+---
+
 ### Proxies
 
 > At a basic level, a proxy server is an intermediate piece of hardware/software that receives requests from clients and relays them to the backend origin servers. Typically, proxies are used to filter requests, log requests, or sometimes transform requests (by adding/removing headers, encrypting/decrypting, or compression).[^2]
@@ -69,9 +79,9 @@ Proxies are a deceptively simple building block in an architecture: their very n
 
 Collapsed forwarding is an example of a technique that proxies can employ to decrease load on a downstream server. In this technique, similar requests are _collapsed_ into a single request that is made to the downstream server; the result of this request is then written to all similar requests, thus reducing the number of requests made.
 
-A simple example of collapsed forwarding is **deduplication**. If a resource X is 100 times, the proxy can make a single request to retrieve X from the downstream server and then write the same response body to the 99 other requests for X.
+A simple example of collapsed forwarding is **deduplication**. If a resource X is requested 100 times, the proxy can make a single request to retrieve X from the downstream server and then write the same response body to the other 99 requests for X.
 
-This is particularly helpful for the downstream server when the resource X is large in size. Let's assume a 5 MB payload that must be read into memory (rather than streamed). Without deduplication, the hundred requests would require the server to wastefully read 5 * 100 = 500 MB into memory. The deduplication step in the proxy can smooth over spikes and reduce the memory usage dramatically.
+This is particularly helpful for the downstream server when resource X is large in size. Let's assume a 5 MB payload that must be read into memory (rather than streamed). Without deduplication, the hundred requests would require the server to wastefully read 5 * 99 = 495 MB into memory. The deduplication step in the proxy can smooth over spikes and reduce the memory usage dramatically.
 
 Let's implement a simple proxy and server in Go with collapsed forwarding!
 
@@ -295,7 +305,7 @@ The application logs each request, finds two sets of batched requests, and makes
 
 #### Reverse proxy cache
 
-A reverse proxy cache is as the name implies the combination of a proxy and cache. Requests are made to a proxy in front of an **origin server** which performs best-effort caching. It always reserves the right to fall back on the origin for a definitive response, which is a convenient property that makes failure scenarios relatively straightforward.
+A reverse proxy cache, as the name implies, is the combination of a proxy and cache. Requests are made to a proxy in front of an **origin server** which performs best-effort caching. It always reserves the right to fall back on the origin for a definitive response, which is a convenient property that makes failure scenarios relatively straightforward.
 
 A less straightforward problem is handling cache eviction. Let's consider a few options:
 
@@ -326,21 +336,27 @@ Assuming the table like the following, if we make a query for all data stored un
 | C   | 1537899135166 | [1, 10, 1]    |
 | D   | 1538116563215 | [10, 9, 8, 7] |
 
-Using this technique works best when the consumer provides a `LastUpdated` value as part of their request. Preferably they retrieved this value once and will use it across multiple queries (to populated a dashboard, for example). If `LastUpdated` is not passed in on the request, the proxy can quickly retrieve it in the consumer's behalf and use it to check the cache. Usually it's much easier to get the `LastUpdated` value than compute a (potentially complex) query, so the caching layer still provides a lot of value.
+Using this technique works best when the consumer provides a `LastUpdated` value as part of their request. Preferably they retrieved this value once and use it across multiple queries (to populate a dashboard, for example). If `LastUpdated` is not passed in on the request, the proxy can quickly retrieve it in the consumer's behalf and use it to check the cache. Usually it's much easier to get the `LastUpdated` value than compute a (potentially complex) query, so the caching layer still provides a lot of value.
+
+---
 
 ### Indexes
 
-When most developers hear the word "indexes", they immediately jump to database indexes. At least this is the case for me. While I find databases indexes to be an interesting topic (to the point that I wrote a [blog post which describes how database indexes work at a low level](https://backendology.com/2018/07/23/database-indexes/)), this chapter's explanation helped broaden my understanding of indexes beyond databases.
-
 > Using an index to access your data quickly is a well-known strategy for optimizing data access performance; probably the most well known when it comes to databases. An index makes the trade-offs of increased storage overhead and slower writes (since you must both write the data and update the index) for the benefit of faster reads. ... Just as to a traditional relational data store, you can also apply this concept to larger data sets.[^2]
+
+When most developers hear the word "indexes", they immediately jump to database indexes. At least this is the case for me. While I find databases indexes to be an interesting topic (to the point that I wrote a [blog post which describes how database indexes work at a low level](https://backendology.com/2018/07/23/database-indexes/)), this chapter's explanation helped broaden my thinking around indexes beyond databases.
+
+Indexes are helpful in the data access layers above the database. Consider a system which is backed by multiple database clusters. Creating an index that maps keys to the database responsible for those keys would eliminate the need to query multiple databases.
 
 #### Multiple layers of indexes
 
+Once the correct cluster has been identified, another index layer may identify the node within the cluster, and so on. This leads to the point that often creating **multiple layers of indexes** is worth the increased write latency. This figure from the chapter illustrates how multiple indexes can guide reads to the correct data:
+
 ![Multiple Layers of Indexes](../static/public/images/building-blocks-multiple-layers-indexes.png)[^5]
 
-The chapter points out that often
-
 #### Views
+
+Indexes also allow the same underlying data to be organized differently without resorting to copying through the use of **views**:
 
 > Indexes can also be used to create several different views of the same data. For large data sets, this is a great way to define different filters and sorts without resorting to creating many additional copies of the data.
 
@@ -360,7 +376,7 @@ Load balancers can be implemented either in software or hardware. A common comme
 
 #### North-south and east-west
 
-**North-south traffic** is client to server traffic that originates outside of the datacenter (e.g. edge firewalls, routers). **East-west traffic** is server to server traffi that originates is internal traffic within a datacenter (e.g. LAN connection between microservices in a Microservices Architecture.
+**North-south traffic** is client to server traffic that originates outside of the datacenter (e.g. traffic routed through edge firewalls and routers). **East-west traffic** is server to server traffic that originates internal to a datacenter (e.g. traffic over a LAN connection between microservices in a Microservices Architecture).
 
 Many businesses stand up a hardware load balancer at the edge of their datacenters and then use software load balancing for communication within each datacenter. These additional layers of software load balancing avoid the need to return back to the edge of the network to distribute load to a downstream service.
 
@@ -368,7 +384,9 @@ Many businesses stand up a hardware load balancer at the edge of their datacente
 
 Traditional load balancing strategies encourage either the client or the server to take responsibility for load balancing. The client might ensure that it properly sends traffic to a server in a distributed manner. A server, on the other hand, could protect itself with a reverse proxy layer that offers load balancing.
 
-When both clients and servers are part of the same service mesh, clients and servers do not directly involve themselves in load balancing. Instead, calls from the client to the server are transparently load balanced at the cost of some additional latency for the service mesh to distributed the load. Service meshes like [Istio](https://istio.io/) are gaining traction as they can provide load balancing, automatic retries, and other helpful features without direct participation from the involved services.
+When both clients and servers are part of the same service mesh, they need not directly involve themselves in load balancing. Instead, calls from the client to the server can be transparently load balanced at the cost of some additional latency for a service mesh to distributed the load. Service meshes like [Istio](https://istio.io/) are gaining traction as they can provide load balancing, automatic retries, and other helpful features without direct participation from the involved services.
+
+---
 
 ### Queues
 
@@ -620,5 +638,3 @@ Queues provide a separation between the request and response, rather than tightl
 Protection from service outages and failures, providing a much improved client experience--they're not directly exposed to a struggling synchronous system.
 
 > Queues also provide some protection from service outages and failures. For instance, it is quite easy to create a highly robust queue that can retry service requests that have failed due to transient server failures. It is more preferable to use a queue to enforce quality-of-service guarantees than to expose clients directly to intermittent service outages, requiring complicated and often-inconsistent client-side error handling.
-
-
