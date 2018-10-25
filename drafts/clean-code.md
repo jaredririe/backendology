@@ -150,5 +150,47 @@ Bad comments
 - Misleading
 - Mandated comments, like requiring one on every function and giving no new information
 - Document changes (that’s what Git is for)
+- Using a comment when a function or variable name works instead
+- Position markers: // Section /////
+- Attributions (quickly gets out of date, use source control instead)
+- Commented-out code
+- Describes far-away code 
+- Javadocs in non-public code
+
+## Chapter 5: Formatting
+
+When people look under the hood, you want them to be struck by the orderliness. You want them to think “professionals are at work” not “this code looks like it was written by a bevy of drunken sailors.” Formatting causes readers to conclude that the same in/attention to detail prevades other other aspect of the project. 
+
+Decide on formatting as a team and have an automatic tool enforce it. 
+
+Getting code working is not the first order of business. The functionality changes but the readability of your code will have a profound effect on all future changes. Style and discipline survive even when the code hardly resembles the original. 
+
+-> Example: Data Mapper, Marauder’s Map. Disciplined codebases encourage disciplined practices moving forward. 
+
+### Vertical Formatting
+
+Small files are easier to understand 
+
+Newspaper Metaphor: headline, synopsis of the whole story, details (dates, quotes, names, etc.)
+
+Name gives context of which module you’re in. Topmost parts provide high-level concepts and algorithms. Details increase as we move downward. Lowest-level functions at the end. 
+
+Vertical openness: Each group of lines represents a complete thought. Thoughts should be separated by blank lines.  
+
+Vertical density: lines of code tightly related should appear vertically close. 
+
+Vertical distance: keep related concepts in the same file and close within that file. We want to avoid forcing readers to hop around through the code. 
+
+- Variables should be declared as close to their usage as possible 
+- Instance variables should be declared at the top of the class (usually used by most methods) 
+- Dependent functions should be close and the caller should be above the callee
+
+### Horizontal Formatting
+
+Keep lines short. 
+
+Anything beyond 100-120 characters is careless. 
+
+
 
 
