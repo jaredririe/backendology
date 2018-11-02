@@ -61,13 +61,114 @@ The endpoint is where you define the web location of the skill service. There ar
 
 ## Writing the AWS Lambda Function (the skill service)
 
+### AWS Lambda
+
 ![AWS Lambda](../static/public/images/alexa-skill-aws-lambda.png)
 
 AWS Lambda is part of the [serverless computing movement](https://en.wikipedia.org/wiki/Serverless_computing) which abstracts things like server management and allocation away from developers of event handling code. Rather than standing up a long-running server and running an always-listening web application, you simply write some code (the "lambda function") which runs in response to an event. The code ends up running on some AWS server, just not a server that you pay for directly.
 
-(Lambda configuration, implementation in Go)
+Implementing a Lambda function in Go is straightforward. Write a main function that calls `lambda.Start(handler)` where `handler` is the name of a function that matches one of [several signatures](https://github.com/aws/aws-lambda-go/blob/master/lambda/entry.go#L27-L35).
 
-(Alexa request/response)
+```go
+func main() {
+    // ...
+    lambda.Start(handler)
+}
+```
+
+In my case, the handler accepts an Alexa request and returns an Alexa response.
+
+```go
+func handler(request alexa.Request) (alexa.Response, error) {...}
+```
+
+Once you've written your handler, you simply compile a Linux binary, zip it, and upload it to the Lambda Management Console. Set the Runtime to `Go 1.x` and Handler to the name of the binary in the zip file. I wrote a quick bash script to automate creating and zipping the binary:
+
+```bash
+set -x
+
+rm -rf alexa-apple-guide.zip
+GOOS=linux go build -o alexa-apple-guide -a -ldflags "-w -s -extldflags \"-static\"" -installsuffix cgo
+zip -r alexa-apple-guide.zip alexa-apple-guide
+```
+
+The article I mentioned earlier, ["Alexa Skills with Go"](https://medium.com/@amalec/alexa-skills-with-go-54db0c21e758), takes this further and even automates uploading the zip file to AWS.
+
+### Lambda handler
+
+My handler inspects the Alexa request type and responds accordingly. The request could either be launching the skill, providing some intent, or closing the session.
+
+```go
+func handler(request alexa.Request) (alexa.Response, error) {
+    var response alexa.Response
+
+    switch request.Body.Type {
+    case alexa.LaunchRequestType:
+        response = alexa.NewResponse(
+            "Apple Guide (Unofficial)",
+            "Welcome to the Unofficial Apple Guide. You can ask me whether it's a good time to buy a particular Apple product. For example, you could ask 'is now a good time to buy the iMac?'",
+            false,
+        )
+    case alexa.IntentRequestType:
+        response = dispatchIntents(request)
+    case alexa.SessionEndedRequestType:
+    }
+
+    return response, nil
+}
+```
+
+If it's an intent request, I need to inspect the body to know what the user is intending to do, such as ask for help (`alexa.HelpIntent`) or ask for a product recommendation (`"productRecommendation`).
+
+```go
+func dispatchIntents(request alexa.Request) alexa.Response {
+    var response alexa.Response
+
+    switch request.Body.Intent.Name {
+    case "productRecommendation":
+        response = handleRecommendation(request)
+    case alexa.HelpIntent:
+        response = handleHelp()
+    case alexa.CancelIntent, alexa.NoIntent, alexa.StopIntent:
+        response = handleStop()
+    case alexa.FallbackIntent:
+        response = handleFallback()
+    }
+
+    return response
+}
+```
+
+Providing product recommendations is the core of my Alexa skill. First, I extract the product name from the "product" intent slot. With that value, I can look up the status of that product by scraping [MacRumors Buyers Guide](https://buyersguide.macrumors.com/). Given the status, I can construct an Alexa response with my recommendation.
+
+```go
+func handleRecommendation(request alexa.Request) alexa.Response {
+    product := request.Body.Intent.Slots["product"].Value
+
+    // get status of product ...
+
+    switch status {
+    case scraper.Status.Updated:
+        return alexa.NewResponse(
+            "Just updated!",
+            fmt.Sprintf("Now is a great time to buy the %s! It was recently updated.", product),
+            true,
+        )
+
+    case scraper.Status.Neutral:
+       // ...
+    case scraper.Status.Caution:
+        // ...
+    case scraper.Status.Outdated:
+        // ...
+    case scraper.Status.Unknown:
+    }
+
+    return unknownProductResponse
+}
+```
+
+You can find the complete implementation in [this GitHub repo](https://github.com/jaredririe/alexa-apple-guide).
 
 ## Demonstration
 
