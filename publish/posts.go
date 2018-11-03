@@ -98,6 +98,13 @@ var blogPosts = []Post{
 		Category:      category.Architecture,
 		Tags:          []tagType{tag.Architecture, tag.Caching, tag.Microservices, tag.Golang},
 	},
+	{
+		Filename:      "../finished/alexa-skill-lambda-golang.md",
+		FeaturedImage: "/public/images/alexa-logo.png",
+		Date:          date("October 27, 2018"),
+		Category:      category.Golang,
+		Tags:          []tagType{tag.Golang, tag.Microservices},
+	},
 }
 
 type (

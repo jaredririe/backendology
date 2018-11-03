@@ -1,14 +1,34 @@
-# Implementing an Amazon Alexa Skill with an AWS Lambda Function in Go
+---
+title: Amazon Alexa Skill using a Go AWS Lambda Function
+featured_image: /public/images/alexa-logo.png
+author: Jared Ririe
+categories: Golang
+tags:
+- golang
+- microservices
+date: "2018-10-27"
+slug: alexa-skill-lambda-golang
+---
 
-Amazon is currently [running a promotion](https://build.amazonalexadev.com/echodot.html) in which developers who publish a new skill to the Alexa Skills Store receive the new Echo Dot. While I do not own any Amazon devices, I decided to participate to get something for free, learn more about developing voice-based applications, and write my first AWS Lambda function in Go.
+<img src="/public/images/alexa-logo.png" width="100%" alt="Alexa logo" />
 
-Before I dive into the implementation, I think Amazon deserves some praise for this promotion. It's a win-win that more companies should learn from. Getting to the point of publishing a skill in the Alexa Skills Store requires a developer to go through the entire process: set up an Amazon Developer Account, learn Alexa terminology like invocations and intents, set up an Amazon Web Services account, write an AWS Lambda function that understands how to parse Alexa's requests and generate valid responses, and submit the skill for review (with a customer-ready description and icon). While the expectation for the skills for the competition is not high, with a little incentive, Amazon will get an impressive number of novel skills submitted to their store, making their product better and more comprehensive. Amazon is also managing to get at least a few hours of work for the cost it takes them to make an Echo Dot (which is likely less than the $50 price tag). The developer gets an interesting side project, diverse development experience, and a consumer product that can run the code he or she writes. Very cool!
+Amazon is currently [running a promotion](https://www.digitaltrends.com/home/amazon-alexa-skill-promotion-for-free-dot/) in which developers who publish a new skill to the Alexa Skills Store receive the new Echo Dot. While I do not own any Amazon devices, I decided to participate to get an interesting product, learn more about developing voice-based applications, and write my first AWS Lambda function in Go.
 
-## Alexa skill: Apple Guide (Unofficial)
+Before I dive into the implementation, I think Amazon deserves some praise for this promotion. It's a win-win that more companies could learn from. Getting to the point of publishing a skill requires participants to go through the entire development process:
 
-The simple skill I wrote for the purpose of the promotion is called the **Apple Guide (Unofficial)**. It offers a convenient way to check whether it's a good time to buy a new Apple product. Through a real-time look at the [MacRumors Buyer's Guide](https://buyersguide.macrumors.com/), this skill allows Alexa to tell you which of four states an Apple product is in: {updated, neutral, caution, and outdated}. A product in the _caution_ state, for example, has not been updated for quite some time, so it may be wise to be patient and wait for a new update. The status _updated_, on the other hand, means that the Apple product was just updated and you're safe to go ahead with the purchase.
+* Set up an Amazon Developer and Amazon Web Services accounts
+* Learn Alexa terminology like invocations and intents
+* Configure the skill in the Alexa Developer Console
+* Write an AWS Lambda function that understands how to parse Alexa's requests and generate valid responses
+* Submit the skill for review (with a customer-ready description and icon)
 
-To create my skill, I followed two tutorials. The first, ["How To Build A Custom Amazon Alexa Skill, Step-By-Step: My Favorite Chess Player"](https://medium.com/crowdbotics/how-to-build-a-custom-amazon-alexa-skill-step-by-step-my-favorite-chess-player-dcc0edae53fb), shows you how how to create a skill from beginning to end. I highly recommend following this kind of tutorial to get a skill working as it's crucial to have a high-level overview to know what you're signing yourself up to create, what configuration is possible, etc.
+With a little incentive, Amazon surely received an impressive number of novel skills submitted to their store because of this promotion, making their product better and more comprehensive. Amazon is also managing to get at least a few hours of work for the cost it takes them to make an Echo Dot. Meanwhile, developers get an interesting side project, diverse development experience, and a consumer product that can run the skills they write. Very cool!
+
+## Alexa skill: Apple Guide
+
+The simple skill I wrote for the purpose of the promotion is called **Apple Guide (Unofficial)**. It offers a convenient way to check whether it's a good time to buy a new Apple product. Through a real-time look at the [MacRumors Buyer's Guide](https://buyersguide.macrumors.com/), this skill allows Alexa to tell you which of four states an Apple product is in: {updated, neutral, caution, and outdated}. A product in the _caution_ state, for example, has not been updated for quite some time, so it may be wise to be patient and wait for a new update. The status _updated_, on the other hand, means that the Apple product was just updated and you're safe to go ahead with the purchase.
+
+To create my skill, I followed two tutorials. The first, ["How To Build A Custom Amazon Alexa Skill, Step-By-Step: My Favorite Chess Player"](https://medium.com/crowdbotics/how-to-build-a-custom-amazon-alexa-skill-step-by-step-my-favorite-chess-player-dcc0edae53fb), shows you how how to create a skill from beginning to end. I highly recommend following this kind of tutorial to get a skill working as it's crucial to have a high-level overview to know what all the steps you'll need to take, what configuration is possible, etc.
 
 The first tutorial gives a great high-level overview, but the AWS Lambda function is written in Python and is not explained in much detail. As I wanted to write my Lambda function in Go, I supplemented with this second tutorial, ["Alexa Skills with Go"](https://medium.com/@amalec/alexa-skills-with-go-54db0c21e758) which covers the following topics:
 
@@ -19,7 +39,7 @@ The first tutorial gives a great high-level overview, but the AWS Lambda functio
 
 ## Configuring the Alexa skill interface
 
-An Alexa skill is not entirely written in code. Configuration, tests, and distribution are done in the [Alexa Developer Console](https://developer.amazon.com/alexa/console/ask). The console is where you create the **skill interface**, the code is where you create the **skill service**:
+An Alexa skill is not entirely written in code. Configuration, tests, and distribution are done in the [Alexa Developer Console](https://developer.amazon.com/alexa/console/ask). The console is where you create the **skill interface** whereas the code is where you create the **skill service**:
 
 > The Alexa skill consists of two main components: the skill interface and the skill service.
 >
@@ -39,7 +59,7 @@ I'm not particularly fond of having "unofficial" in the title and invocation nam
 
 ### Intents
 
-![Alexa skill intents](../static/public/images/alexa-skill-intents.png)
+<img src="/public/images/alexa-skill-intents.png" width="100%" alt="Alexa skill intents" />
 
 Intents capture what the user _intends_ to do, such as ask for help, interact with the skill, or exit the skill. Amazon takes care of the defaults (help, cancel, etc.) but requires configuration for the unique aspects of your skill.
 
@@ -57,15 +77,15 @@ product := request.Body.Intent.Slots["product"].Value
 
 ### Endpoint
 
-The endpoint is where you define the web location of the skill service. There are two options: an AWS Lambda function or an HTTPS service.
+The endpoint is where you define the web location of the skill service. There are two options: an AWS Lambda function or an HTTPS service. I chose to write a Lambda function.
 
 ## Writing the AWS Lambda Function (the skill service)
 
 ### AWS Lambda
 
-![AWS Lambda](../static/public/images/alexa-skill-aws-lambda.png)
+<img src="/public/images/alexa-skill-aws-lambda.png" width="100%" alt="AWS Lambda" />
 
-AWS Lambda is part of the [serverless computing movement](https://en.wikipedia.org/wiki/Serverless_computing) which abstracts things like server management and allocation away from developers of event handling code. Rather than standing up a long-running server and running an always-listening web application, you simply write some code (the "lambda function") which runs in response to an event. The code ends up running on some AWS server, just not a server that you pay for directly.
+AWS Lambda is part of the [serverless computing movement](https://en.wikipedia.org/wiki/Serverless_computing) which abstracts things like server management and allocation away from developers of event handling code. Rather than standing up a server and running an always-listening web application, you simply write some code (the "lambda function") which runs in response to an event. The code ends up running on some AWS server, just not a server that you manage directly.
 
 Implementing a Lambda function in Go is straightforward. Write a main function that calls `lambda.Start(handler)` where `handler` is the name of a function that matches one of [several signatures](https://github.com/aws/aws-lambda-go/blob/master/lambda/entry.go#L27-L35).
 
@@ -92,7 +112,7 @@ GOOS=linux go build -o alexa-apple-guide -a -ldflags "-w -s -extldflags \"-stati
 zip -r alexa-apple-guide.zip alexa-apple-guide
 ```
 
-The article I mentioned earlier, ["Alexa Skills with Go"](https://medium.com/@amalec/alexa-skills-with-go-54db0c21e758), takes this further and even automates uploading the zip file to AWS.
+The article I mentioned earlier, ["Alexa Skills with Go"](https://medium.com/@amalec/alexa-skills-with-go-54db0c21e758), takes this further by automating the step to upload the zip file to AWS.
 
 ### Lambda handler
 
@@ -172,24 +192,22 @@ You can find the complete implementation in [this GitHub repo](https://github.co
 
 ## Demonstration
 
-![Alexa Skill Demonstration](../static/public/images/alexa-skill-demonstration.png)
+<img src="/public/images/alexa-skill-demonstration.png" width="100%" alt="Alexa Skill demonstration" />
+
+Testing in the Alexa Developer Console is convenient. It simulates the experience of using a device with Alexa. Messages to Alexa can be spoken or typed. The following is a standard interaction where the user launches the skill, hears some instruction, and asks a question:
+
+<img src="/public/images/alexa-skill-launch.png" width="100%" alt="Standard Alexa interaction" />
+
+The user can also ask for help:
+
+<img src="/public/images/alexa-skill-help.png" width="100%" alt="Help Alexa interaction" />
+
+Once a user is more familiar with a skill, it's useful to combine launching a skill and asking a question:
+
+<img src="/public/images/alexa-skill-direct.png" width="100%" alt="Direct Alexa interaction" />
+
+The exact language used is not critical. Alexa distills what you say down to the invocation name and intent. For example, I can alter the above statement and still trigger the skill correctly:
+
+<img src="/public/images/alexa-skill-direct-2.png" width="100%" alt="Direct Alexa interaction 2" />
 
 [^1]: https://medium.com/crowdbotics/how-to-build-a-custom-amazon-alexa-skill-step-by-step-my-favorite-chess-player-dcc0edae53fb
-
----
-
-# Notes (supplementary to blog post)
-
-https://medium.com/crowdbotics/how-to-build-a-custom-amazon-alexa-skill-step-by-step-my-favorite-chess-player-dcc0edae53fb
-
-* Create a simple Amazon Alexa Skill step-by-step
-
-https://medium.com/@amalec/alexa-skills-with-go-54db0c21e758
-
-* Automate deployment of Go-based AWS Lambdas
-* Create and return Alexa Skill Responses
-* Handle a variety of Alexa Skill Request attributes (Locale and Attributes)
-
-https://docs.aws.amazon.com/lambda/latest/dg/go-programming-model-handler-types.html
-
-> A Lambda function written in Go is authored as a Go executable. In your Lambda function code, you need to include the github.com/aws/aws-lambda-go/lambda package, which implements the Lambda programming model for Go. In addition, you need to implement handler function code and a main() function.
