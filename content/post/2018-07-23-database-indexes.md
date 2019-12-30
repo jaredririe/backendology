@@ -16,7 +16,7 @@ In the introduction to this blog, I mentioned that I love breaking down abstract
 
 ## Abstraction
 
-*Database indexes provide the abstraction of performant queries with the cost of some overhead during writes and additional storage space. As most workflows are read-heavy, the overhead of indexes is almost always worthwhile.*
+_Database indexes provide the abstraction of performant queries with the cost of some overhead during writes and additional storage space. As most workflows are read-heavy, the overhead of indexes is almost always worthwhile._
 
 Indexes are incredibly powerful. The difference between a query that can utilize one or more indexes and a query without indexes can be breathtaking on datasets larger than a few hundred objects. In fact, the difference can be that the query with indexes finishes in milliseconds while the index-less query causes the database to fall over!
 
@@ -46,7 +46,7 @@ Given an ID, we'd like to find out the name and age. Here's a SQL query to disco
 SELECT name, age FROM people WHERE id = 9
 ```
 
-How does this query find the right answer? Well, without indexes, it merely scans the rows of the table until it happens upon ID 9. This ID was just a few entries from the start, so that doesn't sound too bad. Consider, however, that this table could be thousands, millions, or billions of rows long. What if ID 9 was the *last* row? We'd have to scan through a lot of rows! This process of scanning each row has a time complexity of O(N). Not great.
+How does this query find the right answer? Well, without indexes, it merely scans the rows of the table until it happens upon ID 9. This ID was just a few entries from the start, so that doesn't sound too bad. Consider, however, that this table could be thousands, millions, or billions of rows long. What if ID 9 was the _last_ row? We'd have to scan through a lot of rows! This process of scanning each row has a time complexity of O(N). Not great.
 
 It's also worth noting that if the `id` column was not unique, it would become necessary to scan all entries to find all the ones with the given ID. When N is large, scanning N items every time we need to respond to a query is going to take a long time. It's possible that a long-running query combined with lots of other concurrent queries could just cause a database to fail (it could run out of memory, go into swap, become unable to respond to healthchecks, and be removed from the cluster).
 
@@ -58,7 +58,7 @@ There are many [different types of database indexes](https://en.wikipedia.org/wi
 
 ### Binary Search Tree vs. B-Tree vs. B+ Tree
 
-Many software engineers are understandably confused about the differences between these three very similar sounding data structures: binary search tree, B-tree, and B+ tree. While they are all tree data structures, they are *not* synonymous. A B-tree is not a "binary" tree (no matter how convenient that would be)! In fact: "What, if anything, the B stands for has never been established."[^2]
+Many software engineers are understandably confused about the differences between these three very similar sounding data structures: binary search tree, B-tree, and B+ tree. While they are all tree data structures, they are _not_ synonymous. A B-tree is not a "binary" tree (no matter how convenient that would be)! In fact: "What, if anything, the B stands for has never been established."[^2]
 
 #### Binary Search Tree
 
@@ -117,7 +117,7 @@ B+ trees have these additional properties relative to a B-tree:
 - All keys (and pointers to table rows) are stored in the leaves
 - Copies of the keys are stored in the internal (non-leaf) nodes
 - Typically have a large number of children per node
-- Each node *may* store a pointer to the next node for faster sequential access
+- Each node _may_ store a pointer to the next node for faster sequential access
 
 Comparing the example B-tree and B+ tree reveals that the same data is stored in each, but the additional properties of the B+ tree force the keys down to the leaf nodes. The linked list this forms makes range queries more efficient.
 

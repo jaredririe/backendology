@@ -16,7 +16,7 @@ Let's take a look at some alternatives to Hugo which will help us learn more abo
 
 #### Wordpress
 
-Wordpress is a fully-featured and proven website creation platform. It has everything you need to write a blog, including plenty of free themes, plugins to share your new posts via social media providers (and automatically send an email version of your post to those who subscribe), and usable (but not great) markdown support. The websites it produces are *not* static sites which makes Wordpress a common target for malicious attacks.
+Wordpress is a fully-featured and proven website creation platform. It has everything you need to write a blog, including plenty of free themes, plugins to share your new posts via social media providers (and automatically send an email version of your post to those who subscribe), and usable (but not great) markdown support. The websites it produces are _not_ static sites which makes Wordpress a common target for malicious attacks.
 
 It's worth noting here that [wordpress.com](https://wordpress.com/) is different from [wordpress.org](https://wordpress.org/). This confused me at first! wordpress.com is a solution built on top of the open source software which is Wordpress (wordpress.org). wordpress.com offers things like free and paid hosting options and a simpler GUI for writing posts.
 

@@ -16,7 +16,7 @@ type Post struct {
 var blogPosts = []Post{
 	{
 		Filename:      "../finished/yet-another-software-blog.md",
-		FeaturedImage: "/public/images/DSC_0186.jpg",
+		FeaturedImage: "/public/images/profile-2019.png",
 		Date:          date("July 2, 2018"),
 		Category:      category.Personal,
 		Tags:          []tagType{tag.Qualtrics, tag.BYU},

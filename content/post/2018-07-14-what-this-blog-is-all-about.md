@@ -31,7 +31,7 @@ While this list does not aim to be exhaustive, it should give a good sense for t
 
 Many backend systems are an entanglement of services which together can be considered a distributed system. Rather than being monolithic in nature, these systems benefit from things like **independent deployability**, **focused development**, and **loose coupling** yet suffer from the complexities of **partial failure**, **lack of concurrency guarantees**, and **network boundaries**.
 
-This list of tradeoffs is clearly incomplete. Each complexity deserves its own blog post! Once network boundaries exist between components of a system, for example, problems such as discoverability must be dealt with. No longer can I make an easy function call; rather, I must build in some way for one service to find another service and then make a network call. This call could fail (should I retry?) or time out (how long should I wait?). Once I've figured out how to handle these failure scenarios, does *every* service I write need to duplicate this logic or can I abstract it away through a form of middleware?
+This list of tradeoffs is clearly incomplete. Each complexity deserves its own blog post! Once network boundaries exist between components of a system, for example, problems such as discoverability must be dealt with. No longer can I make an easy function call; rather, I must build in some way for one service to find another service and then make a network call. This call could fail (should I retry?) or time out (how long should I wait?). Once I've figured out how to handle these failure scenarios, does _every_ service I write need to duplicate this logic or can I abstract it away through a form of middleware?
 
 Fascinating!
 
@@ -47,13 +47,13 @@ I enjoy its strong focus on simplicity which translates to less ramp-up time for
 
 ### NoSQL and general database concepts
 
-NoSQL is a movement that started in response to a need for increased scalability in large cloud companies like Google and Amazon. In my mind, NoSQL is less of a rebuttal of relational databases (i.e. *No, SQL!*) and more of an alternative to SQL when it makes sense for the problem being solved (i.e. *Not Only SQL*).
+NoSQL is a movement that started in response to a need for increased scalability in large cloud companies like Google and Amazon. In my mind, NoSQL is less of a rebuttal of relational databases (i.e. _No, SQL!_) and more of an alternative to SQL when it makes sense for the problem being solved (i.e. _Not Only SQL_).
 
 I have worked with a large variety of NoSQL databases in my time at Qualtrics. Some have turned out extraordinarily well while others turned out quite the opposite! These experiences left me with this conclusion: **database choice is often more important than programming language choice**. In order to make an informed decision, you need to be well-educated in general database concepts such as consistency and data modeling.
 
 ### Software and non-software books
 
-I have become an avid reader of technical books, as well as popular non-fiction books like [*Grit*](https://www.amazon.com/gp/product/1501111108/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1501111108&linkCode=as2&tag=jaredririeblo-20&linkId=c173ddc20b9a9fcd700e582440ca8479), [*Mindset*](https://www.amazon.com/gp/product/0345472322/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0345472322&linkCode=as2&tag=jaredririeblo-20&linkId=28b35ebce32bc00c963a529c58070d49), and [*Work Rules!*](https://www.amazon.com/gp/product/1455554790/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1455554790&linkCode=as2&tag=jaredririeblo-20&linkId=fff6e98d9dd5016e1aa4be73e0368874) ever since I graduated from college. I read five books each quarter, so 20 books/year. And by read, I really mean read *or* listen; I'm an advocate of [Audible](https://www.amazon.com/gp/product/B00NB86OYE/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00NB86OYE&linkCode=as2&tag=jaredririeblo-20&linkId=627d0e41b121bbc9b5a33b365e23a2d7) and think it's a solid investment.
+I have become an avid reader of technical books, as well as popular non-fiction books like [*Grit*](https://www.amazon.com/gp/product/1501111108/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1501111108&linkCode=as2&tag=jaredririeblo-20&linkId=c173ddc20b9a9fcd700e582440ca8479), [*Mindset*](https://www.amazon.com/gp/product/0345472322/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0345472322&linkCode=as2&tag=jaredririeblo-20&linkId=28b35ebce32bc00c963a529c58070d49), and [*Work Rules!*](https://www.amazon.com/gp/product/1455554790/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1455554790&linkCode=as2&tag=jaredririeblo-20&linkId=fff6e98d9dd5016e1aa4be73e0368874) ever since I graduated from college. I read five books each quarter, so 20 books/year. And by read, I really mean read _or_ listen; I'm an advocate of [Audible](https://www.amazon.com/gp/product/B00NB86OYE/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00NB86OYE&linkCode=as2&tag=jaredririeblo-20&linkId=627d0e41b121bbc9b5a33b365e23a2d7) and think it's a solid investment.
 
 I’m planning on writing a post for each book I read with a summary of the content, further learning it inspired, and my overall recommendation. Here are some books on my reading list:
 
@@ -61,7 +61,6 @@ I’m planning on writing a post for each book I read with a summary of the cont
 * [*SQL Antipatterns*](https://www.amazon.com/gp/product/1934356557/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1934356557&linkCode=as2&tag=jaredririeblo-20&linkId=2bc3044e49259e2a806ec0d84738be0c)
 * [*Cracking the Coding Interview*](https://www.amazon.com/gp/product/0984782850/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0984782850&linkCode=as2&tag=jaredririeblo-20&linkId=06a672d4319440a648fcea507d939810)
 * [*Multipliers: How the Best Leaders Make Everyone Smarter*](https://www.amazon.com/gp/product/0062663070/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0062663070&linkCode=as2&tag=jaredririeblo-20&linkId=f07f15aaa881d773ccfdbe396f4c7560)
-* [*The Effective Executive*](https://www.amazon.com/gp/product/0060833459/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0060833459&linkCode=as2&tag=jaredririeblo-20&linkId=67180a0eee99a76f7aca0cf432e84625)
 
 ### Research papers
 
